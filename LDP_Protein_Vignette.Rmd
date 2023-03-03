@@ -1,0 +1,206 @@
+---
+title: "R Vignette"
+subtitle: "Protein analysis in the LDP"
+author: "Derek Michael Wright <derek.wright@usask.ca>"
+date: "01-03-2023"
+output:
+  rmdformats::readthedown:
+    code_folding: show
+    css: custom.css
+    gallery: yes
+    highlight: tango
+    lightbox: yes
+    self_contained: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = F, echo = T, message = F, warning = F, 
+                      comment = NA, out.width = "100%")
+```
+
+---
+
+# Introduction
+
+This vignette contains the `R` code and analysis done for the paper: 
+
+`r shiny::icon("newspaper")` [Derek Wright, Sandesh Neupane, Karsten Neilson, Tania Gioia & Kirstin E Bett (2020) **Disecting lentil crop growth across multi-environment trials using unoccupied aerial vehicles**](https://github.com/derekmichaelwright/AGILE_LDP_Drone_Growth) 
+
+which is follow-up to:
+
+`r shiny::icon("github")` https://github.com/derekmichaelwright/AGILE_LDP_GWAS_Phenology
+
+[Sandesh Neupane, Derek Wright, Raul Martinez, Jakob Butler, Jim Weller, Kirstin Bett (2022) **Focusing the GWAS *Lens* on days to flower using latent variable phenotypes derived from global multi-environment trials**. *The Plant Genome*. e20269.](https://doi.org/10.1002/tpg2.20269) 
+
+`r shiny::icon("newspaper")` [Derek M Wright, Sandesh Neupane, Taryn Heidecker, Teketel A Haile, Clarice J Coyne, Rebecca J McGee, Sripada Udupa, Fatima Henkrar, Eleonora Barilli, Diego Rubiales, Tania Gioia, Giuseppina Logozzo, Stefania Marzario, Reena Mehra, Ashutosh Sarker, Rajeev Dhakal, Babul Anwar, Debashish Sarker, Albert Vandenberg, and Kirstin E. Bett. (2020) **Understanding photothermal interactions can help expand production range and increase genetic diversity of lentil (*Lens culinaris* Medik.)**. *Plants, People, Planet*. 00:1-11.](https://doi.org/10.1002/ppp3.10158)
+
+`r shiny::icon("github")` https://github.com/derekmichaelwright/AGILE_LDP_Phenology
+
+---
+
+This work done as part of the AGILE  and P2IRC projects at the University of Saskatchewan.
+
+![](Additional/img_Agile.png)
+
+---
+
+# Load Libraries
+
+```{r}
+library(tidyverse)
+library(ggbeeswarm)
+library(ggpubr)
+library(plotly)       # ggplotly()
+library(htmlwidgets)  # saveWidget()
+library(FactoMineR)   # PCA()
+#library(ggrepel)      # geom_text_repel()
+theme_AGL <- theme_bw() + 
+  theme(strip.background   = element_rect(colour = "black", fill = NA, size = 0.5),
+        panel.background   = element_rect(colour = "black", fill = NA, size = 0.5),
+        panel.border       = element_rect(colour = "black", size = 0.5),
+        panel.grid         = element_line(color  = alpha("black", 0.1), size = 0.5),
+        panel.grid.minor.x = element_blank(), 
+        panel.grid.minor.y = element_blank())
+```
+
+```{r eval = T, echo = F}
+downloadthis::download_link(
+  link = "myG_LDP.zip",
+  button_label = "myG_LDP.zip",
+  button_type = "success",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = F
+)
+downloadthis::download_link(
+  link = "myY.csv",
+  button_label = "myY.csv",
+  button_type = "success",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = F
+)
+downloadthis::download_link(
+  link = "myLDP.csv",
+  button_label = "myLDP.csv",
+  button_type = "success",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = F
+)
+```
+
+---
+
+# Data Preparation
+
+```{r}
+# Prep data
+myPs <- c("Protein", "Histidine", "Serine", "Arginine", "Glycine", 
+          "Aspartic.acid", "Glutamic.acid", "Threonine", "Alanine",
+          "Proline", "Cysteine", "Lysine", "Tyrosine", "Methionine",
+          "Valine", "Isoleucine", "Leucine", "Phenylalanine", "Tryptophan")
+myEs1 <- c("Sutherland, Canada 2016", "Sutherland, Canada 2017",
+           "Rosthern, Canada 2016", "Rosthern, Canada 2017")
+myEs2 <- c("Su16", "Su17", "Ro16", "Ro17")
+myC_Expt <- c("steelblue", "darkblue", "darkorange", "darkred")
+rr <- read.csv("myY_Protein.csv") %>% 
+  select(-Sample.Name..1st..text.) %>%
+  rename(Year=Planting.Date..date.) %>%
+  gather(Protein, Value, 7:ncol(.)) %>%
+  mutate(Protein = gsub("..1st....", "", Protein),
+         Protein = factor(Protein, levels = myPs),
+         Expt = paste(Location, Year),
+         ExptShort = plyr::mapvalues(Expt, myEs1, myEs2))
+dd <- rr %>% 
+  group_by(Name, Entry, Location, Year, Expt, ExptShort, Protein) %>%
+  summarise(Mean = mean(Value),
+            Min = min(Value),
+            Max = max(Value)) %>%
+  ungroup()
+```
+
+---
+
+# Figure 01 - Protein
+
+```{r}
+# Prep data
+xx <- dd %>% filter(Protein != "Protein")
+# Plot
+ggplot(xx, aes(x = ExptShort, y = Mean, fill = ExptShort)) +
+  geom_boxplot() +
+  facet_wrap(. ~ Protein, scales = "free_y", ncol = 9) +
+  theme_AGL +
+  labs(y = NULL)
+```
+
+---
+
+# PCA
+
+```{r}
+# Prep data
+xx <- 
+```
+
+---
+
+# GWAS
+
+```{r}
+library(GAPIT3) # devtools::install_github("jiabowang/GAPIT3",force=TRUE)
+```
+
+## Prep data for GWAS
+
+```{r}
+## Prep data
+myY <- dd %>% 
+  select(-Entry, -Location, -Year, -Expt, -Min, -Max) %>%
+  mutate(Protein = paste(Protein, ExptShort, sep = "_")) %>%
+  select(-ExptShort) %>%
+  spread(Protein, Mean) %>%
+  mutate(Name = gsub(" ", "_", Name),
+         Name = gsub("-", "\\.", Name),
+         Name = plyr::mapvalues(Name, "3156.11_AGL", "X3156.11_AGL"))
+myG <- read.csv("myG_LDP.csv", header = F)
+```
+
+## Run GWAS
+
+```{r}
+setwd("GWAS_Results")
+myGAPIT <- GAPIT(
+  Y = myY,
+  G = myG,
+  PCA.total = 4,
+  model = "MLM",
+  Phenotype.View = F
+)
+myGAPIT <- GAPIT(
+  Y = myY,
+  G = myG,
+  PCA.total = 4,
+  model = "MLMM",
+  Phenotype.View = F
+)
+myGAPIT <- GAPIT(
+  Y = myY,
+  G = myG,
+  PCA.total = 4,
+  model = "FarmCPU",
+  Phenotype.View = F
+)
+myGAPIT <- GAPIT(
+  Y = myY,
+  G = myG,
+  PCA.total = 4,
+  model = "Blink",
+  Phenotype.View = F
+)
+```
+
+---
+
+&copy; Derek Michael Wright
