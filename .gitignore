@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+
+GWAS_Results/
+GWAS_Results_DTF/
+GWAS_Results_DTF_REP/
+GWAS_Results_PC1/
+GWAS_Results_TRT/
+GWAS_Results_TRT_Tb/
+
+myG_LDP.csv

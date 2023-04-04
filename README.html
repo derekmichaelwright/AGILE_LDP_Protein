@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+        <meta name="author" content="Derek Michael Wright derek.wright@usask.ca" />
+    
+    
+    <title>Protein analysis in the LDP</title>
+
+        <script src="README_files/header-attrs-2.20/header-attrs.js"></script>
+        <script src="README_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="README_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="README_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="README_files/navigation-1.1/tabsets.js"></script>
+        <link href="README_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+        <script src="README_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+        <link href="README_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
+        <link href="README_files/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
+        <script src="README_files/readthedown-0.1/readthedown.js"></script>
+    
+    
+    
+        <link rel="stylesheet" href="custom.css" type="text/css" />
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+   	
+         <!-- readthedown start -->   
+   <div id="content" data-toggle="wy-nav-shift">
+     <nav id="nav-top" role="navigation" aria-label="top navigation">
+       <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+     </nav>
+         
+   
+        
+      <h1 class="title">Protein analysis in the LDP</h1>
+         <h1 class="subtitle"><em>unpublished</em></h1>
+   
+         <!-- readthedown authors -->
+   <div id="sidebar">
+    <h2><a href="#content">Protein analysis in the LDP</a></h2>
+    <div id="toc">
+      <ul>
+      <li><a href="#contents" id="toc-contents">Contents</a></li>
+      <li><a href="#agile" id="toc-agile">AGILE</a>
+      <ul>
+      <li><a href="#collaborators"
+      id="toc-collaborators">Collaborators</a></li>
+      </ul></li>
+      <li><a href="#figures" id="toc-figures">Figures</a>
+      <ul>
+      <li><a href="#figure_1_01.png"
+      id="toc-figure_1_01.png">Figure_1_01.png</a></li>
+      <li><a href="#figure_1_02.png"
+      id="toc-figure_1_02.png">Figure_1_02.png</a></li>
+      <li><a href="#figure_2_01.png"
+      id="toc-figure_2_01.png">Figure_2_01.png</a></li>
+      <li><a href="#figure_2_02.png"
+      id="toc-figure_2_02.png">Figure_2_02.png</a></li>
+      <li><a href="#figure_2_03.png"
+      id="toc-figure_2_03.png">Figure_2_03.png</a></li>
+      <li><a href="#figure_2_04.png"
+      id="toc-figure_2_04.png">Figure_2_04.png</a></li>
+      <li><a href="#figure_2_05.png"
+      id="toc-figure_2_05.png">Figure_2_05.png</a></li>
+      <li><a href="#figure_2_06.png"
+      id="toc-figure_2_06.png">Figure_2_06.png</a></li>
+      <li><a href="#figure_3_01.png"
+      id="toc-figure_3_01.png">Figure_3_01.png</a></li>
+      <li><a href="#figure_3_02.png"
+      id="toc-figure_3_02.png">Figure_3_02.png</a></li>
+      <li><a href="#figure_3_03---dtf-canada"
+      id="toc-figure_3_03---dtf-canada">Figure_3_03 - DTF
+      Canada</a></li>
+      <li><a href="#figure_3_04---rep-canada"
+      id="toc-figure_3_04---rep-canada">Figure_3_04 - REP
+      Canada</a></li>
+      <li><a href="#figure_4_01_ro16.png"
+      id="toc-figure_4_01_ro16.png">Figure_4_01_Ro16.png</a></li>
+      <li><a href="#figure_4_01_ro17.png"
+      id="toc-figure_4_01_ro17.png">Figure_4_01_Ro17.png</a></li>
+      <li><a href="#figure_4_01_su16.png"
+      id="toc-figure_4_01_su16.png">Figure_4_01_Su16.png</a></li>
+      <li><a href="#figure_4_01_su17.png"
+      id="toc-figure_4_01_su17.png">Figure_4_01_Su17.png</a></li>
+      <li><a href="#figure_4_02.png"
+      id="toc-figure_4_02.png">Figure_4_02.png</a></li>
+      <li><a href="#figure_5_01.png"
+      id="toc-figure_5_01.png">Figure_5_01.png</a></li>
+      <li><a href="#figure_5_02.png"
+      id="toc-figure_5_02.png">Figure_5_02.png</a></li>
+      <li><a href="#figure_5_03.png"
+      id="toc-figure_5_03.png">Figure_5_03.png</a></li>
+      </ul></li>
+      <li><a href="#gwas-results" id="toc-gwas-results">GWAS Results</a>
+      <ul>
+      <li><a href="#supplemental_figure_02_1_nocv"
+      id="toc-supplemental_figure_02_1_nocv">Supplemental_Figure_02_1_noCV</a></li>
+      <li><a href="#supplemental_figure_02_2_cvdtf"
+      id="toc-supplemental_figure_02_2_cvdtf">Supplemental_Figure_02_2_CVDTF</a></li>
+      <li><a href="#supplemental_figure_02_3_cvdtfrep"
+      id="toc-supplemental_figure_02_3_cvdtfrep">Supplemental_Figure_02_3_CVDTFREP</a></li>
+      <li><a href="#supplemental_figure_02_4_cvtrt"
+      id="toc-supplemental_figure_02_4_cvtrt">Supplemental_Figure_02_4_CVTRT</a></li>
+      <li><a href="#supplemental_figure_02_5_cvtrttb"
+      id="toc-supplemental_figure_02_5_cvtrttb">Supplemental_Figure_02_5_CVTRTTb</a></li>
+      <li><a href="#supplemental_figure_02_6_cvpc1"
+      id="toc-supplemental_figure_02_6_cvpc1">Supplemental_Figure_02_6_CVPC1</a></li>
+      <li><a href="#supplemental_figure_03_1_nocv"
+      id="toc-supplemental_figure_03_1_nocv">Supplemental_Figure_03_1_noCV</a></li>
+      <li><a href="#supplemental_figure_03_2_cvdtf"
+      id="toc-supplemental_figure_03_2_cvdtf">Supplemental_Figure_03_2_CVDTF</a></li>
+      <li><a href="#supplemental_figure_03_3_cvdtfrep"
+      id="toc-supplemental_figure_03_3_cvdtfrep">Supplemental_Figure_03_3_CVDTFREP</a></li>
+      <li><a href="#supplemental_figure_03_4_cvtrt"
+      id="toc-supplemental_figure_03_4_cvtrt">Supplemental_Figure_03_4_CVTRT</a></li>
+      <li><a href="#supplemental_figure_03_5_cvtrttb"
+      id="toc-supplemental_figure_03_5_cvtrttb">Supplemental_Figure_03_5_CVTRTTb</a></li>
+      <li><a href="#supplemental_figure_03_6_cvpc1"
+      id="toc-supplemental_figure_03_6_cvpc1">Supplemental_Figure_03_6_CVPC1</a></li>
+      </ul></li>
+      </ul>
+    </div>
+    <div id="postamble" data-toggle="wy-nav-shift" class="status">
+                  <p class="author"><span class="glyphicon glyphicon-user"></span> Derek
+Michael Wright <a href="mailto:derek.wright@usask.ca"
+class="email">derek.wright@usask.ca</a></p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 01-03-2023</p>
+          </div>
+   </div>
+     
+
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div id="main">
+<div style="page-break-after: always;"></div>
+<hr />
+<p><a
+href="https://github.com/derekmichaelwright/AGILE_LDP_Protein">Derek
+Wright, Jiayi Hang, James D House &amp; Kirstin E Bett (2020)
+<strong>Lentil Protein</strong>. <em>unpublished</em></a></p>
+<p>which is follow-up to:</p>
+<p><a href="https://doi.org/10.1016/j.lwt.2022.113669">Jiayi Hang, Da
+Shi, Jason Neufeld, Kirstin E. Bett &amp; James D. House.
+<strong>Prediction of protein and amino acid contents in whole and
+ground lentils using near-infrared reflectance spectroscopy</strong>.
+<em>LWT</em>. (<strong>2022</strong>) 165: 113669.
+doi.org/10.1016/j.lwt.2022.113669</a></p>
+<p>&amp;</p>
+<p><a href="https://doi.org/10.1002/ppp3.10158">Derek M. Wright, Sandesh
+Neupane, Taryn Heidecker, Teketel A. Haile, Crystal Chan, Clarice J.
+Coyne, Rebecca J. McGee, Sripada Udupa, Fatima Henkrar, Eleonora
+Barilli, Diego Rubiales, Tania Gioia, Giuseppina Logozzo, Stefania
+Marzario, Reena Mehra, Ashutosh Sarker, Rajeev Dhakal, Babul Anwar,
+Debashish Sarker, Albert Vandenberg &amp; Kirstin E. Bett.
+<strong>Understanding photothermal interactions can help expand
+production range and increase genetic diversity of lentil (<em>Lens
+culinaris</em> Medik.)</strong>. <em>Plants, People, Planet</em>.
+(<strong>2020</strong>) 00:1-11. doi.org/10.1002/ppp3.10158</a></p>
+<hr />
+<p><a href="https://github.com/derekmichaelwright/AGILE_LDP_Protein"
+class="uri">https://github.com/derekmichaelwright/AGILE_LDP_Protein</a></p>
+<p><a
+href="https://github.com/derekmichaelwright/AGILE_LDP_Protein/raw/master/README.pdf">View
+as pdf</a></p>
+<p><a
+href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/README.html">View
+as HTML</a></p>
+<p><a
+href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/LDP_Protein_Vignette.html">Source
+Code Vignette (LDP_Protein_Vignette.html)</a></p>
+<div id="contents" class="section level1">
+<h1>Contents</h1>
+<ul>
+<li><a href="#figures">Figures</a></li>
+<li><a href="#gwas-results">GWAS Results</a></li>
+</ul>
+</div>
+<div id="agile" class="section level1">
+<h1>AGILE</h1>
+<p><img src="Additional/img_Agile.png" /></p>
+<div style="page-break-after: always;"></div>
+<div id="collaborators" class="section level2">
+<h2>Collaborators</h2>
+<ul>
+<li>Department of Plant Sciences and Crop Development Centre, University
+of Saskatchewan, Saskatoon, Saskatchewan, Canada</li>
+<li>Department of Food and Human Nutritional Sciences, Faculty of
+Agriculture and Food Science, University of Manitoba, Winnipeg, MB,
+Canada</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="figures" class="section level1">
+<h1>Figures</h1>
+<div id="figure_1_01.png" class="section level2">
+<h2>Figure_1_01.png</h2>
+<p><img src="Figure_1_01.png" /></p>
+<hr />
+</div>
+<div id="figure_1_02.png" class="section level2">
+<h2>Figure_1_02.png</h2>
+<p><img src="Figure_1_02.png" /></p>
+<hr />
+</div>
+<div id="figure_2_01.png" class="section level2">
+<h2>Figure_2_01.png</h2>
+<p><img src="Figure_2_01.png" /></p>
+<hr />
+</div>
+<div id="figure_2_02.png" class="section level2">
+<h2>Figure_2_02.png</h2>
+<p><img src="Figure_2_02.png" /></p>
+<hr />
+</div>
+<div id="figure_2_03.png" class="section level2">
+<h2>Figure_2_03.png</h2>
+<p><img src="Figure_2_03.png" /></p>
+<hr />
+</div>
+<div id="figure_2_04.png" class="section level2">
+<h2>Figure_2_04.png</h2>
+<p><img src="Figure_2_04.png" /></p>
+<hr />
+</div>
+<div id="figure_2_05.png" class="section level2">
+<h2>Figure_2_05.png</h2>
+<p><img src="Figure_2_05.png" /></p>
+<hr />
+</div>
+<div id="figure_2_06.png" class="section level2">
+<h2>Figure_2_06.png</h2>
+<p><img src="Figure_2_06.png" /></p>
+<hr />
+</div>
+<div id="figure_3_01.png" class="section level2">
+<h2>Figure_3_01.png</h2>
+<p><img src="Figure_3_01.png" /></p>
+<hr />
+</div>
+<div id="figure_3_02.png" class="section level2">
+<h2>Figure_3_02.png</h2>
+<p><img src="Figure_3_02.png" /></p>
+<hr />
+</div>
+<div id="figure_3_03---dtf-canada" class="section level2">
+<h2>Figure_3_03 - DTF Canada</h2>
+<p><img src="Figure_3_03.png" /></p>
+<hr />
+</div>
+<div id="figure_3_04---rep-canada" class="section level2">
+<h2>Figure_3_04 - REP Canada</h2>
+<p><img src="Figure_3_04.png" /></p>
+<hr />
+</div>
+<div id="figure_4_01_ro16.png" class="section level2">
+<h2>Figure_4_01_Ro16.png</h2>
+<p><img src="Figure_4_01_Ro16.png" /></p>
+<hr />
+</div>
+<div id="figure_4_01_ro17.png" class="section level2">
+<h2>Figure_4_01_Ro17.png</h2>
+<p><img src="Figure_4_01_Ro17.png" /></p>
+<hr />
+</div>
+<div id="figure_4_01_su16.png" class="section level2">
+<h2>Figure_4_01_Su16.png</h2>
+<p><img src="Figure_4_01_Su16.png" /></p>
+<hr />
+</div>
+<div id="figure_4_01_su17.png" class="section level2">
+<h2>Figure_4_01_Su17.png</h2>
+<p><img src="Figure_4_01_Su17.png" /></p>
+<hr />
+</div>
+<div id="figure_4_02.png" class="section level2">
+<h2>Figure_4_02.png</h2>
+<p><img src="Figure_4_02.png" /></p>
+<hr />
+</div>
+<div id="figure_5_01.png" class="section level2">
+<h2>Figure_5_01.png</h2>
+<p><img src="Figure_5_01.png" /></p>
+<hr />
+</div>
+<div id="figure_5_02.png" class="section level2">
+<h2>Figure_5_02.png</h2>
+<p><img src="Figure_5_02.png" /></p>
+<hr />
+</div>
+<div id="figure_5_03.png" class="section level2">
+<h2>Figure_5_03.png</h2>
+<p><img src="Figure_5_03.png" /></p>
+<hr />
+</div>
+</div>
+<div id="gwas-results" class="section level1">
+<h1>GWAS Results</h1>
+<hr />
+<div id="supplemental_figure_02_1_nocv" class="section level2">
+<h2>Supplemental_Figure_02_1_noCV</h2>
+<p><img src="Supplemental_Figure_02_1_noCV.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_02_2_cvdtf" class="section level2">
+<h2>Supplemental_Figure_02_2_CVDTF</h2>
+<p><img src="Supplemental_Figure_02_2_CVDTF.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_02_3_cvdtfrep" class="section level2">
+<h2>Supplemental_Figure_02_3_CVDTFREP</h2>
+<p><img src="Supplemental_Figure_02_3_CVDTFREP.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_02_4_cvtrt" class="section level2">
+<h2>Supplemental_Figure_02_4_CVTRT</h2>
+<p><img src="Supplemental_Figure_02_4_CVTRT.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_02_5_cvtrttb" class="section level2">
+<h2>Supplemental_Figure_02_5_CVTRTTb</h2>
+<p><img src="Supplemental_Figure_02_5_CVTRTTb.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_02_6_cvpc1" class="section level2">
+<h2>Supplemental_Figure_02_6_CVPC1</h2>
+<p><img src="Supplemental_Figure_02_6_CVPC1.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_03_1_nocv" class="section level2">
+<h2>Supplemental_Figure_03_1_noCV</h2>
+<p><img src="Supplemental_Figure_03_1_noCV.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_03_2_cvdtf" class="section level2">
+<h2>Supplemental_Figure_03_2_CVDTF</h2>
+<p><img src="Supplemental_Figure_03_2_CVDTF.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_03_3_cvdtfrep" class="section level2">
+<h2>Supplemental_Figure_03_3_CVDTFREP</h2>
+<p><img src="Supplemental_Figure_03_3_CVDTFREP.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_03_4_cvtrt" class="section level2">
+<h2>Supplemental_Figure_03_4_CVTRT</h2>
+<p><img src="Supplemental_Figure_03_4_CVTRT.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_03_5_cvtrttb" class="section level2">
+<h2>Supplemental_Figure_03_5_CVTRTTb</h2>
+<p><img src="Supplemental_Figure_03_5_CVTRTTb.png" /></p>
+<hr />
+</div>
+<div id="supplemental_figure_03_6_cvpc1" class="section level2">
+<h2>Supplemental_Figure_03_6_CVPC1</h2>
+<p><img src="Supplemental_Figure_03_6_CVPC1.png" /></p>
+<p><a
+href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Supplemental_Figure_04_1_noCV.html">Supplemental_Figure_04_1_noCV.html</a></p>
+<p><a
+href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Supplemental_Figure_04_2_CVDTF.html">Supplemental_Figure_04_2_CVDTF.html</a></p>
+<hr />
+<p>© Derek Michael Wright</p>
+</div>
+</div>
+</div>
+
+   
+   
+            
+      
+
+  <script>
+    $(document).ready(function () {
+
+			
+ 		
+		$('#content img:not(.no-lightbox)').addClass("image-lb");
+	$('#content').magnificPopup({
+	    type:'image',
+	    closeOnContentClick: false,
+	    closeBtnInside: false,
+	    delegate: '.image-lb',
+	    gallery: {enabled: true },
+	    image: {
+	        verticalFit: true,
+		titleSrc: 'alt'
+	    }
+ 	});
+ 	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>
