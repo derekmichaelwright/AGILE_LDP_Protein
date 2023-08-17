@@ -2,7 +2,7 @@
 title: "Protein analysis in the LDP"
 subtitle: "*unpublished*"
 author: "Derek Michael Wright <derek.wright@usask.ca>"
-date: "01-03-2023"
+date: "10-08-2023"
 output:
   rmdformats::readthedown:
     self_contained: no
@@ -63,239 +63,71 @@ https://github.com/derekmichaelwright/AGILE_LDP_Protein
 
 # Figures
 
-## Figure_1_01.png
+## Figure 1
 
-![](Figure_1_01.png)
-
----
-
-## Figure_1_02.png
-
-![](Figure_1_02.png)
+![](Figure_01.png)
 
 ---
 
-## Figure_2_01.png
+## Figure 2.png
 
-![](Figure_2_01.png)
-
----
-
-## Figure_2_02.png
-
-![](Figure_2_02.png)
+![](Figure_02.png)
 
 ---
 
-## Figure_2_03.png
+## Figure 3.png
 
-![](Figure_2_03.png)
-
----
-
-## Figure_2_04.png
-
-![](Figure_2_04.png)
+![](Figure_03.png)
 
 ---
 
-## Figure_2_05.png
+## Figure 4.png
 
-![](Figure_2_05.png)
-
----
-
-## Figure_2_06.png
-
-![](Figure_2_06.png)
+![](Figure_04.png)
 
 ---
 
-## Figure_3_01.png
+## Figure 5.png
 
-![](Figure_3_01.png)
-
----
-
-## Figure_3_02.png
-
-![](Figure_3_02.png)
+![](Figure_05.png)
 
 ---
 
-## Figure_3_03 - DTF Canada
+# Supplemental Figures
 
-![](Figure_3_03.png)
+## Supplemental Figure 1
 
----
-
-## Figure_3_04 - REP Canada
-
-![](Figure_3_04.png)
+![](Supplemental_Figure_01.png)
 
 ---
 
-## Figure_4_01_Ro16.png
+## Supplemental Figure 2
 
-![](Figure_4_01_Ro16.png)
-
----
-
-## Figure_4_01_Ro17.png
-
-![](Figure_4_01_Ro17.png)
+![](Supplemental_Figure_02.png)
 
 ---
 
-## Figure_4_01_Su16.png
+## Supplemental Figure 3
 
-![](Figure_4_01_Su16.png)
-
----
-
-## Figure_4_01_Su17.png
-
-![](Figure_4_01_Su17.png)
+![](Supplemental_Figure_03.png)
 
 ---
 
-## Figure_4_02.png
+## Supplemental Figure 4
 
-![](Figure_4_02.png)
-
----
-
-## Figure_5_01.png
-
-![](Figure_5_01.png)
+![](Supplemental_Figure_04.png)
 
 ---
 
-## Figure_5_02.png
+## Supplemental Figure 5
 
-![](Figure_5_02.png)
-
----
-
-## Figure_5_03.png
-
-![](Figure_5_03.png)
+![](Supplemental_Figure_05a.png)
 
 ---
 
-# GWAS Results
+## link
 
-```{r echo = F, eval = F}
-## Supplemental_Figure_01_1_noCV
-
-#![](Supplemental_Figure_01_1_noCV.png)
-
-#---
-
-## Supplemental_Figure_01_2_CVDTF
-
-#![](Supplemental_Figure_01_2_CVDTF.png)
-
-#---
-
-## Supplemental_Figure_01_3_CVDTFREP
-
-#![](Supplemental_Figure_01_3_CVDTFREP.png)
-
-#---
-
-## Supplemental_Figure_01_4_CVTRT
-
-#![](Supplemental_Figure_01_4_CVTRT.png)
-
-#---
-
-## Supplemental_Figure_01_5_CVTRTTb
-
-#![](Supplemental_Figure_01_5_CVTRTTb.png)
-
-#---
-
-## Supplemental_Figure_01_6_CVPC1
-
-#![](Supplemental_Figure_01_6_CVPC1.png)
-```
-
----
-
-## Supplemental_Figure_02_1_noCV
-
-![](Supplemental_Figure_02_1_noCV.png)
-
----
-
-## Supplemental_Figure_02_2_CVDTF
-
-![](Supplemental_Figure_02_2_CVDTF.png)
-
----
-
-## Supplemental_Figure_02_3_CVDTFREP
-
-![](Supplemental_Figure_02_3_CVDTFREP.png)
-
----
-
-## Supplemental_Figure_02_4_CVTRT
-
-![](Supplemental_Figure_02_4_CVTRT.png)
-
----
-
-## Supplemental_Figure_02_5_CVTRTTb
-
-![](Supplemental_Figure_02_5_CVTRTTb.png)
-
----
-
-## Supplemental_Figure_02_6_CVPC1
-
-![](Supplemental_Figure_02_6_CVPC1.png)
-
----
-
-## Supplemental_Figure_03_1_noCV
-
-![](Supplemental_Figure_03_1_noCV.png)
-
----
-
-## Supplemental_Figure_03_2_CVDTF
-
-![](Supplemental_Figure_03_2_CVDTF.png)
-
----
-
-## Supplemental_Figure_03_3_CVDTFREP
-
-![](Supplemental_Figure_03_3_CVDTFREP.png)
-
----
-
-## Supplemental_Figure_03_4_CVTRT
-
-![](Supplemental_Figure_03_4_CVTRT.png)
-
----
-
-## Supplemental_Figure_03_5_CVTRTTb
-
-![](Supplemental_Figure_03_5_CVTRTTb.png)
-
----
-
-## Supplemental_Figure_03_6_CVPC1
-
-![](Supplemental_Figure_03_6_CVPC1.png)
-
-[Supplemental_Figure_04_1_noCV.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Supplemental_Figure_04_1_noCV.html)
-
-[Supplemental_Figure_04_2_CVDTF.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Supplemental_Figure_04_2_CVDTF.html)
+[Supplemental_Figure_.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Supplemental_Figure_04_1_noCV.html)
 
 ---
 

@@ -1,11 +1,20 @@
 .Rproj.user
 .Rhistory
 
+Data/myG_LDP.csv
+
 GWAS_Results/
 GWAS_Results_DTF/
 GWAS_Results_DTF_REP/
-GWAS_Results_PC1/
-GWAS_Results_TRT/
-GWAS_Results_TRT_Tb/
 
-myG_LDP.csv
+extra.R
+Extra/
+
+gwas_script.R
+gwas_script2.R
+
+Additional/
+Lentil Quality/
+Literature/
+Markers/
+MAS Markers/
