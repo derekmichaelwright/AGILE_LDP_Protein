@@ -1,5 +1,5 @@
 ---
-title: "Evaluating the breeding potential of cultivated lentils for protein and amino acid content and quality"
+title: "Evaluating the breeding potential of cultivated lentils for protein and amino acid concentration and quality"
 subtitle: "unpublished"
 author: "Derek Michael Wright <derek.wright@usask.ca>"
 date: "10-11-2023"
@@ -22,17 +22,17 @@ knitr::opts_chunk$set(eval = F, echo = T, message = F, warning = F,
 
 # Introduction
 
-This vignette contains the `R` code and analysis done for the paper: 
+This vignette contains the `R` code and analysis done for the paper:
 
-> - `r shiny::icon("newspaper")` [Derek Wright, Jiayi Hang, James D House & Kirstin E Bett. **Lentil Protein**. *unpublished*](https://github.com/derekmichaelwright/AGILE_LDP_Protein) 
-> - `r shiny::icon("github")`  https://github.com/derekmichaelwright/AGILE_LDP_Protein
+> - `r shiny::icon("newspaper")` [Derek Wright, Jiayi Hang, James D House & Kirstin E Bett. **Lentil Protein**. *unpublished*](https://github.com/derekmichaelwright/AGILE_LDP_Protein)
+> - `r shiny::icon("github")` <https://github.com/derekmichaelwright/AGILE_LDP_Protein>
 
 > - `r shiny::icon("newspaper")` [Jiayi Hang, Da Shi, Jason Neufeld, Kirstin E Bett, & James D House. **Prediction of protein and amino acid contents in whole and ground lentils using near-infrared reflectance spectroscopy**. *LWT*, (**2022**) 165: 113669. doi.org/10.1016/j.lwt.2022.113669)](https://doi.org/10.1016/j.lwt.2022.113669)
 
 which is follow-up to:
 
 > - `r shiny::icon("newspaper")` [Derek M Wright, Sandesh Neupane, Taryn Heidecker, Teketel A Haile, Clarice J Coyne, Rebecca J McGee, Sripada Udupa, Fatima Henkrar, Eleonora Barilli, Diego Rubiales, Tania Gioia, Giuseppina Logozzo, Stefania Marzario, Reena Mehra, Ashutosh Sarker, Rajeev Dhakal, Babul Anwar, Debashish Sarker, Albert Vandenberg, and Kirstin E. Bett. **Understanding photothermal interactions can help expand production range and increase genetic diversity of lentil (*Lens culinaris* Medik.)**. *Plants, People, Planet*. (**2020**) 3(2): 171-181. doi.org/10.1002/ppp3.10158](https://doi.org/10.1002/ppp3.10158)
-> - `r shiny::icon("github")` https://github.com/derekmichaelwright/AGILE_LDP_Phenology
+> - `r shiny::icon("github")` <https://github.com/derekmichaelwright/AGILE_LDP_Phenology>
 
 ---
 
@@ -65,7 +65,7 @@ theme_AGL <- theme_bw() +
         panel.grid.minor.x = element_blank(), 
         panel.grid.minor.y = element_blank())
 # Prep data
-myPs <- c("Protein", "Glutamic.acid", "Aspartic.acid", "Arginine",
+myPs <- c("Protein", "Glutamate", "Aspartate", "Arginine",
           "Leucine", "Lysine", "Phenylalanine", "Serine", "Valine", 
           "Isoleucine", "Proline", "Alanine", "Glycine", "Threonine", 
           "Histidine", "Tyrosine", "Methionine", "Cysteine", "Tryptophan")
@@ -82,6 +82,8 @@ d1 <- read.csv("Data/myD_Protein_WetChem.csv") %>%
   rename(Year=Planting.Date..date.) %>%
   gather(AminoAcid, Value, 5:ncol(.)) %>%
   mutate(AminoAcid = gsub("Protein....", "Protein", AminoAcid),
+         AminoAcid = gsub("Glutamic.acid", "Glutamate", AminoAcid),
+         AminoAcid = gsub("Aspartic.acid", "Aspartate", AminoAcid),
          AminoAcid = gsub("..1st....", "", AminoAcid),
          AminoAcid = factor(AminoAcid, levels = myPs),
          Expt = factor(paste(Location, Year), levels = myEs1),
@@ -92,7 +94,9 @@ d2 <- read.csv("Data/myD_Protein_NIRS.csv") %>%
   select(-Plot, -Rep, -Sample.Name..1st..text.) %>%
   rename(Year=Planting.Date..date.) %>%
   gather(AminoAcid, Value, 5:ncol(.)) %>%
-  mutate(AminoAcid = gsub("..1st....", "", AminoAcid),
+  mutate(AminoAcid = gsub("Glutamic.acid", "Glutamate", AminoAcid),
+         AminoAcid = gsub("Aspartic.acid", "Aspartate", AminoAcid),
+         AminoAcid = gsub("..1st....", "", AminoAcid),
          AminoAcid = factor(AminoAcid, levels = myPs),
          Expt = factor(paste(Location, Year), levels = myEs1),
          ExptShort = plyr::mapvalues(Expt, myEs1, myEs2),
@@ -105,8 +109,8 @@ myPFs <- c("Family.Glutamate", "Family.Aspartate", "Family.Pyruvate",
            "Perc.Family.Glutamate", "Perc.Family.Aspartate", "Perc.Family.Pyruvate",
            "Perc.Family.Serine", "Perc.Family.Histidine", "Perc.Family.Aromatic")
 d3 <- d2 %>% spread(AminoAcid, Value) %>%
-  mutate(Family.Glutamate = Glutamic.acid + Proline + Arginine, 
-         Family.Aspartate = Aspartic.acid + Threonine + Isoleucine + Methionine + Lysine,
+  mutate(Family.Glutamate = Glutamate + Proline + Arginine, 
+         Family.Aspartate = Aspartate + Threonine + Isoleucine + Methionine + Lysine,
          Family.Pyruvate = Alanine + Valine + Leucine,
          Family.Serine = Serine + Glycine + Cysteine,
          Family.Histidine = Histidine,
@@ -193,7 +197,7 @@ write.csv(myCV, "Data/myCV.csv", row.names = F)
 ## Run GWAS
 
 > - `r shiny::icon("save")` [Data/myG_LDP.zipv](Data/myG_LDP.zip)
-> - `r shiny::icon("save")` [Data/myCV.csv"](Data/myCV.csv")
+> - `r shiny::icon("save")` [Data/myCV.csv"](Data/myCV.csv%22)
 
 > - `r shiny::icon("save")` [Data/myY_NIRS.csv](Data/myY_NIRS.csv)
 > - `r shiny::icon("save")` [Data/myY_NIRS_Ro16.csv](Data/myY_NIRS_Ro16.csv)
@@ -210,7 +214,7 @@ myCV <- read.csv("Data/myCV.csv")
 # Run GWAS on all data
 myY <- read.csv("Data/myY_NIRS.csv")
 myGAPIT <- GAPIT(
-  Y = myY,
+  Y = myY[,c("Name","Glutamate_Ro16")],#,"Glutamate_Ro17","Glutamate_Su16","Glutamate_Su17","Aspartate_Ro16","Aspartate_Ro17","Aspartate_Su16","Aspartate_Su17")],
   G = myG,
   PCA.total = 4,
   model = c("MLM","FarmCPU","Blink"),
@@ -219,7 +223,7 @@ myGAPIT <- GAPIT(
 # Run GWAS for Ro16 with CVs
 myY_Ro16 <- read.csv("Data/myY_NIRS_Ro16.csv")
 myGAPIT <- GAPIT(
-  Y = myY_Ro16,
+  Y = myY_Ro16[,c("Name","Glutamate_Ro16","Aspartate_Ro16")],
   G = myG,
   CV = myCV[,c("Name","DTF_Ro16","REP_Ro16")],
   PCA.total = 0,
@@ -229,9 +233,9 @@ myGAPIT <- GAPIT(
 # Run GWAS for Ro17 with CVs
 myY_Ro17 <- read.csv("Data/myY_NIRS_Ro17.csv")
 myGAPIT <- GAPIT(
-  Y = myY_Ro17,
+  Y = myY_Ro17[,c("Name","Glutamate_Ro17","Aspartate_Ro17")],
   G = myG,
-  CV = myCV[,c("Name","DTF_Ro17","REP_Ro17")],
+  CV = myCV[!is.na(myCV$REP_Ro17),c("Name","DTF_Ro17","REP_Ro17")],
   PCA.total = 0,
   model = c("MLM","FarmCPU","Blink"),
   Phenotype.View = F
@@ -239,7 +243,7 @@ myGAPIT <- GAPIT(
 # Run GWAS for Su16 with CVs
 myY_Su16 <- read.csv("Data/myY_NIRS_Su16.csv")
 myGAPIT <- GAPIT(
-  Y = myY_Su16,
+  Y = myY_Su16[,c("Name","Glutamate_Su16","Aspartate_Su16")],
   G = myG,
   CV = myCV[,c("Name","DTF_Su16","REP_Su16")],
   PCA.total = 0,
@@ -249,9 +253,9 @@ myGAPIT <- GAPIT(
 # Run GWAS for Su17 with CVs
 myY_Su17 <- read.csv("Data/myY_NIRS_Su17.csv")
 myGAPIT <- GAPIT(
-  Y = myY_Su17,
+  Y = myY_Su17[,c("Name","Glutamate_Su17","Aspartate_Su17")],
   G = myG,
-  CV = myCV[,c("Name","DTF_Su17","REP_Su17")],
+  CV = myCV[!is.na(myCV$REP_Su17),c("Name","DTF_Su17","REP_Su17")],
   PCA.total = 0,
   model = c("MLM","FarmCPU","Blink"),
   Phenotype.View = F
@@ -270,13 +274,6 @@ myMs <- c(# Marker set #1
           # Marker set #2
           "Lcu.2RBY.Chr1p437385632", "Lcu.2RBY.Chr4p432694216", "Lcu.2RBY.Chr6p411536500") 
 myCs <- c(rep("red",3), rep("blue",3))
-```
-
-```{r eval = F, echo = F}
-yy <- table_Results_Summary("GWAS_Results/", isOrdered = F)
-yy <- table_Results_Summary("GWAS_Results/", isOrdered = T)
-yy <- table_Results_Summary(folder = "GWAS_Results_DTF_REP/", isOrdered = F)
-yy <- table_Results_Summary(folder = "GWAS_Results_DTF_REP/", isOrdered = T)
 ```
 
 ---
@@ -301,6 +298,14 @@ xx <- bind_rows(x1, x2)
 write.csv(xx, "Supplemental_table_01.csv", row.names = F)
 ```
 
+```{r eval = F, echo = F}
+yy <- table_Results_Summary("GWAS_Results/", isOrdered = F)
+yy <- table_Results_Summary("GWAS_Results/", isOrdered = T)
+yy <- table_Results_Summary(folder = "GWAS_Results_DTF_REP/", isOrdered = F)
+yy <- table_Results_Summary(folder = "GWAS_Results_DTF_REP/", isOrdered = T)
+nrow(xx %>% filter(Threshold == "Significant") %>% filter(!duplicated(SNP)))
+```
+
 ```{r eval = T}
 xx <- read.csv("Supplemental_table_01.csv")
 DT::datatable(xx)
@@ -312,9 +317,14 @@ DT::datatable(xx)
 
 > - `r shiny::icon("chart-line")` [Additional/ManH/](https://github.com/derekmichaelwright/AGILE_LDP_Protein/tree/master/Additional/ManH/)
 
+![](Multi_Protein_Su16_2_noCV.png)
+
+![](Multi_Protein_Su16_2_CVDTFREP.png)
+
 ```{r eval = F}
 # Create custom manhattan plots
 myTs <- list_Traits("GWAS_Results/")
+myTs <- myTs[c(9:12,17:20)]
 for(i in myTs) {
   mp <- gg_Manhattan(folder = "GWAS_Results/", trait = i, facet = F,
                      models = c("MLM", "MLMM", "FarmCPU", "BLINK"),
@@ -357,7 +367,8 @@ mp <- ggplot(xx, aes(x = `Wet Chemistry`, y = NIRS)) +
   theme_AGL +
   theme(legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(size = 3))) +
-  labs(y = "Near-infrared Spectroscopy", title = "g / 100g seed")
+  labs(title = "Concentration (g / 100g seed)",
+       y = "Near-infrared Spectroscopy")
 ggsave("Supplemental_Figure_01.png", mp, width = 10, height = 8, dpi = 600)
 ```
 
@@ -371,8 +382,8 @@ ggsave("Supplemental_Figure_01.png", mp, width = 10, height = 8, dpi = 600)
 # Prep data
 xx <- d2 %>% 
   mutate(Family = ifelse(AminoAcid == "Protein", "Total Protein", NA),
-         Family = ifelse(AminoAcid %in% c("Glutamic.acid", "Proline",  "Arginine"), "Glutamate", Family),
-         Family = ifelse(AminoAcid %in% c("Aspartic.acid", "Threonine", "Isoleucine", "Methionine", "Lysine"), "Aspartate", Family),
+         Family = ifelse(AminoAcid %in% c("Glutamate", "Proline",  "Arginine"), "Glutamate", Family),
+         Family = ifelse(AminoAcid %in% c("Aspartate", "Threonine", "Isoleucine", "Methionine", "Lysine"), "Aspartate", Family),
          Family = ifelse(AminoAcid %in% c("Alanine", "Valine", "Leucine"), "Pyruvate", Family),
          Family = ifelse(AminoAcid %in% c("Serine", "Glycine", "Cysteine"), "Serine", Family),
          Family = ifelse(AminoAcid %in% c("Histidine"), "Histidine", Family),
@@ -389,7 +400,7 @@ mp <- ggplot(xx, aes(x = Value, fill = Family)) +
   theme(legend.position = "bottom",
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   guides(fill = guide_legend(nrow = 1)) +
-  labs(title = "Seed Protein Percent in the Lentil Diversity Panel", 
+  labs(title = "Lentil Diversity Panel", 
        y = NULL, x = "g / 100g seed")
 ggsave("Supplemental_Figure_02.png", mp, width = 30, height = 7, dpi = 600)
 ```
@@ -414,7 +425,7 @@ mp1 <- ggplot(xx, aes(x = AminoAcid, y = Value, fill = Expt)) +
   labs(title = "A) Amino Acids", y = "g / 100g seed", x = NULL)
 # Prep data
 myFams1 <- c("Family.Glutamate", "Family.Aspartate", "Family.Pyruvate", 
-             "Family.Serine","Family.Histidine","Family.Aromatic")
+             "Family.Serine", "Family.Histidine", "Family.Aromatic")
 myFams2 <- c("Glutamte Family", "Aspartate Family", "Pyruvate Family", 
              "Serine Family", "Histidine Family", "Aromatic Family")
 xx <- d3 %>% filter(!grepl("Perc", AminoAcidFamily)) %>% 
@@ -448,7 +459,7 @@ mp3 <- ggplot(xx, aes(x = Name, y = Value, color = ExptShort)) +
         panel.grid.major.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank()) +
-  labs(title = "C) Protein", x = "Entry",
+  labs(title = "C) Total Protein", x = "Entry",
        y = "Protein (g / 100g seed)")
 mp <- ggarrange(mp1, ggarrange(mp2, ggarrange(mp3, mpl, ncol = 1, heights = c(4,1)), ncol = 2), nrow = 2) 
 ggsave("Figure_01.png", mp, width = 10, height = 8, dpi = 600, bg = "white")
@@ -492,7 +503,7 @@ mp2 <- ggplot(xx, aes(x = SeedMass1000.2017, y = Value)) +
   theme_AGL + 
   guides(shape = guide_legend(override.aes = list(size = 3))) +
   labs(title = "B) Protein x Seed Size", 
-       x = "Mass of 1000 seeds", y = "Protein (g / 100g seed)")
+       x = "Mass of 1000 seeds (g)", y = "Protein (g / 100g seed)")
 # Prep data
 x1 <- d2 %>% filter(AminoAcid == "Protein") %>%
   select(Entry, Expt, ExptShort, Protein=Value)
@@ -517,7 +528,7 @@ mp3 <- ggplot(xx, aes(x = DTF, y = Protein)) +
          fill = guide_legend(nrow = 2, override.aes = list(size = 3, alpha = 0.9))) +
   theme_AGL + 
   labs(title = "C) Protein x DTF", 
-       x = "Days from sowing to flower", y = "Protein (g / 100g seed)")
+       x = "Days from sowing to flower (days)", y = "Protein (g / 100g seed)")
 # Prep data
 x1 <- d2 %>% filter(AminoAcid == "Protein") %>%
   select(Entry, Expt, ExptShort, Protein=Value)
@@ -541,7 +552,7 @@ mp4 <- ggplot(xx, aes(x = REP, y = Protein)) +
          fill = guide_legend(nrow = 2, override.aes = list(size = 3, alpha = 0.9))) +
   theme_AGL + 
   labs(title = "D) Protein x REP", 
-       x = "Reproductive period", y = "Protein (g / 100g seed)")
+       x = "Reproductive period (days)", y = "Protein (g / 100g seed)")
 #
 mp1 <- ggarrange(mp1, mp2, ncol = 2, common.legend = T, legend = "bottom")
 mp2 <- ggarrange(mp3, mp4, ncol = 2, common.legend = T, legend = "bottom")
@@ -569,7 +580,8 @@ ggsave("Figure_02.png", mp, width = 8, height = 8, dpi = 600, bg = "white")
 
 ```{r}
 # Prep data
-gg_Selection <- function(myTrait = "DTF_Ro16", myAmino = "Protein", myExpt = "Ro16", myColor = "steelblue") {
+gg_Selection <- function(myTrait = "DTF_Ro16", myAmino = "Protein", 
+                         myExpt = "Ro16", myTitle = myExpt, myColor = "steelblue") {
   # Prep data
   xi <- myLDP %>% select(Name, Origin, Ro16=DTF_Ro16, Ro17=DTF_Ro17, Su16=DTF_Su16, Su17=DTF_Su17) %>%
     gather(ExptShort, DTF, Ro16, Ro17, Su16, Su17)
@@ -615,14 +627,21 @@ gg_Selection <- function(myTrait = "DTF_Ro16", myAmino = "Protein", myExpt = "Ro
     scale_fill_manual(values = c(myColor, myColor, "black")) +
     scale_shape_manual(values = c(0,22,8)) +
     scale_size_manual(values = c(1,1,1.5)) +
-    facet_wrap(Expt ~ .) +
+    #facet_wrap(Expt ~ .) +
     guides(shape = guide_legend(override.aes = list(fill = "grey", color = "black", size = 2.5))) +
-    theme_AGL + labs(y = paste(myAmino, "(g / 100g seed)"))
+    theme_AGL + 
+    labs(subtitle = myTitle, 
+         x = "Days from sowing to flower (days)",
+         y = paste(myAmino, "(g / 100g seed)"))
 }
-mp1 <- gg_Selection(myTrait = "DTF_Su16", myExpt = "Su16", myColor = "steelblue")
-mp2 <- gg_Selection(myTrait = "DTF_Su17", myExpt = "Su17", myColor = "darkblue")
-mp3 <- gg_Selection(myTrait = "DTF_Ro16", myExpt = "Ro16", myColor = "darkorange")
-mp4 <- gg_Selection(myTrait = "DTF_Ro17", myExpt = "Ro17", myColor = "darkred")
+mp1 <- gg_Selection(myTrait = "DTF_Su16", myExpt = "Su16", myColor = "steelblue",
+                    myTitle ="A) Sutherland, Canada 2016")
+mp2 <- gg_Selection(myTrait = "DTF_Su17", myExpt = "Su17", myColor = "darkblue",
+                    myTitle ="B) Sutherland, Canada 2017")
+mp3 <- gg_Selection(myTrait = "DTF_Ro16", myExpt = "Ro16", myColor = "darkorange",
+                    myTitle ="C) Rosthern, Canada 2016")
+mp4 <- gg_Selection(myTrait = "DTF_Ro17", myExpt = "Ro17", myColor = "darkred",
+                    myTitle ="D) Rosthern, Canada 2017")
 mp <- ggarrange(mp1, mp2, mp3, mp4, ncol = 2, nrow = 2, common.legend = T, legend = "bottom")
 ggsave("Supplemental_Figure_03.png", mp, width = 6, height = 6, dpi = 600, bg = "white")
 saveWidget(ggplotly(mp1), file="Additional/Supplemental_Figure_03_Su16.html")
@@ -630,10 +649,14 @@ saveWidget(ggplotly(mp2), file="Additional/Supplemental_Figure_03_Su17.html")
 saveWidget(ggplotly(mp3), file="Additional/Supplemental_Figure_03_Ro16.html")
 saveWidget(ggplotly(mp4), file="Additional/Supplemental_Figure_03_Ro17.html")
 #
-mp1 <- gg_Selection(myTrait = "DTF_Su16", myExpt = "Su16", myAmino = "Lysine", myColor = "steelblue")
-mp2 <- gg_Selection(myTrait = "DTF_Su17", myExpt = "Su17", myAmino = "Lysine", myColor = "darkblue")
-mp3 <- gg_Selection(myTrait = "DTF_Ro16", myExpt = "Ro16", myAmino = "Lysine", myColor = "darkorange")
-mp4 <- gg_Selection(myTrait = "DTF_Ro17", myExpt = "Ro17", myAmino = "Lysine", myColor = "darkred")
+mp1 <- gg_Selection(myTrait = "DTF_Su16", myExpt = "Su16", myAmino = "Lysine", myColor = "steelblue",
+                    myTitle ="A) Sutherland, Canada 2016")
+mp2 <- gg_Selection(myTrait = "DTF_Su17", myExpt = "Su17", myAmino = "Lysine", myColor = "darkblue",
+                    myTitle ="B) Sutherland, Canada 2017")
+mp3 <- gg_Selection(myTrait = "DTF_Ro16", myExpt = "Ro16", myAmino = "Lysine", myColor = "darkorange",
+                    myTitle ="C) Rosthern, Canada 2016")
+mp4 <- gg_Selection(myTrait = "DTF_Ro17", myExpt = "Ro17", myAmino = "Lysine", myColor = "darkred",
+                    myTitle ="D) Rosthern, Canada 2017")
 mp <- ggarrange(mp1, mp2, mp3, mp4, ncol = 2, nrow = 2, common.legend = T, legend = "bottom")
 ggsave("Figure_03.png", mp, width = 6, height = 6, dpi = 600, bg = "white")
 saveWidget(ggplotly(mp1), file="Additional/Figure_03_Su16.html")
@@ -653,7 +676,7 @@ saveWidget(ggplotly(mp4), file="Additional/Figure_03_Ro17.html")
 
 ```{r}
 # Prep data
-myPs <- c("Protein", "Glutamic.acid", "Aspartic.acid", "Leucine",
+myPs <- c("Protein", "Glutamate", "Aspartate", "Leucine",
           "Arginine", "Lysine", "Phenylalanine", "Valine", "Serine",
           "Proline", "Isoleucine", "Alanine", "Glycine", "Threonine", 
           "Tyrosine", "Histidine", "Methionine", "Cysteine", "Tryptophan")
@@ -713,7 +736,7 @@ mp <- ggplot(xx, aes(x = Total.Protein, y = Value, color = Expt)) +
   theme_AGL +
   theme(legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(size = 3))) +
-  labs(title = "Seed Protein Content in the LDP", 
+  labs(title = "Lentil Diversity Panel", 
        y = "Amino Acid (g / 100g seed)", x = "Protein (g / 100g seed)")
 ggsave("Supplemental_Figure_04.png", mp, width = 12, height = 8, dpi = 600)
 ```
@@ -721,6 +744,8 @@ ggsave("Supplemental_Figure_04.png", mp, width = 12, height = 8, dpi = 600)
 ---
 
 # Figure 5 - Markers
+
+Sutherland, Canada 2016
 
 ![](Figure_05a.png)
 
@@ -735,7 +760,7 @@ myY_Ro17 <- read.csv("Data/myY_NIRS_Ro17.csv")
 #
 # Create plotting function
 ggMultiMarkers <- function (myG, myY, myTrait, myMarkers, points = T, myColor = "steelblue",
-                            myWidth = 0.1, myTitle = NULL, myYlab = myTrait) {
+                            myWidth = 0.1, myTitle = "", myYlab = "") {
     # Prep data
     x1 <- myG %>% filter(rs %in% myMarkers) %>% 
       mutate(rs = factor(rs, levels = myMarkers)) %>% arrange(rs)
@@ -779,125 +804,110 @@ ggMultiMarkers <- function (myG, myY, myTrait, myMarkers, points = T, myColor = 
     mp
 }
 # Plot
-mp1 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[1], 
-                      myTitle = "A) Su16 Protein Percent", myYlab = "", myColor = "steelblue")
-mp2 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[2], 
-                      myTitle = "", myYlab = "", myColor = "steelblue")
-mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[3], 
-                      myTitle = "", myYlab = "", myColor = "steelblue")
-mp4 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[4], 
-                      myTitle = "", myYlab = "", myColor = "steelblue")
-mp5 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[5], 
-                      myTitle = "", myYlab = "", myColor = "steelblue")
-mp6 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[6], 
-                      myTitle = "", myYlab = "", myColor = "steelblue")
+mp1 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[1], myColor = "steelblue",
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+mp2 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[2], myColor = "steelblue")
+mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[3], myColor = "steelblue")
+mp4 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[4], myColor = "steelblue",
+                      myYlab = "Protein (g / 100g seed)")
+mp5 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[5], myColor = "steelblue")
+mp6 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[6], myColor = "steelblue")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
                  common.legend = T, legend = "bottom")
 #
 mp2 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "steelblue",
-                      myTitle = "B) Triplet Marker Set 1", 
-                      myYlab = "Protein Percent of Whole Seed (Su16)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
 mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "steelblue",
-                      myTitle = "C) Triplet Marker Set 2", 
-                      myYlab = "Protein Percent of Whole Seed (Su16)")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
 ggsave("Figure_05a.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ```
 
+Sutherland, Canada 2017
+
 ![](Figure_05b.png)
 
 ```{r}
 #
-mp1 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[1], 
-                      myTitle = "A) Su17", myYlab = "", myColor = "darkblue")
-mp2 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[2], 
-                      myTitle = "", myYlab = "", myColor = "darkblue")
-mp3 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[3], 
-                      myTitle = "", myYlab = "", myColor = "darkblue")
-mp4 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[4], 
-                      myTitle = "", myYlab = "", myColor = "darkblue")
-mp5 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[5], 
-                      myTitle = "", myYlab = "", myColor = "darkblue")
-mp6 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[6], 
-                      myTitle = "", myYlab = "", myColor = "darkblue")
+mp1 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[1], myColor = "darkblue", 
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+mp2 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[2], myColor = "darkblue")
+mp3 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[3], myColor = "darkblue")
+mp4 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[4], myColor = "darkblue", 
+                      myYlab = "Protein (g / 100g seed)")
+mp5 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[5], myColor = "darkblue")
+mp6 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[6], myColor = "darkblue")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
                  common.legend = T, legend = "bottom")
 #
 mp2 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "darkblue",
-                      myTitle = "B) Triplet Marker Set 1", 
-                      myYlab = "Protein Percent of Whole Seed (Su17)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
 mp3 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "darkblue",
-                      myTitle = "C) Triplet Marker Set 2", myYlab = "")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
 ggsave("Figure_05b.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ```
 
+Rosthern, Canada 2016
+
 ![](Figure_05c.png)
 
 ```{r}
 #
-mp1 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[1], 
-                      myTitle = "A) Ro16", myYlab = "", myColor = "darkorange")
-mp2 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[2], 
-                      myTitle = "", myYlab = "", myColor = "darkorange")
-mp3 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[3], 
-                      myTitle = "", myYlab = "", myColor = "darkorange")
-mp4 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[4], 
-                      myTitle = "", myYlab = "", myColor = "darkorange")
-mp5 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[5], 
-                      myTitle = "", myYlab = "", myColor = "darkorange")
-mp6 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[6], 
-                      myTitle = "", myYlab = "", myColor = "darkorange")
+mp1 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[1], myColor = "darkorange", 
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+mp2 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[2], myColor = "darkorange")
+mp3 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[3], myColor = "darkorange")
+mp4 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[4], myColor = "darkorange", 
+                      myYlab = "Protein (g / 100g seed)")
+mp5 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[5], myColor = "darkorange")
+mp6 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[6], myColor = "darkorange")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
                  common.legend = T, legend = "bottom")
 #
 mp2 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "darkorange",
-                      myTitle = "B) Triplet Marker Set 1", 
-                      myYlab = "Protein Percent of Whole Seed (Ro16)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
 mp3 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "darkorange",
-                      myTitle = "C) Triplet Marker Set 2", myYlab = "")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
 ggsave("Figure_05c.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ```
 
+Rosthern, Canada 2017
+
 ![](Figure_05d.png)
 
 ```{r}
 #
-mp1 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[1], 
-                      myTitle = "A) Ro17", myYlab = "", myColor = "darkred")
-mp2 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[2], 
-                      myTitle = "", myYlab = "", myColor = "darkred")
-mp3 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[3], 
-                      myTitle = "", myYlab = "", myColor = "darkred")
-mp4 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[4], 
-                      myTitle = "", myYlab = "", myColor = "darkred")
-mp5 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[5], 
-                      myTitle = "", myYlab = "", myColor = "darkred")
-mp6 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[6], 
-                      myTitle = "", myYlab = "", myColor = "darkred")
+mp1 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[1], myColor = "darkred", 
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+mp2 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[2], myColor = "darkred")
+mp3 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[3], myColor = "darkred")
+mp4 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[4], myColor = "darkred", 
+                      myYlab = "Protein (g / 100g seed)")
+mp5 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[5], myColor = "darkred")
+mp6 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[6], myColor = "darkred")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
                  common.legend = T, legend = "bottom")
 #
 mp2 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "darkred",
-                      myTitle = "B) Triplet Marker Set 1", 
-                      myYlab = "Protein Percent of Whole Seed (Ro17)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
 mp3 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "darkred",
-                      myTitle = "C) Triplet Marker Set 2", myYlab = "")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
@@ -915,14 +925,6 @@ ggsave("Figure_05d.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ![](Supplemental_Figure_05c.png)
 
 ![](Supplemental_Figure_05d.png)
-
-```{r}
-xx <- read.csv("Supplemental_table_01.csv")
-xM <- read.csv("Data/MAS_Markers.csv") %>% mutate(X = "X")
-xT <- xx %>% left_join(select(xM, SNP, X), by = "SNP")
-xM <- xx %>% filter(MAF > 0.1) %>%
-  filter(Effect > )
-```
 
 ```{r}
 # Prep data
@@ -998,7 +1000,8 @@ mp <- ggplot(xx, aes(x = ExptShort, y = Value, fill = Expt)) +
   theme_AGL +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(title = "Amino Acid Families", y = "g / 100g seed", x = "")
+  labs(title = "Amino Acid Concentration In A Lentil Diversity Panel",
+       y = "g / 100g seed", x = "")
 ggsave("Additional/Additional_Figure_01.png", mp, width = 7, height = 4, dpi = 600)
 ```
 
@@ -1020,8 +1023,8 @@ mp <- ggplot(xx, aes(x = Expt, y = Value, fill = Expt)) +
   theme(legend.position = "bottom",
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank()) +
-  labs(title = "Seed Protein Percent in the Lentil Diversity Panel", 
-       y = NULL, x = NULL)
+  labs(title = "Amino Acid Concentration In A Lentil Diversity Panel", 
+       y = "g / 100g seed", x = NULL)
 ggsave("Additional/Additional_Figure_02.png", mp, width = 12, height = 6, dpi = 600)
 ```
 
@@ -1033,6 +1036,7 @@ ggsave("Additional/Additional_Figure_02.png", mp, width = 12, height = 6, dpi = 
 
 ```{r}
 # Prep data
+myCots <- c("Red", "Yellow", "Red/Yellow", "Green")
 xx <- d2 %>% filter(AminoAcid == "Protein") %>%
   left_join(myLDP, by = c("Entry", "Name")) %>%
   mutate(CotyledonColor = factor(CotyledonColor, levels = myCots))
@@ -1046,8 +1050,8 @@ mp1 <- ggplot(xx %>% filter(ExptShort == "Su16"),
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(size = 3))) +
-  labs(title = "A)", 
-       x = NULL, y = "Protein content in Su16 (g / 100g seed)")
+  labs(title = "A) Protein Concentration in Sutherland, Canada 2016", 
+       x = NULL, y = "g / 100g seed")
 mp2 <- ggplot(xx %>% filter(ExptShort == "Su16"), 
               aes(x = CotyledonColor, y = Value, color = CotyledonColor)) +
   geom_quasirandom(alpha = 0.7, pch = 16) +
@@ -1055,8 +1059,8 @@ mp2 <- ggplot(xx %>% filter(ExptShort == "Su16"),
   scale_color_manual(values = c("darkred","darkorange","black","darkgreen")) +
   theme_AGL +
   theme(legend.position = "none") +
-  labs(title = "B)", 
-       x = NULL, y = "Protein content in Su16 (g / 100g seed)")
+  labs(title = "B) Protein Concentration in Sutherland, Canada 2016", 
+       x = NULL, y = "g / 100g seed")
 mp <- ggarrange(mp1, mp2, ncol = 1, nrow = 2, heights = c(1.4,1))
 ggsave("Additional/Additional_Figure_03.png", mp, width = 10, height = 8, dpi = 600)
 ```
@@ -1079,8 +1083,11 @@ mp <- ggplot(xx, aes(x = Size, y = Protein)) +
   geom_boxplot(width = 0.1) +
   scale_fill_manual(values = myCs_Expt) +
   facet_wrap(ExptShort ~ ., scales = "free_y", ncol = 2) +
-  theme_AGL
-ggsave("Additional/Additional_Figure_04.png", mp, width = 8, height = 4, dpi = 600)
+  theme_AGL +
+  theme(legend.position = "none") +
+  labs(title = "Protein x Seed Size", 
+       x = "Seed Size", y = "Protein (g / 100g seed)")
+ggsave("Additional/Additional_Figure_04.png", mp, width = 6, height = 4, dpi = 600)
 ```
 
 ---
@@ -1107,7 +1114,7 @@ mp <- ggplot(xx, aes(x = Year, y = Mean, color = Grade)) +
   theme_AGL +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(title = "Saskatchewan Lentil Protein Content", 
+  labs(title = "Saskatchewan Lentil Protein Concentration", 
        subtitle = "Data: Dr. Ning Wang (Canadian Grain Commision)", 
        y = "g / 100g seed", x = NULL)
 ggsave("Additional/Additional_Figure_05.png", mp, width = 8, height = 4, dpi = 600)
@@ -1136,7 +1143,7 @@ mp <- ggplot(xx, aes(x = `Amino Acid`, y = Mean, fill = Crop)) +
                 position = "dodge", linewidth = 0.2, alpha = 0.7) +
   theme_AGL +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(title = "Amino Acid Content", x = NULL)
+  labs(title = "Amino Acid Concentration", x = NULL)
 ggsave("Additional/Additional_Figure_06.png", mp, width = 8, height = 4, dpi = 600)
 ```
 

@@ -1,5 +1,5 @@
 Evaluating the breeding potential of cultivated lentils for protein and
-amino acid content and quality
+amino acid concentration and quality
 ================
 Derek Michael Wright <derek.wright@usask.ca>
 10-11-2023
@@ -13,8 +13,8 @@ Derek Michael Wright <derek.wright@usask.ca>
 which is follow-up to:
 
 > - [Jiayi Hang, Da Shi, Jason Neufeld, Kirstin E. Bett & James D.
->   House. **Prediction of protein and amino acid contents in whole and
->   ground lentils using near-infrared reflectance spectroscopy**.
+>   House. **Prediction of protein and amino acid concentration in whole
+>   and ground lentils using near-infrared reflectance spectroscopy**.
 >   *LWT*. (**2022**) 165: 113669.
 >   doi.org/10.1016/j.lwt.2022.113669](https://doi.org/10.1016/j.lwt.2022.113669)
 
