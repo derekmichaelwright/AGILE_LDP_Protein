@@ -181,4 +181,10 @@ which is follow-up to:
 
 ------------------------------------------------------------------------
 
+## Additional Figure 7
+
+![](Additional/Additional_Figure_07.png)
+
+------------------------------------------------------------------------
+
 © Derek Michael Wright

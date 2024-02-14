@@ -1177,17 +1177,19 @@ myM2 <- c("Lcu.2RBY.Chr3p423884278","Lcu.2RBY.Chr3p113114771",
 # Plot
 mp1 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
                myMarkers = myM2[1], myColor = "steelblue", 
-               myYlab = "Protein (g / 100g dry seed)")
+               myYlab = "Protein (g / 100g dry seed)",
+               myTitle = "Johnson et al. QTLs")
 mp2 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
-               myMarkers = myM2[2], myColor = "steelblue", 
+               myMarkers = myM2[2], myColor = "steelblue", myTitle = "",
                myYlab = "Protein (g / 100g dry seed)")
 mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
-               myMarkers = myM2[3], myColor = "steelblue", 
+               myMarkers = myM2[3], myColor = "steelblue", myTitle = "", 
                myYlab = "Protein (g / 100g dry seed)")
 mp4 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
-               myMarkers = myM2[4], myColor = "steelblue", 
+               myMarkers = myM2[4], myColor = "steelblue", myTitle = "", 
                myYlab = "Protein (g / 100g dry seed)")
 mp <- ggarrange(mp1, mp2, mp3, mp4, ncol = 2, nrow = 2, 
+                
                 common.legend = T, legend = "bottom")
 ggsave("Additional/Additional_Figure_07.png", mp, 
        width = 6, height = 6, dpi = 600, bg = "white")

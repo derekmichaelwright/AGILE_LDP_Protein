@@ -4,13 +4,13 @@ subtitle: "*unpublished*"
 author: "Derek Michael Wright <derek.wright@usask.ca>"
 date: "10-11-2023"
 output:
-  github_document: default
   rmdformats::readthedown:
     self_contained: no
     lightbox: true
     gallery: true
     highlight: tango
     css: custom.css
+  github_document: default
   pdf_document:
     toc: yes
 ---
@@ -176,6 +176,12 @@ which is follow-up to:
 ## Additional Figure 6
 
 ![](Additional/Additional_Figure_06.png)
+
+---
+
+## Additional Figure 7
+
+![](Additional/Additional_Figure_07.png)
 
 ---
 
