@@ -274,6 +274,8 @@ myMs <- c(# Marker set #1
           # Marker set #2
           "Lcu.2RBY.Chr1p437385632", "Lcu.2RBY.Chr4p432694216", "Lcu.2RBY.Chr6p411536500") 
 myCs <- c(rep("red",3), rep("blue",3))
+#
+myG <- read.csv("Data/myG_LDP.csv", header = T)
 ```
 
 ---
@@ -367,7 +369,7 @@ mp <- ggplot(xx, aes(x = `Wet Chemistry`, y = NIRS)) +
   theme_AGL +
   theme(legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(size = 3))) +
-  labs(title = "Concentration (g / 100g seed)",
+  labs(title = "Concentration (g / 100g dry seed)",
        y = "Near-infrared Spectroscopy")
 ggsave("Supplemental_Figure_01.png", mp, width = 10, height = 8, dpi = 600)
 ```
@@ -400,8 +402,7 @@ mp <- ggplot(xx, aes(x = Value, fill = Family)) +
   theme(legend.position = "bottom",
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   guides(fill = guide_legend(nrow = 1)) +
-  labs(title = "Lentil Diversity Panel", 
-       y = NULL, x = "g / 100g seed")
+  labs(title = "Lentil Diversity Panel", x = "g / 100g dry seed")
 ggsave("Supplemental_Figure_02.png", mp, width = 30, height = 7, dpi = 600)
 ```
 
@@ -422,7 +423,7 @@ mp1 <- ggplot(xx, aes(x = AminoAcid, y = Value, fill = Expt)) +
   theme_AGL +
   theme(legend.position = "none", 
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(title = "A) Amino Acids", y = "g / 100g seed", x = NULL)
+  labs(title = "A) Amino Acids", y = "g / 100g dry seed", x = NULL)
 # Prep data
 myFams1 <- c("Family.Glutamate", "Family.Aspartate", "Family.Pyruvate", 
              "Family.Serine", "Family.Histidine", "Family.Aromatic")
@@ -441,7 +442,7 @@ mp2 <- ggplot(xx, aes(x = Value, fill = Expt)) +
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   guides(fill = guide_legend(ncol = 2, override.aes = list(lwd = 0))) +
   labs(title = "B) Amino Acid Families", 
-       y = "Count", x = "g / 100g seed")
+       y = "Count", x = "g / 100g dry seed")
 mpl <- get_legend(mp2)
 mp2 <- mp2 + theme(legend.position = "none")
 # Prep data
@@ -460,9 +461,14 @@ mp3 <- ggplot(xx, aes(x = Name, y = Value, color = ExptShort)) +
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank()) +
   labs(title = "C) Total Protein", x = "Entry",
-       y = "Protein (g / 100g seed)")
+       y = "Protein (g / 100g dry seed)")
 mp <- ggarrange(mp1, ggarrange(mp2, ggarrange(mp3, mpl, ncol = 1, heights = c(4,1)), ncol = 2), nrow = 2) 
 ggsave("Figure_01.png", mp, width = 10, height = 8, dpi = 600, bg = "white")
+```
+
+```{r}
+d2 %>% group_by(AminoAcid) %>% 
+  summarise(Mean = mean(Value), CV = goeveg::cv(Value), Min = min(Value),  Max = max(Value))
 ```
 
 ---
@@ -471,17 +477,26 @@ ggsave("Figure_01.png", mp, width = 10, height = 8, dpi = 600, bg = "white")
 
 ![](Figure_02.png)
 
+```{r eval = F, echo = F}
+cor(xx$Value[xx$ExptShort=="Su16"], xx$SeedMass1000.2017[xx$ExptShort=="Su16"])^2
+cor(xx$Value[xx$ExptShort=="Su16"], xx$SeedMass1000.2016[xx$ExptShort=="Su16"])^2
+cor(xx$Value[xx$ExptShort=="Su17"], xx$SeedMass1000.2017[xx$ExptShort=="Su17"])^2
+cor(xx$Value[xx$ExptShort=="Ro16"], xx$SeedMass1000.2017[xx$ExptShort=="Ro16"])^2
+cor(xx$Value[xx$ExptShort=="Ro16"], xx$SeedMass1000.2016[xx$ExptShort=="Ro16"])^2
+cor(xx$Value[xx$ExptShort=="Ro17"], xx$SeedMass1000.2017[xx$ExptShort=="Ro17"])^2
+```
+
 ```{r}
 # Prep data
 myCots <- c("Red", "Yellow", "Red/Yellow", "Green")
 xx <- d2 %>% filter(AminoAcid == "Protein") %>%
   left_join(myLDP, by = c("Entry","Name")) %>%
-  mutate(Origin = ifelse(Origin == "Canada", Origin, "Other"),
+  mutate(Origin = ifelse(Origin %in% c("Canada","USA"), "Local", "Other"),
          CotyledonColor = factor(CotyledonColor, levels = myCots)) %>%
-  arrange(desc(Origin))
+  arrange(desc(Origin)) %>% 
+  filter(ExptShort == "Su16")
 # Plot
-mp1 <- ggplot(xx %>% filter(ExptShort == "Su16"), 
-              aes(x = Region, y = Value, color = Origin, pch = CotyledonColor)) +
+mp1 <- ggplot(xx, aes(x = Region, y = Value, color = Origin, pch = CotyledonColor)) +
   geom_quasirandom(fill = "steelblue", alpha = 0.7) +
   facet_grid(. ~ Expt) +
   scale_color_manual(values = c("black", "steelblue"), guide = F) +
@@ -489,9 +504,8 @@ mp1 <- ggplot(xx %>% filter(ExptShort == "Su16"),
   theme_AGL +
   guides(shape = guide_legend(override.aes = list(size = 3))) +
   labs(title = "A) Protein x Region", 
-       x = "Region", y = "Protein (g / 100g seed)")
+       x = "Origin", y = "Protein (g / 100g dry seed)")
 # Plot
-xx <- xx %>% filter(ExptShort == "Su16")
 mp2 <- ggplot(xx, aes(x = SeedMass1000.2017, y = Value)) +
   geom_point(aes(shape = CotyledonColor, color = Origin), fill = "steelblue", alpha = 0.7) +
   stat_smooth(geom = "line", method = "lm", se = F, 
@@ -503,7 +517,7 @@ mp2 <- ggplot(xx, aes(x = SeedMass1000.2017, y = Value)) +
   theme_AGL + 
   guides(shape = guide_legend(override.aes = list(size = 3))) +
   labs(title = "B) Protein x Seed Size", 
-       x = "Mass of 1000 seeds (g)", y = "Protein (g / 100g seed)")
+       x = "Mass of 1000 seeds (g)", y = "Protein (g / 100g dry seed)")
 # Prep data
 x1 <- d2 %>% filter(AminoAcid == "Protein") %>%
   select(Entry, Expt, ExptShort, Protein=Value)
@@ -513,7 +527,7 @@ x2 <- myLDP %>% select(Entry, Name, DTF_Ro16, DTF_Ro17, DTF_Su16, DTF_Su17) %>%
 xx <- left_join(x1, x2, by = c("Entry", "ExptShort")) %>%
   mutate(ExptShort = factor(ExptShort, levels = myEs2)) %>%
   left_join(myLDP, by = c("Entry","Name")) %>%
-  mutate(Origin = ifelse(Origin == "Canada", Origin, "Other")) %>%
+  mutate(Origin = ifelse(Origin %in% c("Canada","USA"), "Local", "Other")) %>%
   arrange(desc(Origin))
 # Plot
 mp3 <- ggplot(xx, aes(x = DTF, y = Protein)) +
@@ -528,7 +542,7 @@ mp3 <- ggplot(xx, aes(x = DTF, y = Protein)) +
          fill = guide_legend(nrow = 2, override.aes = list(size = 3, alpha = 0.9))) +
   theme_AGL + 
   labs(title = "C) Protein x DTF", 
-       x = "Days from sowing to flower (days)", y = "Protein (g / 100g seed)")
+       x = "Days from sowing to flower (days)", y = "Protein (g / 100g dry seed)")
 # Prep data
 x1 <- d2 %>% filter(AminoAcid == "Protein") %>%
   select(Entry, Expt, ExptShort, Protein=Value)
@@ -537,7 +551,7 @@ x2 <- myLDP %>% select(Entry, Name, REP_Ro16, REP_Ro17, REP_Su16, REP_Su17) %>%
   mutate(ExptShort = gsub("REP_", "", ExptShort))
 xx <- left_join(x1, x2, by = c("Entry", "ExptShort")) %>%
   left_join(myLDP, by = c("Entry","Name")) %>%
-  mutate(Origin = ifelse(Origin == "Canada", Origin, "Other")) %>%
+  mutate(Origin = ifelse(Origin %in% c("Canada","USA"), "Local", "Other")) %>%
   arrange(desc(Origin))
 # Plot
 mp4 <- ggplot(xx, aes(x = REP, y = Protein)) +
@@ -552,7 +566,7 @@ mp4 <- ggplot(xx, aes(x = REP, y = Protein)) +
          fill = guide_legend(nrow = 2, override.aes = list(size = 3, alpha = 0.9))) +
   theme_AGL + 
   labs(title = "D) Protein x REP", 
-       x = "Reproductive period (days)", y = "Protein (g / 100g seed)")
+       x = "Reproductive period (days)", y = "Protein (g / 100g dry seed)")
 #
 mp1 <- ggarrange(mp1, mp2, ncol = 2, common.legend = T, legend = "bottom")
 mp2 <- ggarrange(mp3, mp4, ncol = 2, common.legend = T, legend = "bottom")
@@ -590,9 +604,9 @@ gg_Selection <- function(myTrait = "DTF_Ro16", myAmino = "Protein",
     mutate(Selection = NA)
   #
   for(i in myEs2) {
-    myYmin <- quantile(xx %>% filter(ExptShort == i, Origin == "Canada") %>% pull(Value), 0.75)
+    myYmin <- quantile(xx %>% filter(ExptShort == i, Origin %in% c("Canada", "USA")) %>% pull(Value), 0.75)
     myYmax <- max(xx %>% filter(ExptShort == i) %>% pull(Value))
-    myXmin <- min(xx %>% filter(ExptShort == i, Origin == "Canada") %>% pull(DTF))
+    myXmin <- min(xx %>% filter(ExptShort == i, Origin %in% c("Canada", "USA")) %>% pull(DTF))
     myXmax <- max(xx %>% filter(ExptShort == i) %>% pull(DTF))
     xx <- xx %>% 
       mutate(Selection = ifelse((ExptShort == i & Value > myYmin & DTF > myXmin), "Yes", Selection))
@@ -602,18 +616,18 @@ gg_Selection <- function(myTrait = "DTF_Ro16", myAmino = "Protein",
     mutate(Selection = "Yes") %>% select(Name, Selection)
   xx <- xx %>% filter(ExptShort == myExpt) %>% select(-Selection) %>%
     left_join(ss, by = "Name") %>%
-    mutate(Origin2 = ifelse(Origin == "Canada", Origin, "Other"),
+    mutate(Origin2 = ifelse(Origin %in% c("Canada", "USA"), "Local", "Other"),
            Selection = ifelse(is.na(Selection), "No", Selection),
-           Selection = ifelse(Origin2 == "Canada", "Canadian", Selection)) %>%
+           Selection = ifelse(Origin2 == "Local", "Local", Selection)) %>%
     arrange(desc(Origin2))
   myNum <- sum(xx$Selection == "Yes")
   xx <- xx %>% 
     mutate(Selection = ifelse(Selection == "Yes", paste0("Yes (", myNum, ")"), Selection),
-           Selection = factor(Selection, levels = c("No", paste0("Yes (", myNum, ")"), "Canadian")))
+           Selection = factor(Selection, levels = c("No", paste0("Yes (", myNum, ")"), "Local")))
   #
-  myYmin <- quantile(xx %>% filter(Origin2 == "Canada") %>% pull(Value), 0.75)
+  myYmin <- quantile(xx %>% filter(Origin2 == "Local") %>% pull(Value), 0.75)
   myYmax <- max(xx %>% pull(Value))
-  myXmin <- min(xx %>% filter(Origin2 == "Canada") %>% pull(DTF))
+  myXmin <- min(xx %>% filter(Origin2 == "Local") %>% pull(DTF))
   myXmax <- max(xx %>% pull(DTF))
   # Plot
   ggplot(xx) +
@@ -632,7 +646,7 @@ gg_Selection <- function(myTrait = "DTF_Ro16", myAmino = "Protein",
     theme_AGL + 
     labs(subtitle = myTitle, 
          x = "Days from sowing to flower (days)",
-         y = paste(myAmino, "(g / 100g seed)"))
+         y = paste(myAmino, "(g / 100g dry seed)"))
 }
 mp1 <- gg_Selection(myTrait = "DTF_Su16", myExpt = "Su16", myColor = "steelblue",
                     myTitle ="A) Sutherland, Canada 2016")
@@ -685,24 +699,30 @@ myTs <- c(paste0(myPs, "_Su16"), paste0(myPs, "_Su17"),
           paste0(myPs, "_Ro16"), paste0(myPs, "_Ro17"))
 # Plot
 mp1 <- gg_GWAS_Summary(folder = "GWAS_Results/", 
-                      traits = myTs,
-                      models = c("MLM", "MLMM", "FarmCPU", "BLINK"),
-                      colors = c("darkgreen", "darkred", "darkorange3", "steelblue"),
-                      threshold = 6.7, sug.threshold = 5, 
-                      hlines = seq(19.5,72.5, by = 19), lrows = 2,
-                      vlines = myMs, vline.colors = myCs,
-                      title = "A) No Covariate") +
-  labs(caption = NULL)
+                       traits = myTs,
+                       models = c("MLM", "MLMM", "FarmCPU", "BLINK"),
+                       colors = c("darkgreen", "darkred", "darkorange3", "steelblue"),
+                       threshold = 6.7, sug.threshold = 5, 
+                       hlines = seq(19.5,72.5, by = 19), lrows = 2,
+                       vlines = myMs, vline.colors = myCs,
+                       title = "A) No Covariate") +
+  labs(caption = NULL) + 
+  guides(fill = guide_legend(title="Model", order = 1, nrow = 2), 
+         shape = guide_legend(title="Model", order = 1, nrow = 2),
+         color = guide_legend(title="Marker", order = 2, byrow = T))
 #
 mp2 <- gg_GWAS_Summary(folder = "GWAS_Results_DTF_REP/", 
-                      traits = myTs,
-                      models = c("MLM", "MLMM", "FarmCPU", "BLINK"),
-                      colors = c("darkgreen", "darkred", "darkorange3", "steelblue"),
-                      threshold = 6.7, sug.threshold = 5, 
-                      hlines = seq(19.5,72.5, by = 19), lrows = 2,
-                      vlines = myMs, vline.colors = myCs,
-                      title = "B) Covariate = DTF + REP") +
-  labs(caption = NULL)
+                       traits = myTs,
+                       models = c("MLM", "MLMM", "FarmCPU", "BLINK"),
+                       colors = c("darkgreen", "darkred", "darkorange3", "steelblue"),
+                       threshold = 6.7, sug.threshold = 5, 
+                       hlines = seq(19.5,72.5, by = 19), lrows = 2,
+                       vlines = myMs, vline.colors = myCs,
+                       title = "B) Covariate = DTF + REP") +
+  labs(caption = NULL) + 
+  guides(fill = guide_legend(title="Model", order = 1, nrow = 2), 
+         shape = guide_legend(title="Model", order = 1, nrow = 2),
+         color = guide_legend(title="Marker", order = 2, byrow = T))
 mp <- ggarrange(mp1, mp2, ncol = 1, common.legend = T, legend = "bottom", heights = c(1,1.1))
 ggsave("Figure_04.png", mp, width = 12, height = 20, bg = "white")
 # Save HTML
@@ -737,7 +757,7 @@ mp <- ggplot(xx, aes(x = Total.Protein, y = Value, color = Expt)) +
   theme(legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(size = 3))) +
   labs(title = "Lentil Diversity Panel", 
-       y = "Amino Acid (g / 100g seed)", x = "Protein (g / 100g seed)")
+       y = "Amino Acid (g / 100g dry seed)", x = "Protein (g / 100g dry seed)")
 ggsave("Supplemental_Figure_04.png", mp, width = 12, height = 8, dpi = 600)
 ```
 
@@ -751,8 +771,6 @@ Sutherland, Canada 2016
 
 ```{r}
 # Prep data
-myG <- read.csv("Data/myG_LDP.csv", header = T)
-#
 myY_Su17 <- read.csv("Data/myY_NIRS_Su17.csv")
 myY_Su16 <- read.csv("Data/myY_NIRS_Su16.csv")
 myY_Ro16 <- read.csv("Data/myY_NIRS_Ro16.csv")
@@ -784,7 +802,7 @@ ggMultiMarkers <- function (myG, myY, myTrait, myMarkers, points = T, myColor = 
       arrange(Value) 
     xx <- xx %>% mutate(Alleles = factor(Alleles, levels = x2$Alleles) ) %>%
       left_join(select(myLDP, Name, Origin), by = "Name") %>%
-      mutate(Origin = ifelse(Origin == "Canada", Origin, "Other"))
+      mutate(Origin = ifelse(Origin %in% c("Canada","USA"), "Local", "Other"))
     #
     mp <- ggplot(xx, aes(x = Alleles, y = get(myTrait))) + 
       geom_violin(fill = "grey90", color = NA) + 
@@ -805,11 +823,11 @@ ggMultiMarkers <- function (myG, myY, myTrait, myMarkers, points = T, myColor = 
 }
 # Plot
 mp1 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[1], myColor = "steelblue",
-                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[2], myColor = "steelblue")
 mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[3], myColor = "steelblue")
 mp4 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[4], myColor = "steelblue",
-                      myYlab = "Protein (g / 100g seed)")
+                      myYlab = "Protein (g / 100g dry seed)")
 mp5 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[5], myColor = "steelblue")
 mp6 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", myMarkers = myMs[6], myColor = "steelblue")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
@@ -817,10 +835,10 @@ mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2,
 #
 mp2 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "steelblue",
-                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g dry seed)")
 mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "steelblue",
-                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
@@ -834,11 +852,11 @@ Sutherland, Canada 2017
 ```{r}
 #
 mp1 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[1], myColor = "darkblue", 
-                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[2], myColor = "darkblue")
 mp3 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[3], myColor = "darkblue")
 mp4 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[4], myColor = "darkblue", 
-                      myYlab = "Protein (g / 100g seed)")
+                      myYlab = "Protein (g / 100g dry seed)")
 mp5 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[5], myColor = "darkblue")
 mp6 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", myMarkers = myMs[6], myColor = "darkblue")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
@@ -846,10 +864,10 @@ mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2,
 #
 mp2 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "darkblue",
-                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g dry seed)")
 mp3 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "darkblue",
-                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
@@ -863,11 +881,11 @@ Rosthern, Canada 2016
 ```{r}
 #
 mp1 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[1], myColor = "darkorange", 
-                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[2], myColor = "darkorange")
 mp3 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[3], myColor = "darkorange")
 mp4 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[4], myColor = "darkorange", 
-                      myYlab = "Protein (g / 100g seed)")
+                      myYlab = "Protein (g / 100g dry seed)")
 mp5 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[5], myColor = "darkorange")
 mp6 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", myMarkers = myMs[6], myColor = "darkorange")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
@@ -875,10 +893,10 @@ mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2,
 #
 mp2 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "darkorange",
-                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g dry seed)")
 mp3 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "darkorange",
-                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
@@ -892,11 +910,11 @@ Rosthern, Canada 2017
 ```{r}
 #
 mp1 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[1], myColor = "darkred", 
-                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "A) Individual Markers", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[2], myColor = "darkred")
 mp3 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[3], myColor = "darkred")
 mp4 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[4], myColor = "darkred", 
-                      myYlab = "Protein (g / 100g seed)")
+                      myYlab = "Protein (g / 100g dry seed)")
 mp5 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[5], myColor = "darkred")
 mp6 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", myMarkers = myMs[6], myColor = "darkred")
 mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2, 
@@ -904,10 +922,10 @@ mp1 <- ggarrange(mp1, mp2, mp3, mp4, mp5, mp6, ncol = 3, nrow = 2,
 #
 mp2 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", 
                       myMarkers = myMs[c(1:3)], myWidth = 0.2, myColor = "darkred",
-                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "B) Triplet Marker Set 1", myYlab = "Protein (g / 100g dry seed)")
 mp3 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17", 
                       myMarkers = myMs[c(4:6)], myWidth = 0.2, myColor = "darkred",
-                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g seed)")
+                      myTitle = "C) Triplet Marker Set 2", myYlab = "Protein (g / 100g dry seed)")
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
@@ -928,11 +946,10 @@ ggsave("Figure_05d.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
 
 ```{r}
 # Prep data
-xG <- read.csv("Data/myG_LDP.csv", header = T)
 xM <- read.csv("Data/MAS_Markers.csv")
 # Create a plotting function
 ggMASMarkers <- function(myExpt, myColor) {
-  xx <- xG %>% filter(rs %in% xM$SNP) %>%
+  xx <- myG %>% filter(rs %in% xM$SNP) %>%
     mutate(rs = factor(rs, levels = xM$SNP))
   #
   for(i in 12:ncol(xx)) { xx[,i] <- ifelse(!grepl("G|C|A|T", xx[,i]), NA, xx[,i]) }
@@ -953,7 +970,7 @@ ggMASMarkers <- function(myExpt, myColor) {
     mutate(Value = ifelse(is.na(Allele), NA, Value)) %>%
     left_join(select(myLDP, Name, Origin), by = "Name") %>%
     filter(!is.na(Allele))
-  xc <- xx %>% filter(Origin == "Canada")
+  xc <- xx %>% filter(Origin %in% c("Canada","USA"))
   #
   ggplot(xx, aes(x = Allele, y = Value)) + 
     geom_violin(fill = myColor, color = NA, alpha = 0.7) + 
@@ -963,7 +980,7 @@ ggMASMarkers <- function(myExpt, myColor) {
     theme_AGL +
     theme(legend.position = "bottom",
           axis.text.x = element_text(angle = 45, hjust = 1)) + 
-    labs(title = myExpt, x = NULL, y = "Protein (g / 100g seed)")
+    labs(title = myExpt, x = "Allele", y = "Protein (g / 100g dry seed)")
 }
 # Plot
 mp <- ggMASMarkers(myExpt = "Su16", myColor = "steelblue")
@@ -1001,7 +1018,7 @@ mp <- ggplot(xx, aes(x = ExptShort, y = Value, fill = Expt)) +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Amino Acid Concentration In A Lentil Diversity Panel",
-       y = "g / 100g seed", x = "")
+       y = "g / 100g dry seed", x = "")
 ggsave("Additional/Additional_Figure_01.png", mp, width = 7, height = 4, dpi = 600)
 ```
 
@@ -1024,7 +1041,7 @@ mp <- ggplot(xx, aes(x = Expt, y = Value, fill = Expt)) +
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank()) +
   labs(title = "Amino Acid Concentration In A Lentil Diversity Panel", 
-       y = "g / 100g seed", x = NULL)
+       y = "g / 100g dry seed", x = NULL)
 ggsave("Additional/Additional_Figure_02.png", mp, width = 12, height = 6, dpi = 600)
 ```
 
@@ -1051,7 +1068,7 @@ mp1 <- ggplot(xx %>% filter(ExptShort == "Su16"),
         legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(size = 3))) +
   labs(title = "A) Protein Concentration in Sutherland, Canada 2016", 
-       x = NULL, y = "g / 100g seed")
+       x = NULL, y = "g / 100g dry seed")
 mp2 <- ggplot(xx %>% filter(ExptShort == "Su16"), 
               aes(x = CotyledonColor, y = Value, color = CotyledonColor)) +
   geom_quasirandom(alpha = 0.7, pch = 16) +
@@ -1060,7 +1077,7 @@ mp2 <- ggplot(xx %>% filter(ExptShort == "Su16"),
   theme_AGL +
   theme(legend.position = "none") +
   labs(title = "B) Protein Concentration in Sutherland, Canada 2016", 
-       x = NULL, y = "g / 100g seed")
+       x = NULL, y = "g / 100g dry seed")
 mp <- ggarrange(mp1, mp2, ncol = 1, nrow = 2, heights = c(1.4,1))
 ggsave("Additional/Additional_Figure_03.png", mp, width = 10, height = 8, dpi = 600)
 ```
@@ -1086,7 +1103,7 @@ mp <- ggplot(xx, aes(x = Size, y = Protein)) +
   theme_AGL +
   theme(legend.position = "none") +
   labs(title = "Protein x Seed Size", 
-       x = "Seed Size", y = "Protein (g / 100g seed)")
+       x = "Seed Size", y = "Protein (g / 100g dry seed)")
 ggsave("Additional/Additional_Figure_04.png", mp, width = 6, height = 4, dpi = 600)
 ```
 
@@ -1116,7 +1133,7 @@ mp <- ggplot(xx, aes(x = Year, y = Mean, color = Grade)) +
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Saskatchewan Lentil Protein Concentration", 
        subtitle = "Data: Dr. Ning Wang (Canadian Grain Commision)", 
-       y = "g / 100g seed", x = NULL)
+       y = "g / 100g dry seed", x = NULL)
 ggsave("Additional/Additional_Figure_05.png", mp, width = 8, height = 4, dpi = 600)
 ```
 
@@ -1145,6 +1162,35 @@ mp <- ggplot(xx, aes(x = `Amino Acid`, y = Mean, fill = Crop)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Amino Acid Concentration", x = NULL)
 ggsave("Additional/Additional_Figure_06.png", mp, width = 8, height = 4, dpi = 600)
+```
+
+---
+
+## Additional Figure 7 - Johnson et al. QTLs
+
+![](Additional/Additional_Figure_07.png)
+
+```{r}
+# Prep data
+myM2 <- c("Lcu.2RBY.Chr3p423884278","Lcu.2RBY.Chr3p113114771",
+          "Lcu.2RBY.Chr5p155854268", "Lcu.2RBY.Chr7p496404335")
+# Plot
+mp1 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
+               myMarkers = myM2[1], myColor = "steelblue", 
+               myYlab = "Protein (g / 100g dry seed)")
+mp2 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
+               myMarkers = myM2[2], myColor = "steelblue", 
+               myYlab = "Protein (g / 100g dry seed)")
+mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
+               myMarkers = myM2[3], myColor = "steelblue", 
+               myYlab = "Protein (g / 100g dry seed)")
+mp4 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
+               myMarkers = myM2[4], myColor = "steelblue", 
+               myYlab = "Protein (g / 100g dry seed)")
+mp <- ggarrange(mp1, mp2, mp3, mp4, ncol = 2, nrow = 2, 
+                common.legend = T, legend = "bottom")
+ggsave("Additional/Additional_Figure_07.png", mp, 
+       width = 6, height = 6, dpi = 600, bg = "white")
 ```
 
 ---
