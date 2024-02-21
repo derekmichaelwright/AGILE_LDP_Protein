@@ -71,37 +71,37 @@ which is follow-up to:
 
 ## Figure 1
 
-![](Figure_01.png)
+![](Figure_01.jpg)
 
 ------------------------------------------------------------------------
 
-## Figure 2.png
+## Figure 2
 
-![](Figure_02.png)
-
-------------------------------------------------------------------------
-
-## Figure 3.png
-
-![](Figure_03.png)
+![](Figure_02.jpg)
 
 ------------------------------------------------------------------------
 
-## Figure 4.png
+## Figure 3
 
-![](Figure_04.png)
+![](Figure_03.jpg)
 
 ------------------------------------------------------------------------
 
-## Figure 5.png
+## Figure 4
 
-![](Figure_05a.png)
+![](Figure_04.jpg)
 
-![](Figure_05b.png)
+------------------------------------------------------------------------
 
-![](Figure_05c.png)
+## Figure 5
 
-![](Figure_05d.png)
+![](Figure_05a.jpg)
+
+![](Figure_05b.jpg)
+
+![](Figure_05c.jpg)
+
+![](Figure_05d.jpg)
 
 ------------------------------------------------------------------------
 
@@ -109,37 +109,37 @@ which is follow-up to:
 
 ## Supplemental Figure 1
 
-![](Supplemental_Figure_01.png)
+![](Supplemental_Figure_01.jpg)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 2
 
-![](Supplemental_Figure_02.png)
+![](Supplemental_Figure_02.jpg)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 3
 
-![](Supplemental_Figure_03.png)
+![](Supplemental_Figure_03.jpg)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 4
 
-![](Supplemental_Figure_04.png)
+![](Supplemental_Figure_04.jpg)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 5
 
-![](Supplemental_Figure_05a.png)
+![](Supplemental_Figure_05a.jpg)
 
-![](Supplemental_Figure_05b.png)
+![](Supplemental_Figure_05b.jpg)
 
-![](Supplemental_Figure_05c.png)
+![](Supplemental_Figure_05c.jpg)
 
-![](Supplemental_Figure_05d.png)
+![](Supplemental_Figure_05d.jpg)
 
 ------------------------------------------------------------------------
 
@@ -147,43 +147,43 @@ which is follow-up to:
 
 ## Additional Figure 1
 
-![](Additional/Additional_Figure_01.png)
+![](Additional/Additional_Figure_01.jpg)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 2
 
-![](Additional/Additional_Figure_02.png)
+![](Additional/Additional_Figure_02.jpg)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 3
 
-![](Additional/Additional_Figure_03.png)
+![](Additional/Additional_Figure_03.jpg)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 4
 
-![](Additional/Additional_Figure_04.png)
+![](Additional/Additional_Figure_04.jpg)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 5
 
-![](Additional/Additional_Figure_05.png)
+![](Additional/Additional_Figure_05.jpg)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 6
 
-![](Additional/Additional_Figure_06.png)
+![](Additional/Additional_Figure_06.jpg)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 7
 
-![](Additional/Additional_Figure_07.png)
+![](Additional/Additional_Figure_07.jpg)
 
 ------------------------------------------------------------------------
 

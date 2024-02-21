@@ -352,7 +352,7 @@ for(i in myTs) {
 
 # Supplemental Figure 1 - Wet Chem vs NIRS
 
-![](Supplemental_Figure_01.png)
+![](Supplemental_Figure_01.jpg)
 
 ```{r}
 # Prep data
@@ -371,14 +371,14 @@ mp <- ggplot(xx, aes(x = `Wet Chemistry`, y = NIRS)) +
   guides(color = guide_legend(override.aes = list(size = 3))) +
   labs(title = "Concentration (g / 100g dry seed)",
        y = "Near-infrared Spectroscopy")
-ggsave("Supplemental_Figure_01.png", mp, width = 10, height = 8, dpi = 600)
+ggsave("Supplemental_Figure_01.jpg", mp, width = 10, height = 8, dpi = 600)
 ```
 
 ---
 
 # Supplemental Figure 2 - Total Protein & Amino Acids
 
-![](Supplemental_Figure_02.png)
+![](Supplemental_Figure_02.jpg)
 
 ```{r}
 # Prep data
@@ -403,14 +403,14 @@ mp <- ggplot(xx, aes(x = Value, fill = Family)) +
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   guides(fill = guide_legend(nrow = 1)) +
   labs(title = "Lentil Diversity Panel", x = "g / 100g dry seed")
-ggsave("Supplemental_Figure_02.png", mp, width = 30, height = 7, dpi = 600)
+ggsave("Supplemental_Figure_02.jpg", mp, width = 30, height = 7, dpi = 600)
 ```
 
 ---
 
 # Figure 1 - Total Protein & Amino Acids
 
-![](Figure_01.png)
+![](Figure_01.jpg)
 
 ```{r}
 # Prep data
@@ -463,7 +463,7 @@ mp3 <- ggplot(xx, aes(x = Name, y = Value, color = ExptShort)) +
   labs(title = "C) Total Protein", x = "Entry",
        y = "Protein (g / 100g dry seed)")
 mp <- ggarrange(mp1, ggarrange(mp2, ggarrange(mp3, mpl, ncol = 1, heights = c(4,1)), ncol = 2), nrow = 2) 
-ggsave("Figure_01.png", mp, width = 10, height = 8, dpi = 600, bg = "white")
+ggsave("Figure_01.jpg", mp, width = 10, height = 8, dpi = 600, bg = "white")
 ```
 
 ```{r}
@@ -475,7 +475,7 @@ d2 %>% group_by(AminoAcid) %>%
 
 # Figure 2 - Protein x Traits
 
-![](Figure_02.png)
+![](Figure_02.jpg)
 
 ```{r eval = F, echo = F}
 cor(xx$Value[xx$ExptShort=="Su16"], xx$SeedMass1000.2017[xx$ExptShort=="Su16"])^2
@@ -571,16 +571,16 @@ mp4 <- ggplot(xx, aes(x = REP, y = Protein)) +
 mp1 <- ggarrange(mp1, mp2, ncol = 2, common.legend = T, legend = "bottom")
 mp2 <- ggarrange(mp3, mp4, ncol = 2, common.legend = T, legend = "bottom")
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1,1.1))
-ggsave("Figure_02.png", mp, width = 8, height = 8, dpi = 600, bg = "white")
+ggsave("Figure_02.jpg", mp, width = 8, height = 8, dpi = 600, bg = "white")
 ```
 
 ---
 
 # Figure 3 & Supplemental Figure 3 - Selections
 
-![](Figure_03.png)
+![](Figure_03.jpg)
 
-![](Supplemental_Figure_03.png)
+![](Supplemental_Figure_03.jpg)
 
 > - `r shiny::icon("chart-line")` [Figure_03_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Figure_03_Su16.html)
 > - `r shiny::icon("chart-line")` [Figure_03_Su17.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Figure_03_Su17.html)
@@ -657,7 +657,7 @@ mp3 <- gg_Selection(myTrait = "DTF_Ro16", myExpt = "Ro16", myColor = "darkorange
 mp4 <- gg_Selection(myTrait = "DTF_Ro17", myExpt = "Ro17", myColor = "darkred",
                     myTitle ="D) Rosthern, Canada 2017")
 mp <- ggarrange(mp1, mp2, mp3, mp4, ncol = 2, nrow = 2, common.legend = T, legend = "bottom")
-ggsave("Supplemental_Figure_03.png", mp, width = 6, height = 6, dpi = 600, bg = "white")
+ggsave("Supplemental_Figure_03.jpg", mp, width = 6, height = 6, dpi = 600, bg = "white")
 saveWidget(ggplotly(mp1), file="Additional/Supplemental_Figure_03_Su16.html")
 saveWidget(ggplotly(mp2), file="Additional/Supplemental_Figure_03_Su17.html")
 saveWidget(ggplotly(mp3), file="Additional/Supplemental_Figure_03_Ro16.html")
@@ -672,7 +672,7 @@ mp3 <- gg_Selection(myTrait = "DTF_Ro16", myExpt = "Ro16", myAmino = "Lysine", m
 mp4 <- gg_Selection(myTrait = "DTF_Ro17", myExpt = "Ro17", myAmino = "Lysine", myColor = "darkred",
                     myTitle ="D) Rosthern, Canada 2017")
 mp <- ggarrange(mp1, mp2, mp3, mp4, ncol = 2, nrow = 2, common.legend = T, legend = "bottom")
-ggsave("Figure_03.png", mp, width = 6, height = 6, dpi = 600, bg = "white")
+ggsave("Figure_03.jpg", mp, width = 6, height = 6, dpi = 600, bg = "white")
 saveWidget(ggplotly(mp1), file="Additional/Figure_03_Su16.html")
 saveWidget(ggplotly(mp2), file="Additional/Figure_03_Su17.html")
 saveWidget(ggplotly(mp3), file="Additional/Figure_03_Ro16.html")
@@ -686,7 +686,7 @@ saveWidget(ggplotly(mp4), file="Additional/Figure_03_Ro17.html")
 > - `r shiny::icon("chart-line")` [Figure_04_A.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Figure_04_A.html)
 > - `r shiny::icon("chart-line")` [Figure_04_B.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Figure_04_B.html)
 
-![](Figure_04.png)
+![](Figure_04.jpg)
 
 ```{r}
 # Prep data
@@ -724,7 +724,7 @@ mp2 <- gg_GWAS_Summary(folder = "GWAS_Results_DTF_REP/",
          shape = guide_legend(title="Model", order = 1, nrow = 2),
          color = guide_legend(title="Marker", order = 2, byrow = T))
 mp <- ggarrange(mp1, mp2, ncol = 1, common.legend = T, legend = "bottom", heights = c(1,1.1))
-ggsave("Figure_04.png", mp, width = 12, height = 20, bg = "white")
+ggsave("Figure_04.jpg", mp, width = 12, height = 20, bg = "white")
 # Save HTML
 mp1 <- ggplotly(mp1) %>% layout(showlegend = FALSE)
 saveWidget(as_widget(mp1), "Additional/Figure_04_A.html",
@@ -740,7 +740,7 @@ saveWidget(as_widget(mp2), "Additional/Figure_04_B.html",
 
 # Supplemental Figure 4 - Protein x Amino Acid
 
-![](Supplemental_Figure_04.png)
+![](Supplemental_Figure_04.jpg)
 
 ```{r}
 # Prep data
@@ -758,7 +758,7 @@ mp <- ggplot(xx, aes(x = Total.Protein, y = Value, color = Expt)) +
   guides(color = guide_legend(override.aes = list(size = 3))) +
   labs(title = "Lentil Diversity Panel", 
        y = "Amino Acid (g / 100g dry seed)", x = "Protein (g / 100g dry seed)")
-ggsave("Supplemental_Figure_04.png", mp, width = 12, height = 8, dpi = 600)
+ggsave("Supplemental_Figure_04.jpg", mp, width = 12, height = 8, dpi = 600)
 ```
 
 ---
@@ -767,7 +767,7 @@ ggsave("Supplemental_Figure_04.png", mp, width = 12, height = 8, dpi = 600)
 
 Sutherland, Canada 2016
 
-![](Figure_05a.png)
+![](Figure_05a.jpg)
 
 ```{r}
 # Prep data
@@ -842,12 +842,12 @@ mp3 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
-ggsave("Figure_05a.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
+ggsave("Figure_05a.jpg", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ```
 
 Sutherland, Canada 2017
 
-![](Figure_05b.png)
+![](Figure_05b.jpg)
 
 ```{r}
 #
@@ -871,12 +871,12 @@ mp3 <- ggMultiMarkers(myG, myY_Su17, myTrait = "Protein_Su17",
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
-ggsave("Figure_05b.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
+ggsave("Figure_05b.jpg", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ```
 
 Rosthern, Canada 2016
 
-![](Figure_05c.png)
+![](Figure_05c.jpg)
 
 ```{r}
 #
@@ -900,12 +900,12 @@ mp3 <- ggMultiMarkers(myG, myY_Ro16, myTrait = "Protein_Ro16",
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
-ggsave("Figure_05c.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
+ggsave("Figure_05c.jpg", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ```
 
 Rosthern, Canada 2017
 
-![](Figure_05d.png)
+![](Figure_05d.jpg)
 
 ```{r}
 #
@@ -929,20 +929,20 @@ mp3 <- ggMultiMarkers(myG, myY_Ro17, myTrait = "Protein_Ro17",
 mp2 <- ggarrange(mp2, mp3, ncol = 2, legend = "none")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, heights = c(1.3,1))
-ggsave("Figure_05d.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
+ggsave("Figure_05d.jpg", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ```
 
 ---
 
 # Supplemental Figure 5 - MAS Markers
 
-![](Supplemental_Figure_05a.png)
+![](Supplemental_Figure_05a.jpg)
 
-![](Supplemental_Figure_05b.png)
+![](Supplemental_Figure_05b.jpg)
 
-![](Supplemental_Figure_05c.png)
+![](Supplemental_Figure_05c.jpg)
 
-![](Supplemental_Figure_05d.png)
+![](Supplemental_Figure_05d.jpg)
 
 ```{r}
 # Prep data
@@ -984,13 +984,13 @@ ggMASMarkers <- function(myExpt, myColor) {
 }
 # Plot
 mp <- ggMASMarkers(myExpt = "Su16", myColor = "steelblue")
-ggsave("Supplemental_Figure_05a.png", mp, width = 14, height = 14, dpi = 600)
+ggsave("Supplemental_Figure_05a.jpg", mp, width = 14, height = 14, dpi = 600)
 mp <- ggMASMarkers(myExpt = "Su17", myColor = "darkblue")
-ggsave("Supplemental_Figure_05b.png", mp, width = 14, height = 14, dpi = 600)
+ggsave("Supplemental_Figure_05b.jpg", mp, width = 14, height = 14, dpi = 600)
 mp <- ggMASMarkers(myExpt = "Ro16", myColor = "darkorange")
-ggsave("Supplemental_Figure_05c.png", mp, width = 14, height = 14, dpi = 600)
+ggsave("Supplemental_Figure_05c.jpg", mp, width = 14, height = 14, dpi = 600)
 mp <- ggMASMarkers(myExpt = "Ro17", myColor = "darkred")
-ggsave("Supplemental_Figure_05d.png", mp, width = 14, height = 14, dpi = 600)
+ggsave("Supplemental_Figure_05d.jpg", mp, width = 14, height = 14, dpi = 600)
 ```
 
 ---
@@ -999,7 +999,7 @@ ggsave("Supplemental_Figure_05d.png", mp, width = 14, height = 14, dpi = 600)
 
 ## Additional Figure 1 - Amino Acid Family by Expt
 
-![](Additional/Additional_Figure_01.png)
+![](Additional/Additional_Figure_01.jpg)
 
 ```{r}
 # Prep data
@@ -1019,14 +1019,14 @@ mp <- ggplot(xx, aes(x = ExptShort, y = Value, fill = Expt)) +
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Amino Acid Concentration In A Lentil Diversity Panel",
        y = "g / 100g dry seed", x = "")
-ggsave("Additional/Additional_Figure_01.png", mp, width = 7, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_01.jpg", mp, width = 7, height = 4, dpi = 600)
 ```
 
 ---
 
 ## Additional Figure 2 - Proteins by Expt
 
-![](Additional/Additional_Figure_02.png)
+![](Additional/Additional_Figure_02.jpg)
 
 ```{r}
 # Prep data
@@ -1042,14 +1042,14 @@ mp <- ggplot(xx, aes(x = Expt, y = Value, fill = Expt)) +
         axis.ticks.x = element_blank()) +
   labs(title = "Amino Acid Concentration In A Lentil Diversity Panel", 
        y = "g / 100g dry seed", x = NULL)
-ggsave("Additional/Additional_Figure_02.png", mp, width = 12, height = 6, dpi = 600)
+ggsave("Additional/Additional_Figure_02.jpg", mp, width = 12, height = 6, dpi = 600)
 ```
 
 ---
 
 ## Additional Figure 3 - Cotyledon Color
 
-![](Additional/Additional_Figure_03.png)
+![](Additional/Additional_Figure_03.jpg)
 
 ```{r}
 # Prep data
@@ -1079,14 +1079,14 @@ mp2 <- ggplot(xx %>% filter(ExptShort == "Su16"),
   labs(title = "B) Protein Concentration in Sutherland, Canada 2016", 
        x = NULL, y = "g / 100g dry seed")
 mp <- ggarrange(mp1, mp2, ncol = 1, nrow = 2, heights = c(1.4,1))
-ggsave("Additional/Additional_Figure_03.png", mp, width = 10, height = 8, dpi = 600)
+ggsave("Additional/Additional_Figure_03.jpg", mp, width = 10, height = 8, dpi = 600)
 ```
 
 ---
 
 ## Additional Figure 4 - Size
 
-![](Additional/Additional_Figure_04.png)
+![](Additional/Additional_Figure_04.jpg)
 
 ```{r}
 # Prep data
@@ -1104,7 +1104,7 @@ mp <- ggplot(xx, aes(x = Size, y = Protein)) +
   theme(legend.position = "none") +
   labs(title = "Protein x Seed Size", 
        x = "Seed Size", y = "Protein (g / 100g dry seed)")
-ggsave("Additional/Additional_Figure_04.png", mp, width = 6, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_04.jpg", mp, width = 6, height = 4, dpi = 600)
 ```
 
 ---
@@ -1113,7 +1113,7 @@ ggsave("Additional/Additional_Figure_04.png", mp, width = 6, height = 4, dpi = 6
 
 > - `r shiny::icon("save")` [Additional/Pulses/lentils-quality-report.csv](Additional/Pulses/lentils-quality-report.csv)
 
-![](Additional/Additional_Figure_05.png)
+![](Additional/Additional_Figure_05.jpg)
 
 ```{r}
 # Prep data
@@ -1134,7 +1134,7 @@ mp <- ggplot(xx, aes(x = Year, y = Mean, color = Grade)) +
   labs(title = "Saskatchewan Lentil Protein Concentration", 
        subtitle = "Data: Dr. Ning Wang (Canadian Grain Commision)", 
        y = "g / 100g dry seed", x = NULL)
-ggsave("Additional/Additional_Figure_05.png", mp, width = 8, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_05.jpg", mp, width = 8, height = 4, dpi = 600)
 ```
 
 ---
@@ -1143,7 +1143,7 @@ ggsave("Additional/Additional_Figure_05.png", mp, width = 8, height = 4, dpi = 6
 
 > - `r shiny::icon("save")` [Additional/Pulses/pulses-quality.xlsx](Additional/Pulses/PulsesAminoAcids.xlsx)
 
-![](Additional/Additional_Figure_06.png)
+![](Additional/Additional_Figure_06.jpg)
 
 ```{r}
 # Prep data
@@ -1161,14 +1161,14 @@ mp <- ggplot(xx, aes(x = `Amino Acid`, y = Mean, fill = Crop)) +
   theme_AGL +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Amino Acid Concentration", x = NULL)
-ggsave("Additional/Additional_Figure_06.png", mp, width = 8, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_06.jpg", mp, width = 8, height = 4, dpi = 600)
 ```
 
 ---
 
 ## Additional Figure 7 - Johnson et al. QTLs
 
-![](Additional/Additional_Figure_07.png)
+![](Additional/Additional_Figure_07.jpg)
 
 ```{r}
 # Prep data
@@ -1191,7 +1191,7 @@ mp4 <- ggMultiMarkers(myG, myY_Su16, myTrait = "Protein_Su16",
 mp <- ggarrange(mp1, mp2, mp3, mp4, ncol = 2, nrow = 2, 
                 
                 common.legend = T, legend = "bottom")
-ggsave("Additional/Additional_Figure_07.png", mp, 
+ggsave("Additional/Additional_Figure_07.jpg", mp, 
        width = 6, height = 6, dpi = 600, bg = "white")
 ```
 
