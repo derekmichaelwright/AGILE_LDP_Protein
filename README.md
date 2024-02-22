@@ -51,6 +51,8 @@ which is follow-up to:
 
 <img src="Additional/img_Agile.png" style="width:75.0%" />
 
+<img src="Additional/img_EVOLVES.png" style="width:75.0%" />
+
 ## Collaborators
 
 - Department of Plant Sciences and Crop Development Centre, University
@@ -71,37 +73,37 @@ which is follow-up to:
 
 ## Figure 1
 
-![](Figure_01.jpg)
+![](Figure_01.png)
 
 ------------------------------------------------------------------------
 
 ## Figure 2
 
-![](Figure_02.jpg)
+![](Figure_02.png)
 
 ------------------------------------------------------------------------
 
 ## Figure 3
 
-![](Figure_03.jpg)
+![](Figure_03.png)
 
 ------------------------------------------------------------------------
 
 ## Figure 4
 
-![](Figure_04.jpg)
+![](Figure_04.png)
 
 ------------------------------------------------------------------------
 
 ## Figure 5
 
-![](Figure_05a.jpg)
+![](Figure_05a.png)
 
-![](Figure_05b.jpg)
+![](Figure_05b.png)
 
-![](Figure_05c.jpg)
+![](Figure_05c.png)
 
-![](Figure_05d.jpg)
+![](Figure_05d.png)
 
 ------------------------------------------------------------------------
 
@@ -109,37 +111,37 @@ which is follow-up to:
 
 ## Supplemental Figure 1
 
-![](Supplemental_Figure_01.jpg)
+![](Supplemental_Figure_01.png)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 2
 
-![](Supplemental_Figure_02.jpg)
+![](Supplemental_Figure_02.png)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 3
 
-![](Supplemental_Figure_03.jpg)
+![](Supplemental_Figure_03.png)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 4
 
-![](Supplemental_Figure_04.jpg)
+![](Supplemental_Figure_04.png)
 
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 5
 
-![](Supplemental_Figure_05a.jpg)
+![](Supplemental_Figure_05a.png)
 
-![](Supplemental_Figure_05b.jpg)
+![](Supplemental_Figure_05b.png)
 
-![](Supplemental_Figure_05c.jpg)
+![](Supplemental_Figure_05c.png)
 
-![](Supplemental_Figure_05d.jpg)
+![](Supplemental_Figure_05d.png)
 
 ------------------------------------------------------------------------
 
@@ -147,43 +149,43 @@ which is follow-up to:
 
 ## Additional Figure 1
 
-![](Additional/Additional_Figure_01.jpg)
+![](Additional/Additional_Figure_01.png)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 2
 
-![](Additional/Additional_Figure_02.jpg)
+![](Additional/Additional_Figure_02.png)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 3
 
-![](Additional/Additional_Figure_03.jpg)
+![](Additional/Additional_Figure_03.png)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 4
 
-![](Additional/Additional_Figure_04.jpg)
+![](Additional/Additional_Figure_04.png)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 5
 
-![](Additional/Additional_Figure_05.jpg)
+![](Additional/Additional_Figure_05.png)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 6
 
-![](Additional/Additional_Figure_06.jpg)
+![](Additional/Additional_Figure_06.png)
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 7
 
-![](Additional/Additional_Figure_07.jpg)
+![](Additional/Additional_Figure_07.png)
 
 ------------------------------------------------------------------------
 
