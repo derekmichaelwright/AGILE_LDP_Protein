@@ -2,7 +2,7 @@
 title: "Evaluating the breeding potential of cultivated lentils for protein and amino acid concentration and quality"
 subtitle: "*unpublished*"
 author: "Derek Michael Wright <derek.wright@usask.ca>"
-date: "10-11-2023"
+date: "10-08-2024"
 output:
   rmdformats::readthedown:
     self_contained: no
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, comment = NA, out.w
 
 ---
 
-[Derek Wright, Jiayi Hang, James D House & Kirstin E Bett (2020) **Lentil Protein**. *unpublished*](https://github.com/derekmichaelwright/AGILE_LDP_Protein) 
+> - [Derek Wright, Jiayi Hang, James D House & Kirstin E Bett (2020) **Evaluating the breeding potential of cultivated lentils for protein and amino acid concentration and quality**. *unpublished*](https://github.com/derekmichaelwright/AGILE_LDP_Protein) 
 
 which is follow-up to:
 
@@ -48,9 +48,9 @@ which is follow-up to:
 
 # AGILE
 
-![](Additional/img_Agile.png){width=75%}
+![https://knowpulse.usask.ca/study/AGILE-Application-of-Genomic-Innovation-in-the-Lentil-Economy](Additional/img_Agile.png){width=75%}
 
-![](Additional/img_EVOLVES.png){width=75%}
+![https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lentil-Variation-for-Ecosystem-Survival](Additional/img_EVOLVES.png){width=75%}
 
 \pagebreak
 
@@ -67,6 +67,12 @@ which is follow-up to:
 
 ---
 
+# Supplemental Table 2
+
+[Supplemental_table_02.csv](Supplemental_table_02.csv)
+
+---
+
 # Figures
 
 ## Figure 1
@@ -79,11 +85,15 @@ which is follow-up to:
 
 ![](Figure_02.png)
 
+*Figure 2: Protein concentration of whole lentil seed in a lentil diversity panel. (A) Protein concentration in Sutherland, Canada 2016 (Su16) based on region of origin. (B) Protein concentration in Su16 correlated with thousand seed mass in Su16. Protein concentration in Su16, Sutherland, Canada, 2017 (Su17), Rosthern, Canada, 2016, and Rosthern, Canada, 2017 correlated with (C) days from sowing to flower (DTF) and (D) reproductive period (REP).*
+
 ---
 
 ## Figure 3
 
 ![](Figure_03.png)
+
+*Figure 3: Lysine concentration of whole lentil seed in a diversity panel by location. Accessions with increased lysine concentration and appropriate days from sowing to flower (DTF) based on local adaptation across all four locations are highlighted with a black outline. Large black boxes represent range of days from sowing to flower for accessions originating from the Northern Great Plains of Canada and the USA and the top 25% for lysine concentration.*
 
 ---
 
@@ -91,11 +101,15 @@ which is follow-up to:
 
 ![](Figure_04.png)
 
+*Figure 4: Summary of genome-wide association results using MLM, FarmCPU, and Blink models for protein and amino acid concentration in whole lentil seeds from a diversity panel, across four site-years: Sutherland, Canada, 2016 (Su16); Sutherland, Canada, 2017 (Su17); Rosthern, Canada, 2016 (Ro16); and Rosthern, Canada 2017 (Ro17). (A) without the use of covariates, and (B) with days from sowing to flower (DTF) and reproductive period (REP) as covariates. Larger points represent a significant association (-log10(p) > 6.7) with a trait of interest under one of the GWAS models, while smaller points represent a suggestive association (-log10(p) > 5.3). Vertical lines represent specific base-pair locations to facilitate comparisons across trials.*
+
 ---
 
 ## Figure 5
 
 ![](Figure_05a.png)
+
+*Figure 5: Allelic effects of the six markers highlighted from the genome-wide association studies on total protein and amino acid concentration of whole lentil seed in a lentil diversity panel, grown in Sutherland, Canada, 2016. (A) Individual marker effects. (B and C) Two proposed triplet sets of markers for use in a breeding program to select for increased seed protein concentration. For each plot, only individuals homozygous for the alleles were included.*
 
 ![](Figure_05b.png)
 
@@ -111,11 +125,15 @@ which is follow-up to:
 
 ![](Supplemental_Figure_01.png)
 
+*Supplemental Figure 1: Correlations of protein and amino acid concentration of whole lentil seed derived from wet chemistry and near-infrared spectroscopy measurements in a lentil diversity panel. Data from Hang et al. 2022.*
+
 ---
 
 ## Supplemental Figure 2
 
 ![](Supplemental_Figure_02.png)
+
+*Supplemental Figure 2: Distribution of protein and amino acid concentration of whole lentil seed derived from near-infrared spectroscopy in a lentil diversity panel.*
 
 ---
 
@@ -123,17 +141,23 @@ which is follow-up to:
 
 ![](Supplemental_Figure_03.png)
 
+*Supplemental Figure 3: Protein concentration of whole lentil seed in a diversity panel by location. Accessions with increased protein concentration and appropriate days from sowing to flower (DTF) based on local adaptation across all four locations are highlighted with a black outline. Large black boxes represent range of days from sowing to flower for accessions originating from the Northern Great Plains of Canada and the USA and the top 25% for protein concentration.*
+
 ---
 
 ## Supplemental Figure 4
 
 ![](Supplemental_Figure_04.png)
 
+*Supplemental Figure 4: Correlations of protein and amino acid concentration of whole lentil seed from a diversity panel derived from wet chemistry and near-infrared spectroscopy (NIRS).*
+
 ---
 
 ## Supplemental Figure 5
 
 ![](Supplemental_Figure_05a.png)
+
+*Supplemental Figure 5: Markers identified for potential use by breeders to select for increased protein concentration. Black dots represent genotypes originating in Canada. Data from Sutherland, Canada 2016 (Su16).*
 
 ![](Supplemental_Figure_05b.png)
 
@@ -143,7 +167,37 @@ which is follow-up to:
 
 ---
 
+\pagebreak
+
 # Additional Figures
+
+## Amino Acid Selections
+
+> - [Additional/AA_Selections/](https://github.com/derekmichaelwright/AGILE_LDP_Protein/Additional/AA_Selections/)
+
+> - [Additional/AA_Selections/Figure_03_01_Protein_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_01_Protein_Su16.html)
+> - [Additional/AA_Selections/Figure_03_02_Glutamate_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_02_Glutamate_Su16.html)
+> - [Additional/AA_Selections/Figure_03_03_Aspartate_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_03_Aspartate_Su16.html)
+> - [Additional/AA_Selections/Figure_03_04_Arginine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_04_Arginine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_05_Leucine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_05_Leucine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_06_Lysine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_06_Lysine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_07_Phenylalanine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_07_Phenylalanine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_08_Serine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_08_Serine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_09_Valine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_09_Valine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_10_Isoleucine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_10_Isoleucine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_11_Proline_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_11_Proline_Su16.html)
+> - [Additional/AA_Selections/Figure_03_12_Alanine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_12_Alanine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_13_Glycine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_13_Glycine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_14_Threonine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_14_Threonine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_15_Histidine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_15_Histidine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_16_Tyrosine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_16_Tyrosine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_17_Methionine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_17_Methionine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_18_Cysteine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_18_Cysteine_Su16.html)
+> - [Additional/AA_Selections/Figure_03_19_Tryptophan_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_19_Tryptophan_Su16.html)
+
+![](Additional/AA_Selections/Figure_03_02_Glutamate.png){width=65%}
+
+---
 
 ## Additional Figure 1
 
