@@ -100,27 +100,11 @@ class="uri">https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lent
 
 ![](Figure_02.png)
 
-*Figure 2: Protein concentration of whole lentil seed in a lentil
-diversity panel. (A) Protein concentration in Sutherland, Canada 2016
-(Su16) based on region of origin. (B) Protein concentration in Su16
-correlated with thousand seed mass in Su16. Protein concentration in
-Su16, Sutherland, Canada, 2017 (Su17), Rosthern, Canada, 2016, and
-Rosthern, Canada, 2017 correlated with (C) days from sowing to flower
-(DTF) and (D) reproductive period (REP).*
-
 ------------------------------------------------------------------------
 
 ## Figure 3
 
 ![](Figure_03.png)
-
-*Figure 3: Lysine concentration of whole lentil seed in a diversity
-panel by location. Accessions with increased lysine concentration and
-appropriate days from sowing to flower (DTF) based on local adaptation
-across all four locations are highlighted with a black outline. Large
-black boxes represent range of days from sowing to flower for accessions
-originating from the Northern Great Plains of Canada and the USA and the
-top 25% for lysine concentration.*
 
 ------------------------------------------------------------------------
 
@@ -128,31 +112,11 @@ top 25% for lysine concentration.*
 
 ![](Figure_04.png)
 
-*Figure 4: Summary of genome-wide association results using MLM,
-FarmCPU, and Blink models for protein and amino acid concentration in
-whole lentil seeds from a diversity panel, across four site-years:
-Sutherland, Canada, 2016 (Su16); Sutherland, Canada, 2017 (Su17);
-Rosthern, Canada, 2016 (Ro16); and Rosthern, Canada 2017 (Ro17). (A)
-without the use of covariates, and (B) with days from sowing to flower
-(DTF) and reproductive period (REP) as covariates. Larger points
-represent a significant association (-log10(p) \> 6.7) with a trait of
-interest under one of the GWAS models, while smaller points represent a
-suggestive association (-log10(p) \> 5.3). Vertical lines represent
-specific base-pair locations to facilitate comparisons across trials.*
-
 ------------------------------------------------------------------------
 
 ## Figure 5
 
 ![](Figure_05a.png)
-
-*Figure 5: Allelic effects of the six markers highlighted from the
-genome-wide association studies on total protein and amino acid
-concentration of whole lentil seed in a lentil diversity panel, grown in
-Sutherland, Canada, 2016. (A) Individual marker effects. (B and C) Two
-proposed triplet sets of markers for use in a breeding program to select
-for increased seed protein concentration. For each plot, only
-individuals homozygous for the alleles were included.*
 
 ![](Figure_05b.png)
 
@@ -168,20 +132,11 @@ individuals homozygous for the alleles were included.*
 
 ![](Supplemental_Figure_01.png)
 
-*Supplemental Figure 1: Correlations of protein and amino acid
-concentration of whole lentil seed derived from wet chemistry and
-near-infrared spectroscopy measurements in a lentil diversity panel.
-Data from Hang et al. 2022.*
-
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 2
 
 ![](Supplemental_Figure_02.png)
-
-*Supplemental Figure 2: Distribution of protein and amino acid
-concentration of whole lentil seed derived from near-infrared
-spectroscopy in a lentil diversity panel.*
 
 ------------------------------------------------------------------------
 
@@ -189,34 +144,17 @@ spectroscopy in a lentil diversity panel.*
 
 ![](Supplemental_Figure_03.png)
 
-*Supplemental Figure 3: Protein concentration of whole lentil seed in a
-diversity panel by location. Accessions with increased protein
-concentration and appropriate days from sowing to flower (DTF) based on
-local adaptation across all four locations are highlighted with a black
-outline. Large black boxes represent range of days from sowing to flower
-for accessions originating from the Northern Great Plains of Canada and
-the USA and the top 25% for protein concentration.*
-
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 4
 
 ![](Supplemental_Figure_04.png)
 
-*Supplemental Figure 4: Correlations of protein and amino acid
-concentration of whole lentil seed from a diversity panel derived from
-wet chemistry and near-infrared spectroscopy (NIRS).*
-
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 5
 
 ![](Supplemental_Figure_05a.png)
-
-*Supplemental Figure 5: Markers identified for potential use by breeders
-to select for increased protein concentration. Black dots represent
-genotypes originating in Canada. Data from Sutherland, Canada 2016
-(Su16).*
 
 ![](Supplemental_Figure_05b.png)
 
@@ -296,6 +234,12 @@ style="width:65.0%" />
 ## Additional Figure 7
 
 ![](Additional/Additional_Figure_07.png)
+
+------------------------------------------------------------------------
+
+## Additional Figure 8
+
+![](Additional/Additional_Figure_08.png)
 
 ------------------------------------------------------------------------
 

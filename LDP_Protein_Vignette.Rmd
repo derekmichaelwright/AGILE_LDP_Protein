@@ -219,8 +219,8 @@ write.csv(myCV, "Data/myCV.csv", row.names = F)
 > - `r shiny::icon("save")` [Data/myY_NIRS_Su17.csv](Data/myY_NIRS_Su17.csv)
 
 ```{r eval = F}
-# devtools::install_github("jiabowang/GAPIT3")
-library(GAPIT3)
+# devtools::install_github("jiabowang/GAPIT")
+library(GAPIT)
 #
 myG <- read.csv("Data/myG_LDP.csv", header = F)
 myCV <- read.csv("Data/myCV.csv")
@@ -229,7 +229,7 @@ myY <- read.csv("Data/myY_NIRS.csv")
 myGAPIT <- GAPIT(
   Y = myY,
   G = myG,
-  PCA.total = 4,
+  PCA.total = 0,
   model = c("MLM","FarmCPU","Blink"),
   Phenotype.View = F
 )
@@ -239,7 +239,7 @@ myGAPIT <- GAPIT(
   Y = myY_Ro16,
   G = myG,
   CV = myCV[,c("Name","DTF_Ro16","REP_Ro16")],
-  PCA.total = 4,
+  PCA.total = 0,
   model = c("MLM","FarmCPU","Blink"),
   Phenotype.View = F
 )
@@ -249,7 +249,7 @@ myGAPIT <- GAPIT(
   Y = myY_Ro17,
   G = myG,
   CV = myCV[!is.na(myCV$REP_Ro17),c("Name","DTF_Ro17","REP_Ro17")],
-  PCA.total = 4,
+  PCA.total = 0,
   model = c("MLM","FarmCPU","Blink"),
   Phenotype.View = F
 )
@@ -259,7 +259,7 @@ myGAPIT <- GAPIT(
   Y = myY_Su16,
   G = myG,
   CV = myCV[,c("Name","DTF_Su16","REP_Su16")],
-  PCA.total = 4,
+  PCA.total = 0,
   model = c("MLM","FarmCPU","Blink"),
   Phenotype.View = F
 )
@@ -269,7 +269,7 @@ myGAPIT <- GAPIT(
   Y = myY_Su17,
   G = myG,
   CV = myCV[!is.na(myCV$REP_Su17),c("Name","DTF_Su17","REP_Su17")],
-  PCA.total = 4,
+  PCA.total = 0,
   model = c("MLM","FarmCPU","Blink"),
   Phenotype.View = F
 )
@@ -295,7 +295,7 @@ myCs <- c(rep("red",3), rep("blue",3))
 
 ## Supplemental Table 1 - Significant Results
 
-> - `r shiny::icon("save")` [Supplemental_table_01.csv](Supplemental_table_01.csv)
+> - `r shiny::icon("save")` [Supplemental_Table_01.csv](Supplemental_Table_01.csv)
 
 ```{r eval = F}
 # reorder GWAS results tables and compile significant results
@@ -310,11 +310,11 @@ x2 <- table_GWAS_Results("GWAS_Results_CV_DTF_REP/", myR2, threshold = 6.7, sug.
 x1 <- x1 %>% mutate(CV = "NONE") %>% arrange(P.value)
 x2 <- x2 %>% mutate(CV = "DTF+REP") %>% arrange(P.value)
 xx <- bind_rows(x1, x2)
-write.csv(xx, "Supplemental_table_01.csv", row.names = F)
+write.csv(xx, "Supplemental_Table_01.csv", row.names = F)
 ```
 
 ```{r eval = T}
-xx <- read.csv("Supplemental_table_01.csv")
+xx <- read.csv("Supplemental_Table_01.csv")
 DT::datatable(xx)
 ```
 
@@ -343,11 +343,11 @@ yy <- table_Results_Summary(folder = "GWAS_Results/", isOrdered = T)
 myTs <- list_Traits("GWAS_Results/")
 for(i in myTs) {
   # No CV
-  mp1 <- gg_Manhattan(folder = "GWAS_Results/", trait = i, 
+  mp1 <- gg_Manhattan(folder = "GWAS_Results2/", trait = i, 
                       threshold = 6.7, sug.threshold = 5.3, legend.rows = 2,
                       vlines = myMs, vline.colors = myCs )
   # With CV
-  mp2 <- gg_Manhattan(folder = "GWAS_Results_CV_DTF_REP/", trait = i, facet = F,
+  mp2 <- gg_Manhattan(folder = "GWAS_Results2_CV_DTF_REP/", trait = i, facet = F,
                       title = paste(i, "| CV = DTF + REP"),
                       threshold = 6.7, sug.threshold = 5.3, legend.rows = 2,
                       vlines = myMs, vline.colors = myCs)
@@ -426,17 +426,6 @@ ggsave("Supplemental_Figure_02.png", mp, width = 18, height = 5, dpi = 600)
 
 ```{r}
 # Prep data
-xx <- d2 %>% filter(AminoAcid != "Protein")
-# Plot
-mp1 <- ggplot(xx, aes(x = AminoAcid, y = Value, fill = Expt)) +
-  geom_boxplot(alpha = 0.7, coef = 5, lwd = 0.1, position = position_dodge(width = 0.9)) +
-  scale_fill_manual(name = NULL, values = myCs_Expt) +
-  scale_y_continuous(breaks = 0:5) +
-  theme_AGL +
-  theme(legend.position = "none", 
-        axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(title = "A) Amino Acids", y = "g / 100g dry seed", x = NULL)
-# Prep data
 myFams1 <- c("Family.Glutamate", "Family.Aspartate", "Family.Pyruvate", 
              "Family.Serine", "Family.Histidine", "Family.Aromatic")
 myFams2 <- c("Glutamte Family", "Aspartate Family", "Pyruvate Family", 
@@ -444,7 +433,7 @@ myFams2 <- c("Glutamte Family", "Aspartate Family", "Pyruvate Family",
 xx <- d3 %>% filter(!grepl("Perc", AminoAcidFamily)) %>% 
   mutate(AminoAcidFamily = plyr::mapvalues(AminoAcidFamily, myFams1, myFams2))
 # Plot
-mp2 <- ggplot(xx, aes(x = Value, fill = Expt)) +
+mp1 <- ggplot(xx, aes(x = Value, fill = Expt)) +
   geom_histogram(color = "black", alpha = 0.7, lwd = 0.1) +
   facet_grid(ExptShort ~ AminoAcidFamily, scales = "free_x", labeller = label_wrap_gen(width = 10)) +
   scale_fill_manual(values = myCs_Expt) +
@@ -453,10 +442,21 @@ mp2 <- ggplot(xx, aes(x = Value, fill = Expt)) +
         legend.text = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1, size = 6)) +
   guides(fill = guide_legend(ncol = 4, override.aes = list(lwd = 0))) +
-  labs(title = "B) Amino Acid Families", 
+  labs(title = "A) Amino Acid Families", 
        y = "Count", x = "g / 100g dry seed")
-mpl <- get_legend(mp2)
-mp2 <- mp2 + theme(legend.position = "none")
+mpl <- get_legend(mp1)
+mp1 <- mp1 + theme(legend.position = "none")
+# Prep data
+xx <- d2 %>% filter(AminoAcid != "Protein")
+# Plot
+mp2 <- ggplot(xx, aes(x = AminoAcid, y = Value, fill = Expt)) +
+  geom_boxplot(alpha = 0.7, coef = 5, lwd = 0.1, position = position_dodge(width = 0.9)) +
+  scale_fill_manual(name = NULL, values = myCs_Expt) +
+  scale_y_continuous(breaks = 0:5) +
+  theme_AGL +
+  theme(legend.position = "none", 
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "B) Amino Acids", y = "g / 100g dry seed", x = NULL)
 #
 myEAA <- myEAA <- c("Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine",
                     "Phenylalanine", "Threonine", "Tryptophan", "Valine")
@@ -737,14 +737,15 @@ for(i in myPs) {
 
 # Supplemental Table 2 - Amino Acid Selections
 
-> - `r shiny::icon("save")` [Supplemental_table_02.csv](Supplemental_table_02.csv)
+> - `r shiny::icon("save")` [Supplemental_Table_02.csv](Supplemental_Table_02.csv)
 
 ```{r}
 # Create function
 DT_AA_Selection <- function(myAmino = "Protein") {
   # Prep data
   xi <- myLDP %>%
-    select(Name, Origin, Ro16=DTF_Ro16, Ro17=DTF_Ro17, Su16=DTF_Su16, Su17=DTF_Su17) %>%
+    select(Name, Origin, DTF_Cluster, STR_Group, 
+           Ro16=DTF_Ro16, Ro17=DTF_Ro17, Su16=DTF_Su16, Su17=DTF_Su17) %>%
     gather(ExptShort, DTF, Ro16, Ro17, Su16, Su17)
   xx <- d2 %>% filter(AminoAcid == myAmino) %>%
     left_join(xi, by = c("Name", "ExptShort")) %>% 
@@ -759,9 +760,10 @@ DT_AA_Selection <- function(myAmino = "Protein") {
       mutate(Selection = ifelse((ExptShort == i & Value > myYmin & DTF > myXmin), "Yes", Selection))
   }
   #
-  ss <- xx %>% select(Entry, Name, ExptShort, Selection) %>% spread(ExptShort, Selection) %>% 
+  ss <- xx %>% select(Entry, Name, Origin, DTF_Cluster, STR_Group, ExptShort, Selection) %>% 
+    spread(ExptShort, Selection) %>% 
     filter(!is.na(Ro16), !is.na(Ro17), !is.na(Su16), !is.na(Su17)) %>% # must be "Yes" in all Expt
-    mutate(Trait = myAmino) %>% select(Entry, Name, Trait)
+    mutate(Trait = myAmino) %>% select(Entry, Name, Origin, DTF_Cluster, STR_Group, Trait)
 }
 #
 xx <- bind_rows(DT_AA_Selection(myAmino = "Protein"),
@@ -783,11 +785,11 @@ xx <- bind_rows(DT_AA_Selection(myAmino = "Protein"),
                 DT_AA_Selection(myAmino = "Cysteine"),
                 DT_AA_Selection(myAmino = "Tryptophan") )
 #
-write.csv(xx, "Supplemental_table_02.csv", row.names = F)
+write.csv(xx, "Supplemental_Table_02.csv", row.names = F)
 ```
 
 ```{r eval = T}
-xx <- read.csv("Supplemental_table_02.csv")
+xx <- read.csv("Supplemental_Table_02.csv")
 DT::datatable(xx)
 ```
 
@@ -1192,7 +1194,7 @@ ggsave("Figure_05d.png", mp, width = 8, height = 8, bg = "white", dpi = 600)
 ## Additional Marker Plots
 
 ```{r}
-xx <- read.csv("Supplemental_table_01.csv") %>% 
+xx <- read.csv("Supplemental_Table_01.csv") %>% 
   arrange(desc(X.log10.p.)) %>% filter(!duplicated(SNP)) %>% slice(1:200)
 #
 counter <- 1
@@ -1224,7 +1226,7 @@ for(i in xx$SNP) {
   counter <- counter + 1
 }
 #
-xx <- read.csv("Supplemental_table_01.csv") %>% 
+xx <- read.csv("Supplemental_Table_01.csv") %>% 
   arrange(desc(abs(Effect))) %>% filter(!duplicated(SNP)) %>% slice(1:200)
 #
 counter <- 1
@@ -1256,7 +1258,7 @@ for(i in xx$SNP) {
   counter <- counter + 1
 }
 #
-xx <- read.csv("Supplemental_table_01.csv") %>% 
+xx <- read.csv("Supplemental_Table_01.csv") %>% 
   arrange(Chr, Pos) %>% filter(!duplicated(SNP))
 #
 counter <- 1
@@ -1440,31 +1442,32 @@ ggsave("Additional/Additional_Figure_03.png", mp, width = 12, height = 6, dpi = 
 
 ```{r}
 # Prep data
-myCots <- c("Red", "Yellow", "Red/Yellow", "Green")
+myCots <- c("Red", "Yellow")
 xx <- d2 %>% filter(AminoAcid == "Protein") %>%
   left_join(myLDP, by = c("Entry", "Name")) %>%
+  filter(CotyledonColor %in% myCots) %>%
   mutate(CotyledonColor = factor(CotyledonColor, levels = myCots))
 # Plot
 mp1 <- ggplot(xx %>% filter(ExptShort == "Su16"), 
               aes(x = Origin, y = Value, color = CotyledonColor)) +
   geom_quasirandom(alpha = 0.7, pch = 16) +
   facet_grid(. ~ Region, scales = "free_x", space = "free_x") +
-  scale_color_manual(values = c("darkred","darkorange","black","darkgreen")) +
+  scale_color_manual(values = c("darkred","darkorange")) +
   theme_AGL +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(size = 3))) +
-  labs(title = "A) Protein Concentration in Sutherland, Canada 2016", 
+  labs(title = "A) Protein Concentration by Region - Sutherland, Canada 2016", 
        x = NULL, y = "g / 100g dry seed")
 #
 mp2 <- ggplot(xx %>% filter(ExptShort == "Su16"), 
               aes(x = CotyledonColor, y = Value, color = CotyledonColor)) +
   geom_quasirandom(alpha = 0.7, pch = 16) +
   facet_grid(. ~ Region, scales = "free_x", space = "free_x") +
-  scale_color_manual(values = c("darkred","darkorange","black","darkgreen")) +
+  scale_color_manual(values = c("darkred","darkorange")) +
   theme_AGL +
   theme(legend.position = "none") +
-  labs(title = "B) Protein Concentration in Sutherland, Canada 2016", 
+  labs(title = "B) Protein Concentration by Cotyledon Color - Sutherland, Canada 2016", 
        x = NULL, y = "g / 100g dry seed")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, nrow = 2, heights = c(1.4,1))
@@ -1473,9 +1476,41 @@ ggsave("Additional/Additional_Figure_04.png", mp, width = 10, height = 8, dpi = 
 
 ---
 
-## Additional Figure 5 - Size
+## Additional Figure 5 - Structure Groups
+
+> - `r shiny::icon("chart-line")` [Additional/Additional_Figure_05.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Additional_Figure_05.html)
 
 ![](Additional/Additional_Figure_05.png)
+
+```{r}
+# Prep data
+myCots <- c("Red", "Yellow")
+#mySTR <- read.csv("Data/myD_LDP_Str.csv") %>% select(Entry, STR_Group)
+xx <- d2 %>% 
+  filter(AminoAcid == "Protein") %>%
+  left_join(myLDP, by = c("Entry", "Name")) %>%
+  #left_join(mySTR, by = "Entry") %>%
+  filter(CotyledonColor %in% myCots) %>%
+  mutate(CotyledonColor = factor(CotyledonColor, levels = myCots))
+# Plot
+mp <- ggplot(xx, aes(x = STR_Group, y = Value, color = CotyledonColor, key1 = Origin)) +
+  geom_quasirandom(alpha = 0.7, pch = 16) +
+  facet_wrap(Expt ~ ., scales = "free_y") +
+  scale_color_manual(values = c("darkred","darkorange")) +
+  theme_AGL +
+  theme(legend.position = "bottom") +
+  labs(title = "A) Protein Concentration by Structure Group", 
+       x = NULL, y = "g / 100g dry seed")
+ggsave("Additional/Additional_Figure_05.png", mp, width = 8, height = 6, dpi = 600)
+#
+saveWidget(ggplotly(mp), file="Additional/Additional_Figure_05.html")
+```
+
+---
+
+## Additional Figure 6 - Size
+
+![](Additional/Additional_Figure_06.png)
 
 ```{r}
 # Prep data
@@ -1493,16 +1528,16 @@ mp <- ggplot(xx, aes(x = Size, y = Protein)) +
   theme(legend.position = "none") +
   labs(title = "Protein x Seed Size", 
        x = "Seed Size", y = "Protein (g / 100g dry seed)")
-ggsave("Additional/Additional_Figure_05.png", mp, width = 6, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_06.png", mp, width = 6, height = 4, dpi = 600)
 ```
 
 ---
 
-## Additional Figure 6 - Stability
+## Additional Figure 7 - Stability
 
 > - `r shiny::icon("save")` [Additional/Pulses/lentils-quality-report.csv](Additional/Pulses/lentils-quality-report.csv)
 
-![](Additional/Additional_Figure_06.png)
+![](Additional/Additional_Figure_07.png)
 
 ```{r}
 # Prep data
@@ -1523,16 +1558,16 @@ mp <- ggplot(xx, aes(x = Year, y = Mean, color = Grade)) +
   labs(title = "Saskatchewan Lentil Protein Concentration", 
        subtitle = "Data: Dr. Ning Wang (Canadian Grain Commision)", 
        y = "g / 100g dry seed", x = NULL)
-ggsave("Additional/Additional_Figure_06.png", mp, width = 8, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_07.png", mp, width = 8, height = 4, dpi = 600)
 ```
 
 ---
 
-## Additional Figure 7 - Pulses
+## Additional Figure 8 - Pulses
 
 > - `r shiny::icon("save")` [Additional/Pulses/pulses-quality.xlsx](Additional/Pulses/PulsesAminoAcids.xlsx)
 
-![](Additional/Additional_Figure_07.png)
+![](Additional/Additional_Figure_08.png)
 
 ```{r}
 # Prep data
@@ -1549,8 +1584,9 @@ mp <- ggplot(xx, aes(x = `Amino Acid`, y = Mean, fill = Crop)) +
                 position = "dodge", linewidth = 0.2, alpha = 0.7) +
   theme_AGL +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(title = "Amino Acid Concentration", x = NULL)
-ggsave("Additional/Additional_Figure_07.png", mp, width = 8, height = 4, dpi = 600)
+  labs(title = "Amino Acid Concentration", 
+       y = "g / 100g dry seed", x = "Collection/Release Year")
+ggsave("Additional/Additional_Figure_08.png", mp, width = 8, height = 4, dpi = 600)
 ```
 
 ---
