@@ -1,363 +1,312 @@
-Entry,Name,Origin,Trait
-13,CDC QG-1 AGL,Canada,Protein
-29,CN 105732 AGL,Ethiopia,Protein
-35,CN 105863 AGL,Tunisia,Protein
-37,CN 105865 AGL,Tunisia,Protein
-73,ILL 358 AGL,Ethiopia,Protein
-80,ILL 4671 AGL,USA,Protein
-86,ILL 4956 AGL,Portugal,Protein
-88,ILL 5151 AGL,India,Protein
-90,ILL 5480 AGL,Czech Republic,Protein
-126,Indianhead AGL,Canada,Protein
-132,PI 175754 LSP AGL,Turkey,Protein
-153,PI 238758 LSP AGL,Belgium,Protein
-161,PI 289066 AGL,Czech Republic,Protein
-166,PI 297287 AGL,Argentina,Protein
-181,PI 298923 LSP AGL,Italy,Protein
-186,PI 299163 LSP AGL,Chile,Protein
-191,PI 299289 AGL,Chile,Protein
-192,PI 299312 AGL,Chile,Protein
-193,PI 299345 AGL,Chile,Protein
-209,PI 320952 LSP AGL,Czech Republic,Protein
-221,PI 345627 LSP AGL,Ukraine,Protein
-232,PI 383682 LSP AGL,Turkey,Protein
-245,PI 431633 LSP AGL,Iran,Protein
-276,PI 432106 LSP AGL,Iran,Protein
-292,PI 468901 AGL,Brazil,Protein
-293,PI 468902 LSP AGL,Brazil,Protein
-304,PI 472588 LSP AGL,Egypt,Protein
-312,PI 518733 LSP AGL,Brazil,Protein
-13,CDC QG-1 AGL,Canada,Glutamate
-14,CDC Red Rider AGL,Canada,Glutamate
-16,CDC Redwing AGL,Canada,Glutamate
-29,CN 105732 AGL,Ethiopia,Glutamate
-73,ILL 358 AGL,Ethiopia,Glutamate
-86,ILL 4956 AGL,Portugal,Glutamate
-88,ILL 5151 AGL,India,Glutamate
-90,ILL 5480 AGL,Czech Republic,Glutamate
-126,Indianhead AGL,Canada,Glutamate
-132,PI 175754 LSP AGL,Turkey,Glutamate
-160,PI 283604 LSP AGL,Portugal,Glutamate
-165,PI 297285 LSP AGL,Argentina,Glutamate
-166,PI 297287 AGL,Argentina,Glutamate
-181,PI 298923 LSP AGL,Italy,Glutamate
-186,PI 299163 LSP AGL,Chile,Glutamate
-192,PI 299312 AGL,Chile,Glutamate
-193,PI 299345 AGL,Chile,Glutamate
-209,PI 320952 LSP AGL,Czech Republic,Glutamate
-221,PI 345627 LSP AGL,Ukraine,Glutamate
-232,PI 383682 LSP AGL,Turkey,Glutamate
-236,PI 420929 LSP AGL,Jordan,Glutamate
-245,PI 431633 LSP AGL,Iran,Glutamate
-292,PI 468901 AGL,Brazil,Glutamate
-304,PI 472588 LSP AGL,Egypt,Glutamate
-312,PI 518733 LSP AGL,Brazil,Glutamate
-14,CDC Red Rider AGL,Canada,Aspartate
-16,CDC Redwing AGL,Canada,Aspartate
-18,CDC Rosebud AGL,Canada,Aspartate
-29,CN 105732 AGL,Ethiopia,Aspartate
-73,ILL 358 AGL,Ethiopia,Aspartate
-86,ILL 4956 AGL,Portugal,Aspartate
-88,ILL 5151 AGL,India,Aspartate
-90,ILL 5480 AGL,Czech Republic,Aspartate
-97,ILL 618 AGL,Tajikistan,Aspartate
-98,ILL 6182 AGL,Tunisia,Aspartate
-126,Indianhead AGL,Canada,Aspartate
-132,PI 175754 LSP AGL,Turkey,Aspartate
-135,PI 178952 AGL,Turkey,Aspartate
-139,PI 181771 LSP AGL,Lebanon,Aspartate
-146,PI 207492 LSP AGL,Afghanistan,Aspartate
-161,PI 289066 AGL,Czech Republic,Aspartate
-166,PI 297287 AGL,Argentina,Aspartate
-181,PI 298923 LSP AGL,Italy,Aspartate
-190,PI 299237 LSP AGL,Chile,Aspartate
-191,PI 299289 AGL,Chile,Aspartate
-192,PI 299312 AGL,Chile,Aspartate
-209,PI 320952 LSP AGL,Czech Republic,Aspartate
-232,PI 383682 LSP AGL,Turkey,Aspartate
-245,PI 431633 LSP AGL,Iran,Aspartate
-248,PI 431662 LSP AGL,Iran,Aspartate
-258,PI 431739 LSP AGL,Iran,Aspartate
-270,PI 432001 LSP AGL,Iran,Aspartate
-292,PI 468901 AGL,Brazil,Aspartate
-304,PI 472588 LSP AGL,Egypt,Aspartate
-16,CDC Redwing AGL,Canada,Arginine
-29,CN 105732 AGL,Ethiopia,Arginine
-37,CN 105865 AGL,Tunisia,Arginine
-73,ILL 358 AGL,Ethiopia,Arginine
-80,ILL 4671 AGL,USA,Arginine
-86,ILL 4956 AGL,Portugal,Arginine
-88,ILL 5151 AGL,India,Arginine
-126,Indianhead AGL,Canada,Arginine
-132,PI 175754 LSP AGL,Turkey,Arginine
-160,PI 283604 LSP AGL,Portugal,Arginine
-161,PI 289066 AGL,Czech Republic,Arginine
-166,PI 297287 AGL,Argentina,Arginine
-181,PI 298923 LSP AGL,Italy,Arginine
-186,PI 299163 LSP AGL,Chile,Arginine
-191,PI 299289 AGL,Chile,Arginine
-192,PI 299312 AGL,Chile,Arginine
-193,PI 299345 AGL,Chile,Arginine
-209,PI 320952 LSP AGL,Czech Republic,Arginine
-232,PI 383682 LSP AGL,Turkey,Arginine
-245,PI 431633 LSP AGL,Iran,Arginine
-292,PI 468901 AGL,Brazil,Arginine
-304,PI 472588 LSP AGL,Egypt,Arginine
-13,CDC QG-1 AGL,Canada,Leucine
-16,CDC Redwing AGL,Canada,Leucine
-29,CN 105732 AGL,Ethiopia,Leucine
-86,ILL 4956 AGL,Portugal,Leucine
-88,ILL 5151 AGL,India,Leucine
-90,ILL 5480 AGL,Czech Republic,Leucine
-126,Indianhead AGL,Canada,Leucine
-132,PI 175754 LSP AGL,Turkey,Leucine
-153,PI 238758 LSP AGL,Belgium,Leucine
-166,PI 297287 AGL,Argentina,Leucine
-181,PI 298923 LSP AGL,Italy,Leucine
-186,PI 299163 LSP AGL,Chile,Leucine
-192,PI 299312 AGL,Chile,Leucine
-209,PI 320952 LSP AGL,Czech Republic,Leucine
-221,PI 345627 LSP AGL,Ukraine,Leucine
-232,PI 383682 LSP AGL,Turkey,Leucine
-245,PI 431633 LSP AGL,Iran,Leucine
-292,PI 468901 AGL,Brazil,Leucine
-304,PI 472588 LSP AGL,Egypt,Leucine
-312,PI 518733 LSP AGL,Brazil,Leucine
-16,CDC Redwing AGL,Canada,Phenylalanine
-86,ILL 4956 AGL,Portugal,Phenylalanine
-90,ILL 5480 AGL,Czech Republic,Phenylalanine
-126,Indianhead AGL,Canada,Phenylalanine
-132,PI 175754 LSP AGL,Turkey,Phenylalanine
-166,PI 297287 AGL,Argentina,Phenylalanine
-181,PI 298923 LSP AGL,Italy,Phenylalanine
-192,PI 299312 AGL,Chile,Phenylalanine
-209,PI 320952 LSP AGL,Czech Republic,Phenylalanine
-232,PI 383682 LSP AGL,Turkey,Phenylalanine
-245,PI 431633 LSP AGL,Iran,Phenylalanine
-292,PI 468901 AGL,Brazil,Phenylalanine
-304,PI 472588 LSP AGL,Egypt,Phenylalanine
-312,PI 518733 LSP AGL,Brazil,Phenylalanine
-13,CDC QG-1 AGL,Canada,Serine
-16,CDC Redwing AGL,Canada,Serine
-18,CDC Rosebud AGL,Canada,Serine
-86,ILL 4956 AGL,Portugal,Serine
-88,ILL 5151 AGL,India,Serine
-90,ILL 5480 AGL,Czech Republic,Serine
-126,Indianhead AGL,Canada,Serine
-132,PI 175754 LSP AGL,Turkey,Serine
-161,PI 289066 AGL,Czech Republic,Serine
-166,PI 297287 AGL,Argentina,Serine
-181,PI 298923 LSP AGL,Italy,Serine
-192,PI 299312 AGL,Chile,Serine
-204,PI 320937 LSP AGL,Germany,Serine
-209,PI 320952 LSP AGL,Czech Republic,Serine
-221,PI 345627 LSP AGL,Ukraine,Serine
-232,PI 383682 LSP AGL,Turkey,Serine
-245,PI 431633 LSP AGL,Iran,Serine
-292,PI 468901 AGL,Brazil,Serine
-304,PI 472588 LSP AGL,Egypt,Serine
-312,PI 518733 LSP AGL,Brazil,Serine
-13,CDC QG-1 AGL,Canada,Valine
-16,CDC Redwing AGL,Canada,Valine
-86,ILL 4956 AGL,Portugal,Valine
-88,ILL 5151 AGL,India,Valine
-90,ILL 5480 AGL,Czech Republic,Valine
-126,Indianhead AGL,Canada,Valine
-132,PI 175754 LSP AGL,Turkey,Valine
-153,PI 238758 LSP AGL,Belgium,Valine
-166,PI 297287 AGL,Argentina,Valine
-181,PI 298923 LSP AGL,Italy,Valine
-192,PI 299312 AGL,Chile,Valine
-209,PI 320952 LSP AGL,Czech Republic,Valine
-232,PI 383682 LSP AGL,Turkey,Valine
-245,PI 431633 LSP AGL,Iran,Valine
-292,PI 468901 AGL,Brazil,Valine
-304,PI 472588 LSP AGL,Egypt,Valine
-312,PI 518733 LSP AGL,Brazil,Valine
-13,CDC QG-1 AGL,Canada,Isoleucine
-16,CDC Redwing AGL,Canada,Isoleucine
-73,ILL 358 AGL,Ethiopia,Isoleucine
-86,ILL 4956 AGL,Portugal,Isoleucine
-90,ILL 5480 AGL,Czech Republic,Isoleucine
-126,Indianhead AGL,Canada,Isoleucine
-132,PI 175754 LSP AGL,Turkey,Isoleucine
-166,PI 297287 AGL,Argentina,Isoleucine
-181,PI 298923 LSP AGL,Italy,Isoleucine
-192,PI 299312 AGL,Chile,Isoleucine
-209,PI 320952 LSP AGL,Czech Republic,Isoleucine
-232,PI 383682 LSP AGL,Turkey,Isoleucine
-245,PI 431633 LSP AGL,Iran,Isoleucine
-292,PI 468901 AGL,Brazil,Isoleucine
-304,PI 472588 LSP AGL,Egypt,Isoleucine
-312,PI 518733 LSP AGL,Brazil,Isoleucine
-29,CN 105732 AGL,Ethiopia,Proline
-35,CN 105863 AGL,Tunisia,Proline
-73,ILL 358 AGL,Ethiopia,Proline
-80,ILL 4671 AGL,USA,Proline
-86,ILL 4956 AGL,Portugal,Proline
-87,ILL 5058 AGL,Spain,Proline
-90,ILL 5480 AGL,Czech Republic,Proline
-132,PI 175754 LSP AGL,Turkey,Proline
-153,PI 238758 LSP AGL,Belgium,Proline
-160,PI 283604 LSP AGL,Portugal,Proline
-166,PI 297287 AGL,Argentina,Proline
-173,PI 298121 LSP AGL,France,Proline
-181,PI 298923 LSP AGL,Italy,Proline
-186,PI 299163 LSP AGL,Chile,Proline
-192,PI 299312 AGL,Chile,Proline
-193,PI 299345 AGL,Chile,Proline
-209,PI 320952 LSP AGL,Czech Republic,Proline
-232,PI 383682 LSP AGL,Turkey,Proline
-245,PI 431633 LSP AGL,Iran,Proline
-276,PI 432106 LSP AGL,Iran,Proline
-292,PI 468901 AGL,Brazil,Proline
-304,PI 472588 LSP AGL,Egypt,Proline
-312,PI 518733 LSP AGL,Brazil,Proline
-314,PI 533688 LSP AGL,Spain,Proline
-41,CN 108370 AGL,Libya,Alanine
-86,ILL 4956 AGL,Portugal,Alanine
-90,ILL 5480 AGL,Czech Republic,Alanine
-126,Indianhead AGL,Canada,Alanine
-132,PI 175754 LSP AGL,Turkey,Alanine
-153,PI 238758 LSP AGL,Belgium,Alanine
-181,PI 298923 LSP AGL,Italy,Alanine
-191,PI 299289 AGL,Chile,Alanine
-192,PI 299312 AGL,Chile,Alanine
-193,PI 299345 AGL,Chile,Alanine
-209,PI 320952 LSP AGL,Czech Republic,Alanine
-232,PI 383682 LSP AGL,Turkey,Alanine
-245,PI 431633 LSP AGL,Iran,Alanine
-292,PI 468901 AGL,Brazil,Alanine
-314,PI 533688 LSP AGL,Spain,Alanine
-9,CDC Impower AGL,Canada,Glycine
-13,CDC QG-1 AGL,Canada,Glycine
-29,CN 105732 AGL,Ethiopia,Glycine
-86,ILL 4956 AGL,Portugal,Glycine
-88,ILL 5151 AGL,India,Glycine
-90,ILL 5480 AGL,Czech Republic,Glycine
-126,Indianhead AGL,Canada,Glycine
-153,PI 238758 LSP AGL,Belgium,Glycine
-166,PI 297287 AGL,Argentina,Glycine
-181,PI 298923 LSP AGL,Italy,Glycine
-186,PI 299163 LSP AGL,Chile,Glycine
-192,PI 299312 AGL,Chile,Glycine
-209,PI 320952 LSP AGL,Czech Republic,Glycine
-232,PI 383682 LSP AGL,Turkey,Glycine
-245,PI 431633 LSP AGL,Iran,Glycine
-292,PI 468901 AGL,Brazil,Glycine
-304,PI 472588 LSP AGL,Egypt,Glycine
-314,PI 533688 LSP AGL,Spain,Glycine
-14,CDC Red Rider AGL,Canada,Threonine
-18,CDC Rosebud AGL,Canada,Threonine
-29,CN 105732 AGL,Ethiopia,Threonine
-86,ILL 4956 AGL,Portugal,Threonine
-126,Indianhead AGL,Canada,Threonine
-181,PI 298923 LSP AGL,Italy,Threonine
-209,PI 320952 LSP AGL,Czech Republic,Threonine
-232,PI 383682 LSP AGL,Turkey,Threonine
-245,PI 431633 LSP AGL,Iran,Threonine
-292,PI 468901 AGL,Brazil,Threonine
-9,CDC Impower AGL,Canada,Histidine
-40,CN 108369 AGL,Libya,Histidine
-44,Eston AGL,Canada,Histidine
-63,ILL 1983 AGL,Ethiopia,Histidine
-76,ILL 4400 AGL,Syria,Histidine
-80,ILL 4671 AGL,USA,Histidine
-90,ILL 5480 AGL,Czech Republic,Histidine
-98,ILL 6182 AGL,Tunisia,Histidine
-100,ILL 624 AGL,Macedonia,Histidine
-130,PI 163589 AGL,Guatemala,Histidine
-133,PI 177430 LSP AGL,Turkey,Histidine
-135,PI 178952 AGL,Turkey,Histidine
-142,PI 193546 AGL,Ethiopia,Histidine
-148,PI 209858 LSP AGL,Greece,Histidine
-160,PI 283604 LSP AGL,Portugal,Histidine
-161,PI 289066 AGL,Czech Republic,Histidine
-169,PI 297772 LSP AGL,Greece,Histidine
-173,PI 298121 LSP AGL,France,Histidine
-178,PI 298645 AGL,Spain,Histidine
-181,PI 298923 LSP AGL,Italy,Histidine
-186,PI 299163 LSP AGL,Chile,Histidine
-187,PI 299164 LSP AGL,Chile,Histidine
-191,PI 299289 AGL,Chile,Histidine
-192,PI 299312 AGL,Chile,Histidine
-193,PI 299345 AGL,Chile,Histidine
-197,PI 300250 LSP AGL,Syria,Histidine
-199,PI 308614 LSP AGL,Syria,Histidine
-200,PI 311107 LSP AGL,Guatemala,Histidine
-222,PI 358602 LSP AGL,Ethiopia,Histidine
-233,PI 420818 AGL,Greece,Histidine
-245,PI 431633 LSP AGL,Iran,Histidine
-283,PI 432201 LSP AGL,Iran,Histidine
-287,PI 432271 LSP AGL,Turkey,Histidine
-293,PI 468902 LSP AGL,Brazil,Histidine
-304,PI 472588 LSP AGL,Egypt,Histidine
-312,PI 518733 LSP AGL,Brazil,Histidine
-324,W6 27767 LSP AGL,USDA,Histidine
-13,CDC QG-1 AGL,Canada,Tyrosine
-18,CDC Rosebud AGL,Canada,Tyrosine
-86,ILL 4956 AGL,Portugal,Tyrosine
-126,Indianhead AGL,Canada,Tyrosine
-166,PI 297287 AGL,Argentina,Tyrosine
-181,PI 298923 LSP AGL,Italy,Tyrosine
-209,PI 320952 LSP AGL,Czech Republic,Tyrosine
-221,PI 345627 LSP AGL,Ukraine,Tyrosine
-232,PI 383682 LSP AGL,Turkey,Tyrosine
-245,PI 431633 LSP AGL,Iran,Tyrosine
-292,PI 468901 AGL,Brazil,Tyrosine
-304,PI 472588 LSP AGL,Egypt,Tyrosine
-312,PI 518733 LSP AGL,Brazil,Tyrosine
-18,CDC Rosebud AGL,Canada,Methionine
-86,ILL 4956 AGL,Portugal,Methionine
-126,Indianhead AGL,Canada,Methionine
-136,PI 178971 LSP AGL,Turkey,Methionine
-139,PI 181771 LSP AGL,Lebanon,Methionine
-166,PI 297287 AGL,Argentina,Methionine
-190,PI 299237 LSP AGL,Chile,Methionine
-192,PI 299312 AGL,Chile,Methionine
-203,PI 320936 LSP AGL,Russia,Methionine
-209,PI 320952 LSP AGL,Czech Republic,Methionine
-232,PI 383682 LSP AGL,Turkey,Methionine
-245,PI 431633 LSP AGL,Iran,Methionine
-248,PI 431662 LSP AGL,Iran,Methionine
-254,PI 431714 LSP AGL,Iran,Methionine
-257,PI 431731 LSP AGL,Iran,Methionine
-258,PI 431739 LSP AGL,Iran,Methionine
-284,PI 432212 LSP AGL,Iran,Methionine
-14,CDC Red Rider AGL,Canada,Cysteine
-18,CDC Rosebud AGL,Canada,Cysteine
-22,CDC Ruby AGL,Canada,Cysteine
-132,PI 175754 LSP AGL,Turkey,Cysteine
-136,PI 178971 LSP AGL,Turkey,Cysteine
-138,PI 179330 AGL,Turkey,Cysteine
-146,PI 207492 LSP AGL,Afghanistan,Cysteine
-181,PI 298923 LSP AGL,Italy,Cysteine
-191,PI 299289 AGL,Chile,Cysteine
-232,PI 383682 LSP AGL,Turkey,Cysteine
-248,PI 431662 LSP AGL,Iran,Cysteine
-250,PI 431679 LSP AGL,Egypt,Cysteine
-254,PI 431714 LSP AGL,Iran,Cysteine
-256,PI 431728 LSP AGL,Iran,Cysteine
-257,PI 431731 LSP AGL,Iran,Cysteine
-258,PI 431739 LSP AGL,Iran,Cysteine
-259,PI 431753 LSP AGL,Iran,Cysteine
-260,PI 431756 LSP AGL,Iran,Cysteine
-270,PI 432001 LSP AGL,Iran,Cysteine
-271,PI 432002 LSP AGL,Iran,Cysteine
-278,PI 432145 LSP AGL,Iran,Cysteine
-284,PI 432212 LSP AGL,Iran,Cysteine
-8,CDC Imax AGL,Canada,Tryptophan
-9,CDC Impower AGL,Canada,Tryptophan
-90,ILL 5480 AGL,Czech Republic,Tryptophan
-126,Indianhead AGL,Canada,Tryptophan
-153,PI 238758 LSP AGL,Belgium,Tryptophan
-166,PI 297287 AGL,Argentina,Tryptophan
-181,PI 298923 LSP AGL,Italy,Tryptophan
-191,PI 299289 AGL,Chile,Tryptophan
-192,PI 299312 AGL,Chile,Tryptophan
-193,PI 299345 AGL,Chile,Tryptophan
-209,PI 320952 LSP AGL,Czech Republic,Tryptophan
-232,PI 383682 LSP AGL,Turkey,Tryptophan
-245,PI 431633 LSP AGL,Iran,Tryptophan
-292,PI 468901 AGL,Brazil,Tryptophan
-304,PI 472588 LSP AGL,Egypt,Tryptophan
+"Entry","Name","Origin","Trait"
+29,"CN 105732 AGL","Ethiopia","Protein"
+35,"CN 105863 AGL","Tunisia","Protein"
+37,"CN 105865 AGL","Tunisia","Protein"
+73,"ILL 358 AGL","Ethiopia","Protein"
+86,"ILL 4956 AGL","Portugal","Protein"
+88,"ILL 5151 AGL","India","Protein"
+90,"ILL 5480 AGL","Czech Republic","Protein"
+132,"PI 175754 LSP AGL","Turkey","Protein"
+153,"PI 238758 LSP AGL","Belgium","Protein"
+161,"PI 289066 AGL","Czech Republic","Protein"
+166,"PI 297287 AGL","Argentina","Protein"
+181,"PI 298923 LSP AGL","Italy","Protein"
+186,"PI 299163 LSP AGL","Chile","Protein"
+191,"PI 299289 AGL","Chile","Protein"
+192,"PI 299312 AGL","Chile","Protein"
+193,"PI 299345 AGL","Chile","Protein"
+209,"PI 320952 LSP AGL","Czech Republic","Protein"
+221,"PI 345627 LSP AGL","Ukraine","Protein"
+232,"PI 383682 LSP AGL","Turkey","Protein"
+245,"PI 431633 LSP AGL","Iran","Protein"
+276,"PI 432106 LSP AGL","Iran","Protein"
+292,"PI 468901 AGL","Brazil","Protein"
+293,"PI 468902 LSP AGL","Brazil","Protein"
+304,"PI 472588 LSP AGL","Egypt","Protein"
+312,"PI 518733 LSP AGL","Brazil","Protein"
+29,"CN 105732 AGL","Ethiopia","Glutamate"
+73,"ILL 358 AGL","Ethiopia","Glutamate"
+86,"ILL 4956 AGL","Portugal","Glutamate"
+88,"ILL 5151 AGL","India","Glutamate"
+90,"ILL 5480 AGL","Czech Republic","Glutamate"
+132,"PI 175754 LSP AGL","Turkey","Glutamate"
+160,"PI 283604 LSP AGL","Portugal","Glutamate"
+165,"PI 297285 LSP AGL","Argentina","Glutamate"
+166,"PI 297287 AGL","Argentina","Glutamate"
+181,"PI 298923 LSP AGL","Italy","Glutamate"
+186,"PI 299163 LSP AGL","Chile","Glutamate"
+192,"PI 299312 AGL","Chile","Glutamate"
+193,"PI 299345 AGL","Chile","Glutamate"
+209,"PI 320952 LSP AGL","Czech Republic","Glutamate"
+221,"PI 345627 LSP AGL","Ukraine","Glutamate"
+232,"PI 383682 LSP AGL","Turkey","Glutamate"
+236,"PI 420929 LSP AGL","Jordan","Glutamate"
+245,"PI 431633 LSP AGL","Iran","Glutamate"
+292,"PI 468901 AGL","Brazil","Glutamate"
+304,"PI 472588 LSP AGL","Egypt","Glutamate"
+312,"PI 518733 LSP AGL","Brazil","Glutamate"
+29,"CN 105732 AGL","Ethiopia","Aspartate"
+73,"ILL 358 AGL","Ethiopia","Aspartate"
+86,"ILL 4956 AGL","Portugal","Aspartate"
+88,"ILL 5151 AGL","India","Aspartate"
+90,"ILL 5480 AGL","Czech Republic","Aspartate"
+97,"ILL 618 AGL","Tajikistan","Aspartate"
+98,"ILL 6182 AGL","Tunisia","Aspartate"
+132,"PI 175754 LSP AGL","Turkey","Aspartate"
+135,"PI 178952 AGL","Turkey","Aspartate"
+139,"PI 181771 LSP AGL","Lebanon","Aspartate"
+146,"PI 207492 LSP AGL","Afghanistan","Aspartate"
+161,"PI 289066 AGL","Czech Republic","Aspartate"
+166,"PI 297287 AGL","Argentina","Aspartate"
+181,"PI 298923 LSP AGL","Italy","Aspartate"
+190,"PI 299237 LSP AGL","Chile","Aspartate"
+191,"PI 299289 AGL","Chile","Aspartate"
+192,"PI 299312 AGL","Chile","Aspartate"
+209,"PI 320952 LSP AGL","Czech Republic","Aspartate"
+232,"PI 383682 LSP AGL","Turkey","Aspartate"
+245,"PI 431633 LSP AGL","Iran","Aspartate"
+248,"PI 431662 LSP AGL","Iran","Aspartate"
+258,"PI 431739 LSP AGL","Iran","Aspartate"
+270,"PI 432001 LSP AGL","Iran","Aspartate"
+292,"PI 468901 AGL","Brazil","Aspartate"
+304,"PI 472588 LSP AGL","Egypt","Aspartate"
+29,"CN 105732 AGL","Ethiopia","Arginine"
+37,"CN 105865 AGL","Tunisia","Arginine"
+73,"ILL 358 AGL","Ethiopia","Arginine"
+86,"ILL 4956 AGL","Portugal","Arginine"
+88,"ILL 5151 AGL","India","Arginine"
+132,"PI 175754 LSP AGL","Turkey","Arginine"
+160,"PI 283604 LSP AGL","Portugal","Arginine"
+161,"PI 289066 AGL","Czech Republic","Arginine"
+166,"PI 297287 AGL","Argentina","Arginine"
+181,"PI 298923 LSP AGL","Italy","Arginine"
+186,"PI 299163 LSP AGL","Chile","Arginine"
+191,"PI 299289 AGL","Chile","Arginine"
+192,"PI 299312 AGL","Chile","Arginine"
+193,"PI 299345 AGL","Chile","Arginine"
+209,"PI 320952 LSP AGL","Czech Republic","Arginine"
+232,"PI 383682 LSP AGL","Turkey","Arginine"
+245,"PI 431633 LSP AGL","Iran","Arginine"
+292,"PI 468901 AGL","Brazil","Arginine"
+304,"PI 472588 LSP AGL","Egypt","Arginine"
+29,"CN 105732 AGL","Ethiopia","Leucine"
+86,"ILL 4956 AGL","Portugal","Leucine"
+88,"ILL 5151 AGL","India","Leucine"
+90,"ILL 5480 AGL","Czech Republic","Leucine"
+132,"PI 175754 LSP AGL","Turkey","Leucine"
+153,"PI 238758 LSP AGL","Belgium","Leucine"
+166,"PI 297287 AGL","Argentina","Leucine"
+181,"PI 298923 LSP AGL","Italy","Leucine"
+186,"PI 299163 LSP AGL","Chile","Leucine"
+192,"PI 299312 AGL","Chile","Leucine"
+209,"PI 320952 LSP AGL","Czech Republic","Leucine"
+221,"PI 345627 LSP AGL","Ukraine","Leucine"
+232,"PI 383682 LSP AGL","Turkey","Leucine"
+245,"PI 431633 LSP AGL","Iran","Leucine"
+292,"PI 468901 AGL","Brazil","Leucine"
+304,"PI 472588 LSP AGL","Egypt","Leucine"
+312,"PI 518733 LSP AGL","Brazil","Leucine"
+86,"ILL 4956 AGL","Portugal","Phenylalanine"
+90,"ILL 5480 AGL","Czech Republic","Phenylalanine"
+132,"PI 175754 LSP AGL","Turkey","Phenylalanine"
+166,"PI 297287 AGL","Argentina","Phenylalanine"
+181,"PI 298923 LSP AGL","Italy","Phenylalanine"
+192,"PI 299312 AGL","Chile","Phenylalanine"
+209,"PI 320952 LSP AGL","Czech Republic","Phenylalanine"
+232,"PI 383682 LSP AGL","Turkey","Phenylalanine"
+245,"PI 431633 LSP AGL","Iran","Phenylalanine"
+292,"PI 468901 AGL","Brazil","Phenylalanine"
+304,"PI 472588 LSP AGL","Egypt","Phenylalanine"
+312,"PI 518733 LSP AGL","Brazil","Phenylalanine"
+86,"ILL 4956 AGL","Portugal","Serine"
+88,"ILL 5151 AGL","India","Serine"
+90,"ILL 5480 AGL","Czech Republic","Serine"
+132,"PI 175754 LSP AGL","Turkey","Serine"
+161,"PI 289066 AGL","Czech Republic","Serine"
+166,"PI 297287 AGL","Argentina","Serine"
+181,"PI 298923 LSP AGL","Italy","Serine"
+192,"PI 299312 AGL","Chile","Serine"
+204,"PI 320937 LSP AGL","Germany","Serine"
+209,"PI 320952 LSP AGL","Czech Republic","Serine"
+221,"PI 345627 LSP AGL","Ukraine","Serine"
+232,"PI 383682 LSP AGL","Turkey","Serine"
+245,"PI 431633 LSP AGL","Iran","Serine"
+292,"PI 468901 AGL","Brazil","Serine"
+304,"PI 472588 LSP AGL","Egypt","Serine"
+312,"PI 518733 LSP AGL","Brazil","Serine"
+86,"ILL 4956 AGL","Portugal","Valine"
+88,"ILL 5151 AGL","India","Valine"
+90,"ILL 5480 AGL","Czech Republic","Valine"
+132,"PI 175754 LSP AGL","Turkey","Valine"
+153,"PI 238758 LSP AGL","Belgium","Valine"
+166,"PI 297287 AGL","Argentina","Valine"
+181,"PI 298923 LSP AGL","Italy","Valine"
+192,"PI 299312 AGL","Chile","Valine"
+209,"PI 320952 LSP AGL","Czech Republic","Valine"
+232,"PI 383682 LSP AGL","Turkey","Valine"
+245,"PI 431633 LSP AGL","Iran","Valine"
+292,"PI 468901 AGL","Brazil","Valine"
+304,"PI 472588 LSP AGL","Egypt","Valine"
+312,"PI 518733 LSP AGL","Brazil","Valine"
+73,"ILL 358 AGL","Ethiopia","Isoleucine"
+86,"ILL 4956 AGL","Portugal","Isoleucine"
+90,"ILL 5480 AGL","Czech Republic","Isoleucine"
+132,"PI 175754 LSP AGL","Turkey","Isoleucine"
+166,"PI 297287 AGL","Argentina","Isoleucine"
+181,"PI 298923 LSP AGL","Italy","Isoleucine"
+192,"PI 299312 AGL","Chile","Isoleucine"
+209,"PI 320952 LSP AGL","Czech Republic","Isoleucine"
+232,"PI 383682 LSP AGL","Turkey","Isoleucine"
+245,"PI 431633 LSP AGL","Iran","Isoleucine"
+292,"PI 468901 AGL","Brazil","Isoleucine"
+304,"PI 472588 LSP AGL","Egypt","Isoleucine"
+312,"PI 518733 LSP AGL","Brazil","Isoleucine"
+29,"CN 105732 AGL","Ethiopia","Proline"
+35,"CN 105863 AGL","Tunisia","Proline"
+73,"ILL 358 AGL","Ethiopia","Proline"
+86,"ILL 4956 AGL","Portugal","Proline"
+87,"ILL 5058 AGL","Spain","Proline"
+90,"ILL 5480 AGL","Czech Republic","Proline"
+132,"PI 175754 LSP AGL","Turkey","Proline"
+153,"PI 238758 LSP AGL","Belgium","Proline"
+160,"PI 283604 LSP AGL","Portugal","Proline"
+166,"PI 297287 AGL","Argentina","Proline"
+173,"PI 298121 LSP AGL","France","Proline"
+181,"PI 298923 LSP AGL","Italy","Proline"
+186,"PI 299163 LSP AGL","Chile","Proline"
+192,"PI 299312 AGL","Chile","Proline"
+193,"PI 299345 AGL","Chile","Proline"
+209,"PI 320952 LSP AGL","Czech Republic","Proline"
+232,"PI 383682 LSP AGL","Turkey","Proline"
+245,"PI 431633 LSP AGL","Iran","Proline"
+276,"PI 432106 LSP AGL","Iran","Proline"
+292,"PI 468901 AGL","Brazil","Proline"
+304,"PI 472588 LSP AGL","Egypt","Proline"
+312,"PI 518733 LSP AGL","Brazil","Proline"
+314,"PI 533688 LSP AGL","Spain","Proline"
+41,"CN 108370 AGL","Libya","Alanine"
+86,"ILL 4956 AGL","Portugal","Alanine"
+90,"ILL 5480 AGL","Czech Republic","Alanine"
+132,"PI 175754 LSP AGL","Turkey","Alanine"
+153,"PI 238758 LSP AGL","Belgium","Alanine"
+181,"PI 298923 LSP AGL","Italy","Alanine"
+191,"PI 299289 AGL","Chile","Alanine"
+192,"PI 299312 AGL","Chile","Alanine"
+193,"PI 299345 AGL","Chile","Alanine"
+209,"PI 320952 LSP AGL","Czech Republic","Alanine"
+232,"PI 383682 LSP AGL","Turkey","Alanine"
+245,"PI 431633 LSP AGL","Iran","Alanine"
+292,"PI 468901 AGL","Brazil","Alanine"
+314,"PI 533688 LSP AGL","Spain","Alanine"
+29,"CN 105732 AGL","Ethiopia","Glycine"
+86,"ILL 4956 AGL","Portugal","Glycine"
+88,"ILL 5151 AGL","India","Glycine"
+90,"ILL 5480 AGL","Czech Republic","Glycine"
+153,"PI 238758 LSP AGL","Belgium","Glycine"
+166,"PI 297287 AGL","Argentina","Glycine"
+181,"PI 298923 LSP AGL","Italy","Glycine"
+186,"PI 299163 LSP AGL","Chile","Glycine"
+192,"PI 299312 AGL","Chile","Glycine"
+209,"PI 320952 LSP AGL","Czech Republic","Glycine"
+232,"PI 383682 LSP AGL","Turkey","Glycine"
+245,"PI 431633 LSP AGL","Iran","Glycine"
+292,"PI 468901 AGL","Brazil","Glycine"
+304,"PI 472588 LSP AGL","Egypt","Glycine"
+314,"PI 533688 LSP AGL","Spain","Glycine"
+29,"CN 105732 AGL","Ethiopia","Threonine"
+86,"ILL 4956 AGL","Portugal","Threonine"
+181,"PI 298923 LSP AGL","Italy","Threonine"
+209,"PI 320952 LSP AGL","Czech Republic","Threonine"
+232,"PI 383682 LSP AGL","Turkey","Threonine"
+245,"PI 431633 LSP AGL","Iran","Threonine"
+292,"PI 468901 AGL","Brazil","Threonine"
+40,"CN 108369 AGL","Libya","Histidine"
+63,"ILL 1983 AGL","Ethiopia","Histidine"
+76,"ILL 4400 AGL","Syria","Histidine"
+90,"ILL 5480 AGL","Czech Republic","Histidine"
+98,"ILL 6182 AGL","Tunisia","Histidine"
+100,"ILL 624 AGL","Macedonia","Histidine"
+130,"PI 163589 AGL","Guatemala","Histidine"
+133,"PI 177430 LSP AGL","Turkey","Histidine"
+135,"PI 178952 AGL","Turkey","Histidine"
+142,"PI 193546 AGL","Ethiopia","Histidine"
+148,"PI 209858 LSP AGL","Greece","Histidine"
+160,"PI 283604 LSP AGL","Portugal","Histidine"
+161,"PI 289066 AGL","Czech Republic","Histidine"
+169,"PI 297772 LSP AGL","Greece","Histidine"
+173,"PI 298121 LSP AGL","France","Histidine"
+178,"PI 298645 AGL","Spain","Histidine"
+181,"PI 298923 LSP AGL","Italy","Histidine"
+186,"PI 299163 LSP AGL","Chile","Histidine"
+187,"PI 299164 LSP AGL","Chile","Histidine"
+191,"PI 299289 AGL","Chile","Histidine"
+192,"PI 299312 AGL","Chile","Histidine"
+193,"PI 299345 AGL","Chile","Histidine"
+197,"PI 300250 LSP AGL","Syria","Histidine"
+199,"PI 308614 LSP AGL","Syria","Histidine"
+200,"PI 311107 LSP AGL","Guatemala","Histidine"
+222,"PI 358602 LSP AGL","Ethiopia","Histidine"
+233,"PI 420818 AGL","Greece","Histidine"
+245,"PI 431633 LSP AGL","Iran","Histidine"
+283,"PI 432201 LSP AGL","Iran","Histidine"
+287,"PI 432271 LSP AGL","Turkey","Histidine"
+293,"PI 468902 LSP AGL","Brazil","Histidine"
+304,"PI 472588 LSP AGL","Egypt","Histidine"
+312,"PI 518733 LSP AGL","Brazil","Histidine"
+324,"W6 27767 LSP AGL","USDA","Histidine"
+86,"ILL 4956 AGL","Portugal","Tyrosine"
+166,"PI 297287 AGL","Argentina","Tyrosine"
+181,"PI 298923 LSP AGL","Italy","Tyrosine"
+209,"PI 320952 LSP AGL","Czech Republic","Tyrosine"
+221,"PI 345627 LSP AGL","Ukraine","Tyrosine"
+232,"PI 383682 LSP AGL","Turkey","Tyrosine"
+245,"PI 431633 LSP AGL","Iran","Tyrosine"
+292,"PI 468901 AGL","Brazil","Tyrosine"
+304,"PI 472588 LSP AGL","Egypt","Tyrosine"
+312,"PI 518733 LSP AGL","Brazil","Tyrosine"
+86,"ILL 4956 AGL","Portugal","Methionine"
+136,"PI 178971 LSP AGL","Turkey","Methionine"
+139,"PI 181771 LSP AGL","Lebanon","Methionine"
+166,"PI 297287 AGL","Argentina","Methionine"
+190,"PI 299237 LSP AGL","Chile","Methionine"
+192,"PI 299312 AGL","Chile","Methionine"
+203,"PI 320936 LSP AGL","Russia","Methionine"
+209,"PI 320952 LSP AGL","Czech Republic","Methionine"
+232,"PI 383682 LSP AGL","Turkey","Methionine"
+245,"PI 431633 LSP AGL","Iran","Methionine"
+248,"PI 431662 LSP AGL","Iran","Methionine"
+254,"PI 431714 LSP AGL","Iran","Methionine"
+257,"PI 431731 LSP AGL","Iran","Methionine"
+258,"PI 431739 LSP AGL","Iran","Methionine"
+284,"PI 432212 LSP AGL","Iran","Methionine"
+132,"PI 175754 LSP AGL","Turkey","Cysteine"
+136,"PI 178971 LSP AGL","Turkey","Cysteine"
+138,"PI 179330 AGL","Turkey","Cysteine"
+146,"PI 207492 LSP AGL","Afghanistan","Cysteine"
+181,"PI 298923 LSP AGL","Italy","Cysteine"
+191,"PI 299289 AGL","Chile","Cysteine"
+232,"PI 383682 LSP AGL","Turkey","Cysteine"
+248,"PI 431662 LSP AGL","Iran","Cysteine"
+250,"PI 431679 LSP AGL","Egypt","Cysteine"
+254,"PI 431714 LSP AGL","Iran","Cysteine"
+256,"PI 431728 LSP AGL","Iran","Cysteine"
+257,"PI 431731 LSP AGL","Iran","Cysteine"
+258,"PI 431739 LSP AGL","Iran","Cysteine"
+259,"PI 431753 LSP AGL","Iran","Cysteine"
+260,"PI 431756 LSP AGL","Iran","Cysteine"
+270,"PI 432001 LSP AGL","Iran","Cysteine"
+271,"PI 432002 LSP AGL","Iran","Cysteine"
+278,"PI 432145 LSP AGL","Iran","Cysteine"
+284,"PI 432212 LSP AGL","Iran","Cysteine"
+90,"ILL 5480 AGL","Czech Republic","Tryptophan"
+153,"PI 238758 LSP AGL","Belgium","Tryptophan"
+166,"PI 297287 AGL","Argentina","Tryptophan"
+181,"PI 298923 LSP AGL","Italy","Tryptophan"
+191,"PI 299289 AGL","Chile","Tryptophan"
+192,"PI 299312 AGL","Chile","Tryptophan"
+193,"PI 299345 AGL","Chile","Tryptophan"
+209,"PI 320952 LSP AGL","Czech Republic","Tryptophan"
+232,"PI 383682 LSP AGL","Turkey","Tryptophan"
+245,"PI 431633 LSP AGL","Iran","Tryptophan"
+292,"PI 468901 AGL","Brazil","Tryptophan"
+304,"PI 472588 LSP AGL","Egypt","Tryptophan"

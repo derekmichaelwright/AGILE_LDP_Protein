@@ -293,7 +293,7 @@ myCs <- c(rep("red",3), rep("blue",3))
 
 ---
 
-## Supplemental Table 1 - Significant Results
+# Supplemental Table 1 - Significant Results
 
 > - `r shiny::icon("save")` [Supplemental_Table_01.csv](Supplemental_Table_01.csv)
 
@@ -332,7 +332,7 @@ yy <- table_Results_Summary(folder = "GWAS_Results/", isOrdered = T)
 
 ---
 
-## Manhattan plots
+# Manhattan plots
 
 > - `r shiny::icon("chart-line")` [Additional/ManH/](https://github.com/derekmichaelwright/AGILE_LDP_Protein/tree/master/Additional/ManH/)
 
@@ -374,6 +374,7 @@ xx <- left_join(x1, x2, by = c("Name", "Expt", "AminoAcid"))
 # Plot
 mp <- ggplot(xx, aes(x = `Wet Chemistry`, y = NIRS)) +
   geom_point(aes(color = Expt), alpha = 0.5, pch = 16) +
+  geom_abline(color = "blue") +
   stat_smooth(geom = "line", method = "lm", alpha = 0.7, linewidth = 1.5) +
   stat_regline_equation(aes(label = ..rr.label..)) +
   facet_wrap(AminoAcid ~ ., scales = "free") +
@@ -763,7 +764,9 @@ DT_AA_Selection <- function(myAmino = "Protein") {
   ss <- xx %>% select(Entry, Name, Origin, DTF_Cluster, STR_Group, ExptShort, Selection) %>% 
     spread(ExptShort, Selection) %>% 
     filter(!is.na(Ro16), !is.na(Ro17), !is.na(Su16), !is.na(Su17)) %>% # must be "Yes" in all Expt
-    mutate(Trait = myAmino) %>% select(Entry, Name, Origin, DTF_Cluster, STR_Group, Trait)
+    filter(!Origin %in% c("Canada", "USA")) %>%
+    mutate(Trait = myAmino) %>% 
+    select(Entry, Name, Origin, Trait)
 }
 #
 xx <- bind_rows(DT_AA_Selection(myAmino = "Protein"),
