@@ -1439,9 +1439,38 @@ ggsave("Additional/Additional_Figure_03.png", mp, width = 12, height = 6, dpi = 
 
 ---
 
-## Additional Figure 4 - Cotyledon Color
+## Additional Figure 4 - Protein x Yield
 
 ![](Additional/Additional_Figure_04.png)
+
+```{r}
+# Prep data
+yy <- myLDP %>% 
+  select(Name, Yield_Su16, Yield_Su17, Yield_Ro16, Yield_Ro17) %>%
+  gather(ExptShort, Yield, 2:5) %>%
+  mutate(ExptShort = gsub("Yield_", "", ExptShort))
+xx <- d2 %>% 
+  filter(AminoAcid == "Protein") %>% 
+  select(Name, ExptShort, Protein=Value) %>%
+  left_join(yy, by = c("Name", "ExptShort"))
+mp <- ggplot(xx, aes(x = Yield, y = Protein)) +
+  geom_point(aes(color = ExptShort), alpha = 0.7, pch = 16) +
+  stat_smooth(geom = "line", method = "lm", lwd = 1, se = F) +
+  stat_regline_equation(aes(label = ..rr.label..)) +
+  facet_wrap(ExptShort ~ .) +
+  scale_color_manual(values = myCs_Expt) +
+  theme_AGL +
+  theme(legend.position = "none") +
+  labs(title = "Protein Concentration x Yield In A Lentil Diversity Panel", 
+       y = "g / 100g dry seed", x = "Yield (g/microplot)")
+ggsave("Additional/Additional_Figure_04.png", mp, width = 6, height = 4, dpi = 600)
+```
+
+---
+
+## Additional Figure 5 - Cotyledon Color
+
+![](Additional/Additional_Figure_05.png)
 
 ```{r}
 # Prep data
@@ -1474,25 +1503,24 @@ mp2 <- ggplot(xx %>% filter(ExptShort == "Su16"),
        x = NULL, y = "g / 100g dry seed")
 #
 mp <- ggarrange(mp1, mp2, ncol = 1, nrow = 2, heights = c(1.4,1))
-ggsave("Additional/Additional_Figure_04.png", mp, width = 10, height = 8, dpi = 600)
+ggsave("Additional/Additional_Figure_05.png", mp, width = 10, height = 8, dpi = 600)
 ```
 
 ---
 
-## Additional Figure 5 - Structure Groups
 
-> - `r shiny::icon("chart-line")` [Additional/Additional_Figure_05.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Additional_Figure_05.html)
+## Additional Figure 6 - Structure Groups
 
-![](Additional/Additional_Figure_05.png)
+> - `r shiny::icon("chart-line")` [Additional/Additional_Figure_06.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Additional_Figure_06.html)
+
+![](Additional/Additional_Figure_06.png)
 
 ```{r}
 # Prep data
 myCots <- c("Red", "Yellow")
-#mySTR <- read.csv("Data/myD_LDP_Str.csv") %>% select(Entry, STR_Group)
 xx <- d2 %>% 
   filter(AminoAcid == "Protein") %>%
   left_join(myLDP, by = c("Entry", "Name")) %>%
-  #left_join(mySTR, by = "Entry") %>%
   filter(CotyledonColor %in% myCots) %>%
   mutate(CotyledonColor = factor(CotyledonColor, levels = myCots))
 # Plot
@@ -1504,16 +1532,16 @@ mp <- ggplot(xx, aes(x = STR_Group, y = Value, color = CotyledonColor, key1 = Or
   theme(legend.position = "bottom") +
   labs(title = "A) Protein Concentration by Structure Group", 
        x = NULL, y = "g / 100g dry seed")
-ggsave("Additional/Additional_Figure_05.png", mp, width = 8, height = 6, dpi = 600)
+ggsave("Additional/Additional_Figure_06.png", mp, width = 8, height = 6, dpi = 600)
 #
-saveWidget(ggplotly(mp), file="Additional/Additional_Figure_05.html")
+saveWidget(ggplotly(mp), file="Additional/Additional_Figure_06.html")
 ```
 
 ---
 
-## Additional Figure 6 - Size
+## Additional Figure 7 - Size
 
-![](Additional/Additional_Figure_06.png)
+![](Additional/Additional_Figure_07.png)
 
 ```{r}
 # Prep data
@@ -1531,16 +1559,16 @@ mp <- ggplot(xx, aes(x = Size, y = Protein)) +
   theme(legend.position = "none") +
   labs(title = "Protein x Seed Size", 
        x = "Seed Size", y = "Protein (g / 100g dry seed)")
-ggsave("Additional/Additional_Figure_06.png", mp, width = 6, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_07.png", mp, width = 6, height = 4, dpi = 600)
 ```
 
 ---
 
-## Additional Figure 7 - Stability
+## Additional Figure 8 - Stability
 
 > - `r shiny::icon("save")` [Additional/Pulses/lentils-quality-report.csv](Additional/Pulses/lentils-quality-report.csv)
 
-![](Additional/Additional_Figure_07.png)
+![](Additional/Additional_Figure_08.png)
 
 ```{r}
 # Prep data
@@ -1561,16 +1589,16 @@ mp <- ggplot(xx, aes(x = Year, y = Mean, color = Grade)) +
   labs(title = "Saskatchewan Lentil Protein Concentration", 
        subtitle = "Data: Dr. Ning Wang (Canadian Grain Commision)", 
        y = "g / 100g dry seed", x = NULL)
-ggsave("Additional/Additional_Figure_07.png", mp, width = 8, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_08.png", mp, width = 8, height = 4, dpi = 600)
 ```
 
 ---
 
-## Additional Figure 8 - Pulses
+## Additional Figure 9 - Pulses
 
 > - `r shiny::icon("save")` [Additional/Pulses/pulses-quality.xlsx](Additional/Pulses/PulsesAminoAcids.xlsx)
 
-![](Additional/Additional_Figure_08.png)
+![](Additional/Additional_Figure_09.png)
 
 ```{r}
 # Prep data
@@ -1589,7 +1617,7 @@ mp <- ggplot(xx, aes(x = `Amino Acid`, y = Mean, fill = Crop)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Amino Acid Concentration", 
        y = "g / 100g dry seed", x = "Collection/Release Year")
-ggsave("Additional/Additional_Figure_08.png", mp, width = 8, height = 4, dpi = 600)
+ggsave("Additional/Additional_Figure_09.png", mp, width = 8, height = 4, dpi = 600)
 ```
 
 ---

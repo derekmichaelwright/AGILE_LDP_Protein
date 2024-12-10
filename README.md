@@ -227,6 +227,8 @@ style="width:65.0%" />
 
 ## Additional Figure 6
 
+[Additional/Additional_Figure_06.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Additional_Figure_06.html)
+
 ![](Additional/Additional_Figure_06.png)
 
 ------------------------------------------------------------------------
@@ -240,6 +242,12 @@ style="width:65.0%" />
 ## Additional Figure 8
 
 ![](Additional/Additional_Figure_08.png)
+
+------------------------------------------------------------------------
+
+## Additional Figure 9
+
+![](Additional/Additional_Figure_09.png)
 
 ------------------------------------------------------------------------
 

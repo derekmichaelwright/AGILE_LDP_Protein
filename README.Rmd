@@ -5,14 +5,14 @@ author: "Derek Michael Wright <derek.wright@usask.ca>"
 date: "10-08-2024"
 output:
   github_document: default
+  pdf_document:
+    toc: yes
   rmdformats::readthedown:
     self_contained: no
     lightbox: true
     gallery: true
     highlight: tango
     css: custom.css
-  pdf_document:
-    toc: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -214,6 +214,8 @@ which is follow-up to:
 
 ## Additional Figure 6
 
+[Additional/Additional_Figure_06.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Additional_Figure_06.html)
+
 ![](Additional/Additional_Figure_06.png)
 
 ---
@@ -227,6 +229,12 @@ which is follow-up to:
 ## Additional Figure 8
 
 ![](Additional/Additional_Figure_08.png)
+
+---
+
+## Additional Figure 9
+
+![](Additional/Additional_Figure_09.png)
 
 ---
 
