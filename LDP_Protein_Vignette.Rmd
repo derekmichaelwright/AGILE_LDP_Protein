@@ -374,7 +374,6 @@ xx <- left_join(x1, x2, by = c("Name", "Expt", "AminoAcid"))
 # Plot
 mp <- ggplot(xx, aes(x = `Wet Chemistry`, y = NIRS)) +
   geom_point(aes(color = Expt), alpha = 0.5, pch = 16) +
-  geom_abline(color = "blue") +
   stat_smooth(geom = "line", method = "lm", alpha = 0.7, linewidth = 1.5) +
   stat_regline_equation(aes(label = ..rr.label..)) +
   facet_wrap(AminoAcid ~ ., scales = "free") +
@@ -386,6 +385,53 @@ mp <- ggplot(xx, aes(x = `Wet Chemistry`, y = NIRS)) +
        y = "Near-infrared Spectroscopy")
 ggsave("Supplemental_Figure_01.png", mp, width = 10, height = 8, dpi = 600)
 ```
+
+![](Supplemental_Figure_01a.png)
+
+```{r}
+# Prep data
+x1 <- d1 %>% select(Name, Expt, AminoAcid, `Wet Chemistry`=Value)
+x2 <- d2 %>% select(Name, Expt, AminoAcid, NIRS=Value)
+xx <- left_join(x1, x2, by = c("Name", "Expt", "AminoAcid")) %>%
+  filter(AminoAcid == "Protein")
+# Plot
+mp <- ggplot(xx, aes(x = `Wet Chemistry`, y = NIRS)) +
+  geom_point(aes(color = Expt), alpha = 0.5, pch = 16) +
+  stat_smooth(geom = "line", method = "lm", alpha = 0.7, linewidth = 1.25) +
+  stat_regline_equation(aes(label = ..rr.label..)) +
+  facet_wrap(AminoAcid ~ ., scales = "free") +
+  scale_color_manual(values = myCs_Expt) +
+  theme_AGL +
+  theme(legend.position = "bottom") +
+  guides(color = guide_legend(override.aes = list(size = 3), nrow = 2)) +
+  labs(title = "Concentration (g / 100g dry seed)",
+       y = "Near-infrared Spectroscopy")
+ggsave("Supplemental_Figure_01a.png", mp, width = 4.5, height = 4, dpi = 600)
+```
+
+```{r eval = F, echo = F}
+x1 <- d1 %>% select(Name, Expt, AminoAcid, `Wet Chemistry`=Value)
+x2 <- d2 %>% select(Name, Expt, AminoAcid, NIRS=Value)
+xx <- left_join(x1, x2, by = c("Name", "Expt", "AminoAcid")) %>% filter(!is.na(`Wet Chemistry`))
+#
+PearsonsR2 <- function(x, y) {
+  n <- length(x)
+  r_numerator <- n * sum(x*y) - sum(x) * sum(y)
+  r_denominator <- sqrt((n * sum(x^2) - sum(x)^2) * (n * sum(y^2) - sum(y)^2))
+  r <- r_numerator / r_denominator
+  r^2
+}
+SumOfSquaresR2 <- function(o, p) { 1 - ( sum((o - p)^2) / sum((o - mean(o))^2) ) }
+#
+xx <- xx %>% group_by(AminoAcid) %>%
+  summarise(SumOfSquaresR2 = SumOfSquaresR2(o = `Wet Chemistry`, p = NIRS),
+            PearsonsR2 = PearsonsR2(x = `Wet Chemistry`, y = NIRS),
+            rev = PearsonsR2(x = NIRS, y = `Wet Chemistry`)) %>%
+  ungroup() %>%
+  mutate(diff = SumOfSquaresR2 - PearsonsR2)
+
+```
+
 
 ---
 

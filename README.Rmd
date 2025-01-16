@@ -4,15 +4,15 @@ subtitle: "*unpublished*"
 author: "Derek Michael Wright <derek.wright@usask.ca>"
 date: "10-08-2024"
 output:
-  github_document: default
-  pdf_document:
-    toc: yes
   rmdformats::readthedown:
     self_contained: no
     lightbox: true
     gallery: true
     highlight: tango
     css: custom.css
+  github_document: default
+  pdf_document:
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
