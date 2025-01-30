@@ -10,9 +10,9 @@ output:
     gallery: true
     highlight: tango
     css: custom.css
-  github_document: default
   pdf_document:
     toc: yes
+  github_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -117,6 +117,8 @@ which is follow-up to:
 ## Supplemental Figure 1
 
 ![](Supplemental_Figure_01.png)
+
+![](Supplemental_Figure_01a.png)
 
 ---
 

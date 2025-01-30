@@ -132,6 +132,8 @@ class="uri">https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lent
 
 ![](Supplemental_Figure_01.png)
 
+![](Supplemental_Figure_01a.png)
+
 ------------------------------------------------------------------------
 
 ## Supplemental Figure 2
