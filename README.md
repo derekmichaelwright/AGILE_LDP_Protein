@@ -6,41 +6,48 @@ Derek Michael Wright <derek.wright@usask.ca>
 
 ------------------------------------------------------------------------
 
-> - [Derek Wright, Jiayi Hang, James D House & Kirstin E Bett (2020)
->   **Evaluating the breeding potential of cultivated lentils for
->   protein and amino acid concentration and quality**.
->   *unpublished*](https://github.com/derekmichaelwright/AGILE_LDP_Protein)
+> - <a href="http://dx.doi.org/10.1002/csc2.70085" target="_blank">Derek
+>   Wright, Jiayi Hang, James D House &amp; Kirstin E Bett
+>   (<strong>2025</strong>) <strong>Breeding potential of cultivated lentil
+>   for increased protein and amino acid concentrations in the Northern
+>   Great Plains</strong>. <em>Crop Science</em>. (<strong>2025</strong>)
+>   65(3): e70085. doi.org/10.1002/csc2.70085</a>
 
 which is follow-up to:
 
-> - [Jiayi Hang, Da Shi, Jason Neufeld, Kirstin E. Bett & James D.
->   House. **Prediction of protein and amino acid concentration in whole
->   and ground lentils using near-infrared reflectance spectroscopy**.
->   *LWT*. (**2022**) 165: 113669.
->   doi.org/10.1016/j.lwt.2022.113669](https://doi.org/10.1016/j.lwt.2022.113669)
+> - <a href="https://doi.org/10.1016/j.lwt.2022.113669"
+>   target="_blank">Jiayi Hang, Da Shi, Jason Neufeld, Kirstin E. Bett &amp;
+>   James D. House. <strong>Prediction of protein and amino acid
+>   concentration in whole and ground lentils using near-infrared
+>   reflectance spectroscopy</strong>. <em>LWT</em>. (<strong>2022</strong>)
+>   165: 113669. doi.org/10.1016/j.lwt.2022.113669</a>
 
 &
 
-> - [Derek M. Wright, Sandesh Neupane, Taryn Heidecker, Teketel A.
->   Haile, Crystal Chan, Clarice J. Coyne, Rebecca J. McGee, Sripada
->   Udupa, Fatima Henkrar, Eleonora Barilli, Diego Rubiales, Tania
->   Gioia, Giuseppina Logozzo, Stefania Marzario, Reena Mehra, Ashutosh
->   Sarker, Rajeev Dhakal, Babul Anwar, Debashish Sarker, Albert
->   Vandenberg & Kirstin E. Bett. **Understanding photothermal
->   interactions can help expand production range and increase genetic
->   diversity of lentil (*Lens culinaris* Medik.)**. *Plants, People,
->   Planet*. (**2020**) 3(2): 171-181.
->   doi.org/10.1002/ppp3.10158](https://doi.org/10.1002/ppp3.10158)
+> - <a href="https://doi.org/10.1002/ppp3.10158" target="_blank">Derek M.
+>   Wright, Sandesh Neupane, Taryn Heidecker, Teketel A. Haile, Crystal
+>   Chan, Clarice J. Coyne, Rebecca J. McGee, Sripada Udupa, Fatima Henkrar,
+>   Eleonora Barilli, Diego Rubiales, Tania Gioia, Giuseppina Logozzo,
+>   Stefania Marzario, Reena Mehra, Ashutosh Sarker, Rajeev Dhakal, Babul
+>   Anwar, Debashish Sarker, Albert Vandenberg &amp; Kirstin E. Bett.
+>   <strong>Understanding photothermal interactions can help expand
+>   production range and increase genetic diversity of lentil (<em>Lens
+>   culinaris</em> Medik.)</strong>. <em>Plants, People, Planet</em>.
+>   (<strong>2020</strong>) 3(2): 171-181. doi.org/10.1002/ppp3.10158</a>
 
 ------------------------------------------------------------------------
 
-> - <https://github.com/derekmichaelwright/AGILE_LDP_Protein>
-> - [View as
->   pdf](https://github.com/derekmichaelwright/AGILE_LDP_Protein/raw/master/README.pdf)
-> - [View as
->   HTML](https://derekmichaelwright.github.io/AGILE_LDP_Protein/README.html)
-> - [Source Code Vignette
->   (LDP_Protein_Vignette.html)](https://derekmichaelwright.github.io/AGILE_LDP_Protein/LDP_Protein_Vignette.html)
+> - <a href="https://github.com/derekmichaelwright/AGILE_LDP_Protein"
+>   target="_blank">https://github.com/derekmichaelwright/AGILE_LDP_Protein</a>
+> - <a
+>   href="https://github.com/derekmichaelwright/AGILE_LDP_Protein/raw/master/README.pdf"
+>   target="_blank">View as pdf</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/README.html"
+>   target="_blank">View as HTML</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/LDP_Protein_Vignette.html"
+>   target="_blank">Source Code Vignette (LDP_Protein_Vignette.html)</a>
 
 # Contents
 

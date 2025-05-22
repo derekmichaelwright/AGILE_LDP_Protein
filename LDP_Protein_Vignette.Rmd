@@ -24,15 +24,17 @@ knitr::opts_chunk$set(eval = F, echo = T, message = F, warning = F,
 
 This vignette contains the `R` code and analysis done for the paper:
 
-> - `r shiny::icon("newspaper")` [Derek Wright, Jiayi Hang, James D House & Kirstin E Bett. **Evaluating the breeding potential of cultivated lentils for protein and amino acid concentration and quality**. *unpublished*](https://github.com/derekmichaelwright/AGILE_LDP_Protein)
-> - `r shiny::icon("github")` <https://github.com/derekmichaelwright/AGILE_LDP_Protein>
-
-> - `r shiny::icon("newspaper")` [Jiayi Hang, Da Shi, Jason Neufeld, Kirstin E Bett, & James D House. **Prediction of protein and amino acid contents in whole and ground lentils using near-infrared reflectance spectroscopy**. *LWT*, (**2022**) 165: 113669. doi.org/10.1016/j.lwt.2022.113669)](https://doi.org/10.1016/j.lwt.2022.113669)
+> - `r shiny::icon("newspaper")` [Derek Wright, Jiayi Hang, James D House & Kirstin E Bett (**2025**) **Breeding potential of cultivated lentil for increased protein and amino acid concentrations in the Northern Great Plains**. *Crop Science*. (**2025**) 65(3): e70085. doi.org/10.1002/csc2.70085](http://dx.doi.org/10.1002/csc2.70085){target="_blank"} 
+> - `r shiny::icon("github")` [https://github.com/derekmichaelwright/AGILE_LDP_Protein](https://github.com/derekmichaelwright/AGILE_LDP_Protein){target="_blank"} 
 
 which is follow-up to:
 
-> - `r shiny::icon("newspaper")` [Derek M Wright, Sandesh Neupane, Taryn Heidecker, Teketel A Haile, Clarice J Coyne, Rebecca J McGee, Sripada Udupa, Fatima Henkrar, Eleonora Barilli, Diego Rubiales, Tania Gioia, Giuseppina Logozzo, Stefania Marzario, Reena Mehra, Ashutosh Sarker, Rajeev Dhakal, Babul Anwar, Debashish Sarker, Albert Vandenberg, and Kirstin E. Bett. **Understanding photothermal interactions can help expand production range and increase genetic diversity of lentil (*Lens culinaris* Medik.)**. *Plants, People, Planet*. (**2020**) 3(2): 171-181. doi.org/10.1002/ppp3.10158](https://doi.org/10.1002/ppp3.10158)
-> - `r shiny::icon("github")` <https://github.com/derekmichaelwright/AGILE_LDP_Phenology>
+> - `r shiny::icon("newspaper")` [Jiayi Hang, Da Shi, Jason Neufeld, Kirstin E Bett, & James D House. **Prediction of protein and amino acid contents in whole and ground lentils using near-infrared reflectance spectroscopy**. *LWT*, (**2022**) 165: 113669. doi.org/10.1016/j.lwt.2022.113669)](https://doi.org/10.1016/j.lwt.2022.113669){target="_blank"} 
+
+&
+
+> - `r shiny::icon("newspaper")` [Derek M Wright, Sandesh Neupane, Taryn Heidecker, Teketel A Haile, Clarice J Coyne, Rebecca J McGee, Sripada Udupa, Fatima Henkrar, Eleonora Barilli, Diego Rubiales, Tania Gioia, Giuseppina Logozzo, Stefania Marzario, Reena Mehra, Ashutosh Sarker, Rajeev Dhakal, Babul Anwar, Debashish Sarker, Albert Vandenberg, and Kirstin E. Bett. **Understanding photothermal interactions can help expand production range and increase genetic diversity of lentil (*Lens culinaris* Medik.)**. *Plants, People, Planet*. (**2020**) 3(2): 171-181. doi.org/10.1002/ppp3.10158](https://doi.org/10.1002/ppp3.10158){target="_blank"} 
+> - `r shiny::icon("github")` [https://github.com/derekmichaelwright/AGILE_LDP_Phenology](https://github.com/derekmichaelwright/AGILE_LDP_Phenology){target="_blank"} 
 
 ---
 
@@ -293,9 +295,9 @@ myCs <- c(rep("red",3), rep("blue",3))
 
 ---
 
-# Supplemental Table 1 - Significant Results
+# Supplemental Table 2 - Significant Results
 
-> - `r shiny::icon("save")` [Supplemental_Table_01.csv](Supplemental_Table_01.csv)
+> - `r shiny::icon("save")` [Supplemental_Table_02.csv](Supplemental_Table_02.csv)
 
 ```{r eval = F}
 # reorder GWAS results tables and compile significant results
@@ -310,11 +312,11 @@ x2 <- table_GWAS_Results("GWAS_Results_CV_DTF_REP/", myR2, threshold = 6.7, sug.
 x1 <- x1 %>% mutate(CV = "NONE") %>% arrange(P.value)
 x2 <- x2 %>% mutate(CV = "DTF+REP") %>% arrange(P.value)
 xx <- bind_rows(x1, x2)
-write.csv(xx, "Supplemental_Table_01.csv", row.names = F)
+write.csv(xx, "Supplemental_Table_02.csv", row.names = F)
 ```
 
 ```{r eval = T}
-xx <- read.csv("Supplemental_Table_01.csv")
+xx <- read.csv("Supplemental_Table_02.csv")
 DT::datatable(xx)
 ```
 
@@ -782,9 +784,9 @@ for(i in myPs) {
 
 ---
 
-# Supplemental Table 2 - Amino Acid Selections
+# Supplemental Table 1 - Amino Acid Selections
 
-> - `r shiny::icon("save")` [Supplemental_Table_02.csv](Supplemental_Table_02.csv)
+> - `r shiny::icon("save")` [Supplemental_Table_01.csv](Supplemental_Table_01.csv)
 
 ```{r}
 # Create function
