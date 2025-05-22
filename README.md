@@ -179,25 +179,63 @@ class="uri">https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lent
 
 > - [Additional/AA_Selections/](https://github.com/derekmichaelwright/AGILE_LDP_Protein/Additional/AA_Selections/)
 
-> - [Additional/AA_Selections/Figure_03_01_Protein_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_01_Protein_Su16.html)
-> - [Additional/AA_Selections/Figure_03_02_Glutamate_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_02_Glutamate_Su16.html)
-> - [Additional/AA_Selections/Figure_03_03_Aspartate_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_03_Aspartate_Su16.html)
-> - [Additional/AA_Selections/Figure_03_04_Arginine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_04_Arginine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_05_Leucine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_05_Leucine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_06_Lysine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_06_Lysine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_07_Phenylalanine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_07_Phenylalanine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_08_Serine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_08_Serine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_09_Valine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_09_Valine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_10_Isoleucine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_10_Isoleucine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_11_Proline_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_11_Proline_Su16.html)
-> - [Additional/AA_Selections/Figure_03_12_Alanine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_12_Alanine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_13_Glycine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_13_Glycine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_14_Threonine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_14_Threonine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_15_Histidine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_15_Histidine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_16_Tyrosine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_16_Tyrosine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_17_Methionine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_17_Methionine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_18_Cysteine_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_18_Cysteine_Su16.html)
-> - [Additional/AA_Selections/Figure_03_19_Tryptophan_Su16.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_19_Tryptophan_Su16.html)
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_01_Protein_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_01_Protein_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_02_Glutamate_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_02_Glutamate_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_03_Aspartate_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_03_Aspartate_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_04_Arginine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_04_Arginine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_05_Leucine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_05_Leucine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_06_Lysine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_06_Lysine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_07_Phenylalanine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_07_Phenylalanine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_08_Serine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_08_Serine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_09_Valine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_09_Valine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_10_Isoleucine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_10_Isoleucine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_11_Proline_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_11_Proline_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_12_Alanine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_12_Alanine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_13_Glycine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_13_Glycine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_14_Threonine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_14_Threonine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_15_Histidine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_15_Histidine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_16_Tyrosine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_16_Tyrosine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_17_Methionine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_17_Methionine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_18_Cysteine_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_18_Cysteine_Su16.html</a>
+> - <a
+>   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/AA_Selections/Figure_03_19_Tryptophan_Su16.html"
+>   target="_blank">Additional/AA_Selections/Figure_03_19_Tryptophan_Su16.html</a>
 
 <img src="Additional/AA_Selections/Figure_03_02_Glutamate.png"
 style="width:65.0%" />
@@ -236,7 +274,9 @@ style="width:65.0%" />
 
 ## Additional Figure 6
 
-[Additional/Additional_Figure_06.html](https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Additional_Figure_06.html)
+<a
+href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/Additional/Additional_Figure_06.html"
+target="_blank">Additional/Additional_Figure_06.html</a>
 
 ![](Additional/Additional_Figure_06.png)
 
