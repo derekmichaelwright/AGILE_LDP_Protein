@@ -1,8 +1,8 @@
 ---
-title: "Evaluating the breeding potential of cultivated lentils for protein and amino acid concentration and quality"
-subtitle: "unpublished"
+title: "Breeding potential of cultivated lentil for increased protein and amino acid concentrations in the Northern Great Plains"
+subtitle: "*Crop Science*. (**2025**) 65(3): e70085."
 author: "Derek Michael Wright <derek.wright@usask.ca>"
-date: "10-08-2024"
+date: "14-05-2025"
 output:
   rmdformats::readthedown:
     code_folding: show
@@ -40,9 +40,9 @@ which is follow-up to:
 
 This work done as part of the AGILE & EVOLVES projects at the University of Saskatchewan along with collaboration with partners at the University of Manitoba.
 
-![https://knowpulse.usask.ca/study/AGILE-Application-of-Genomic-Innovation-in-the-Lentil-Economy](Additional/img_Agile.png)
+![https://knowpulse.usask.ca/study/AGILE-Application-of-Genomic-Innovation-in-the-Lentil-Economy](Additional/img_Agile.png){width=50%}
 
-![https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lentil-Variation-for-Ecosystem-Survival](Additional/img_EVOLVES.png)
+![https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lentil-Variation-for-Ecosystem-Survival](Additional/img_EVOLVES.png){width=50%}
 
 ---
 

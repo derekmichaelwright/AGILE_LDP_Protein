@@ -1,8 +1,8 @@
-Evaluating the breeding potential of cultivated lentils for protein and
-amino acid concentration and quality
+Breeding potential of cultivated lentil for increased protein and amino
+acid concentrations in the Northern Great Plains
 ================
 Derek Michael Wright <derek.wright@usask.ca>
-10-08-2024
+14-05-2025
 
 ------------------------------------------------------------------------
 
@@ -37,6 +37,8 @@ which is follow-up to:
 
 ------------------------------------------------------------------------
 
+Contents
+
 > - <a href="https://github.com/derekmichaelwright/AGILE_LDP_Protein"
 >   target="_blank">https://github.com/derekmichaelwright/AGILE_LDP_Protein</a>
 > - <a
@@ -49,16 +51,20 @@ which is follow-up to:
 >   href="https://derekmichaelwright.github.io/AGILE_LDP_Protein/LDP_Protein_Vignette.html"
 >   target="_blank">Source Code Vignette (LDP_Protein_Vignette.html)</a>
 
-# Contents
+> - [Figures](#figures)
+> - [Supplemental Figures](#supplemental-figures)
+> - [Additional Figures](#additional-figures)
 
-- [Figures](#figures)
-- [Supplemental Figures](#supplemental-figures)
-- [Additional Figures](#additional-figures)
+Collaborators
 
-# AGILE
+> - Department of Plant Sciences and Crop Development Centre, University
+>   of Saskatchewan, Saskatoon, Saskatchewan, Canada
+> - Department of Food and Human Nutritional Sciences, Faculty of
+>   Agriculture and Food Science, University of Manitoba, Winnipeg, MB,
+>   Canada
 
 <figure>
-<img src="Additional/img_Agile.png" style="width:75.0%"
+<img src="Additional/img_Agile.png" style="width:50.0%"
 alt="https://knowpulse.usask.ca/study/AGILE-Application-of-Genomic-Innovation-in-the-Lentil-Economy" />
 <figcaption aria-hidden="true"><a
 href="https://knowpulse.usask.ca/study/AGILE-Application-of-Genomic-Innovation-in-the-Lentil-Economy"
@@ -66,20 +72,12 @@ class="uri">https://knowpulse.usask.ca/study/AGILE-Application-of-Genomic-Innova
 </figure>
 
 <figure>
-<img src="Additional/img_EVOLVES.png" style="width:75.0%"
+<img src="Additional/img_EVOLVES.png" style="width:50.0%"
 alt="https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lentil-Variation-for-Ecosystem-Survival" />
 <figcaption aria-hidden="true"><a
 href="https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lentil-Variation-for-Ecosystem-Survival"
 class="uri">https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lentil-Variation-for-Ecosystem-Survival</a></figcaption>
 </figure>
-
-## Collaborators
-
-- Department of Plant Sciences and Crop Development Centre, University
-  of Saskatchewan, Saskatoon, Saskatchewan, Canada
-- Department of Food and Human Nutritional Sciences, Faculty of
-  Agriculture and Food Science, University of Manitoba, Winnipeg, MB,
-  Canada
 
 ------------------------------------------------------------------------
 
@@ -117,7 +115,7 @@ class="uri">https://knowpulse.usask.ca/study/EVOLVES-Enhancing-the-Value-of-Lent
 
 ## Figure 4
 
-![](Figure_04.png)
+<img src="Figure_04.png" style="width:75.0%" />
 
 ------------------------------------------------------------------------
 
@@ -244,13 +242,13 @@ style="width:65.0%" />
 
 ## Additional Figure 1
 
-![](Additional/Additional_Figure_01.png)
+<img src="Additional/Additional_Figure_01.png" style="width:85.0%" />
 
 ------------------------------------------------------------------------
 
 ## Additional Figure 2
 
-![](Additional/Additional_Figure_02.png)
+<img src="Additional/Additional_Figure_02.png" style="width:85.0%" />
 
 ------------------------------------------------------------------------
 
@@ -262,7 +260,7 @@ style="width:65.0%" />
 
 ## Additional Figure 4
 
-![](Additional/Additional_Figure_04.png)
+<img src="Additional/Additional_Figure_04.png" style="width:90.0%" />
 
 ------------------------------------------------------------------------
 
